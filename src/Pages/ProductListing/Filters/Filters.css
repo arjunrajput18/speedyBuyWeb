@@ -1,0 +1,126 @@
+input {
+  cursor: pointer;
+}
+.btn-box {
+  margin: 1rem;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.filter-btn {
+  padding: 0.3rem 0.8rem;
+  width: fit-content;
+  background-color: var(--primary);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 0.2rem;
+}
+.filters-head {
+  margin-right: 0.3rem;
+  font-size: 1rem;
+}
+
+.filter-icon {
+  font-size: 1.3rem;
+}
+
+.hide-filters {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 1.2rem;
+  padding-top: 0.7rem;
+}
+/*  */
+
+.filters-box {
+  padding: 2rem;
+  background-color: var(--white);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  margin: auto;
+  position: unset;
+  z-index: 1;
+  font-family: "Roboto", sans-serif;
+}
+
+.filters-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.filters-top h2 {
+  color: var(--header-color);
+}
+
+.filters-top button {
+  border: none;
+  background-color: var(--white);
+  font-size: 1rem;
+  color: var(--header-color);
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 1px solid var(--white);
+}
+
+.filters-top button:hover {
+  border-bottom: 1px solid var(--header-color);
+}
+.filter-type {
+  margin-bottom: 0.6rem;
+  color: var(--header-color);
+}
+
+.filters-names {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  font-family: "Roboto", sans-serif;
+
+  font-size: 0.99rem;
+  color: #000;
+}
+
+.ratings-box {
+  width: 126px;
+  margin-top: -10px;
+}
+
+.clear-filters {
+  color: var(--header-color);
+}
+
+@media (min-width: 720px) {
+  .btn-box {
+    display: none;
+  }
+
+  .filters-box {
+    display: flex !important ;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    padding-right: 0;
+    height: fit-content;
+  }
+  .filters-top h2 {
+    font-size: 1.75rem;
+  }
+
+  .clear-filters {
+    position: absolute;
+    top: 2.4rem;
+    right: 1rem;
+  }
+
+  .filters-top button {
+    font-size: 1.1rem;
+    color: var(--header-color);
+  }
+}

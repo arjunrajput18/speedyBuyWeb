@@ -1,0 +1,143 @@
+.product-card {
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+margin: 1rem;
+  margin-bottom: 1.5rem;
+  height: 30rem;
+}
+
+.product-card:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+
+}
+
+.card-header {
+  position: relative;
+
+  margin-bottom: 0.5rem;
+}
+
+.product-image {
+width: 100%;
+  height: 20rem;
+}
+.product-image:hover {
+  cursor: pointer;
+ 
+}
+
+
+.trending {
+  font-size: 0.9rem;
+  background-color: #ffa500;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.1rem;
+  color: #fff;
+  position: absolute;
+  top: -0.3rem;
+  left: -1.3rem;
+}
+.like {
+
+  font-size: 1.6rem;
+  width: fit-content;
+  color: var(--primary);
+  color: gray;
+}
+.like:hover {
+  color: var(--red);
+  cursor: pointer;
+}
+/*  */
+.rating-star {
+  background-color: var(--green);
+  color: #fff;
+  padding: 0.2rem 0.2rem;
+  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.rating {
+  margin-left: 0.3rem;
+}
+
+.prod-size {
+  position: absolute;
+  bottom: 4px;
+  left: 0px;
+
+  background-color: var(--primary);
+  padding: 0.2rem 0.4rem;
+  color: #fff;
+}
+
+/*  */
+.product-name {
+  font-size: 1.2rem;
+  color: var(--header-color);
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.name-rating-like{
+  display: flex;
+  justify-content: space-between;
+  padding:0.5rem ;
+}
+.rating-like{
+  display: flex;
+  
+}
+
+.price-and-discount {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3rem 0rem;
+  padding:0.5rem ;
+}
+
+.prices {
+  margin-bottom: 0.3rem;
+}
+
+.new-price {
+  color: var((--header-color));
+  margin-right: 0.5rem;
+}
+
+.old-price {
+  color: gray;
+  text-decoration: line-through;
+}
+.discount {
+  color: var(--green);
+  letter-spacing: 0px;
+}
+
+.add-to-cart {
+
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 0.9rem;
+  border: 1px solid var(--white);
+  align-self: flex-start;
+  width: 100%;
+  padding: 0.5rem;
+
+}
+
+.add-to-cart:hover {
+  cursor: pointer;
+  background-color: #444;
+
+}
+
+@media (min-width: 720px) {
+  .product-card {
+    margin: 1rem;
+  }
+}

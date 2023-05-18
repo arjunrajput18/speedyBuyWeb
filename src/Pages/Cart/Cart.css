@@ -1,0 +1,19 @@
+.cart-main {
+  display: grid;
+  place-items: center;
+  margin-top: 3rem;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .cart-main {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0rem 18rem;
+  }
+}

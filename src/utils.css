@@ -1,0 +1,90 @@
+.font-1rem {
+  font-size: 1rem;
+}
+.font-1-2 {
+  font-size: 1.2rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+.text-center {
+  text-align: center;
+}
+
+.top-margin {
+  margin-top: 0.9rem;
+}
+.display-inline-block {
+  display: inline-block;
+}
+.bottom-margin-md {
+  margin-bottom: 0.5rem;
+}
+.margin-bottom-1 {
+  margin-bottom: 1rem;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+.direction-column {
+  flex-direction: column;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+.align-start {
+  align-items: flex-start;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+
+.right-margin {
+  margin-right: 0.5rem;
+}
+
+.font-sm {
+  font-size: 0.9rem;
+}
+.font-1-3 {
+  font-size: 1.3rem;
+}
+.font-extra-sm {
+  font-size: 0.8rem;
+}
+.new-price,
+.old-price,
+.discount {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.line-height {
+  line-height: 1.2;
+}
+
+@media (min-width: 600px) {
+  .font-md {
+    font-size: 1.03rem;
+  }
+  .header-md {
+    font-size: 1.5rem;
+  }
+  .font-bold-md {
+    font-weight: bold;
+  }
+}
