@@ -6,6 +6,9 @@ input {
   width: fit-content;
   cursor: pointer;
 }
+.price-num{
+  padding: 0.2rem;
+}
 
 .filter-btn {
   padding: 0.3rem 0.8rem;
@@ -25,6 +28,7 @@ input {
 .filter-icon {
   font-size: 1.3rem;
 }
+
 
 .hide-filters {
   background-color: var(--primary);

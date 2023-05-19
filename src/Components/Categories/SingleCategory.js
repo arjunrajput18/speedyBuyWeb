@@ -9,6 +9,7 @@ export const SingleCategory = ({ category }) => {
 
   const handleCategoryClick = () => {
     navigate("/productlisting");
+    dispatch({type:"CLEAR_ALL_FILTERS"})
     dispatch({ type: "FILTER_BY_CATEGORIES", payload: category.categoryName });
   };
   return (

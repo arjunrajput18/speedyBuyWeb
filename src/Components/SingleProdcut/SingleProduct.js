@@ -33,6 +33,7 @@ export const SingleProduct = ({ product }) => {
   return (
     <div className="product-card">
       <div className="card-header">
+      {isTrending && <span className="trending">Trending</span>}
         <img
           src={image}
           alt={itemName}
@@ -54,8 +55,10 @@ export const SingleProduct = ({ product }) => {
               </span>
             </p>
           </div>
+
           <div className="trending-like-box">
-            {isTrending && <span className="trending">Trending</span>}
+          {/* <h2>hi</h2> */}
+
             <span className="like">
               <AiFillHeart />
             </span>

@@ -5,6 +5,7 @@ export const initialState = {
     selectedCategories: [],
     selectedSizes: [],
     rating: null,
+    price:null,
   },
   categories: [],
   products: [],
@@ -13,6 +14,8 @@ export const initialState = {
 
 export const dataReducer = (state, action) => {
   switch (action.type) {
+
+   
     case "INITIALIZE_CATEGORIES": return {
       ...state,
       categories: action.payload
@@ -30,6 +33,9 @@ export const dataReducer = (state, action) => {
       ...state, filters: { ...state.filters, sort: action.payload }
     }
 
+    case "FILTER_BY_PRICE_RANGE":return{
+      ...state, filters:{...state.filters,price:action.payload }
+    }
     case "FILTER_BY_CATEGORIES": return {
       ...state, filters: { ...state.filters, selectedCategories: state.filters.selectedCategories.includes(action.payload) ? state.filters.selectedCategories.filter(category => category !== action.payload) : [...state.filters.selectedCategories, action.payload] }
     }
@@ -49,6 +55,7 @@ export const dataReducer = (state, action) => {
         selectedCategories: [],
         selectedSizes: [],
         rating: null,
+        price:null
       }
     }
 

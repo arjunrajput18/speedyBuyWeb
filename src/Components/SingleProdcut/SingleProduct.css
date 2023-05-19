@@ -26,7 +26,9 @@ width: 100%;
   cursor: pointer;
  
 }
-
+.trending-like-box{
+  position: relative;
+}
 
 .trending {
   font-size: 0.9rem;
@@ -34,9 +36,10 @@ width: 100%;
   padding: 0.1rem 0.2rem;
   border-radius: 0.1rem;
   color: #fff;
+  /* border: 20px solid black; */
   position: absolute;
-  top: -0.3rem;
-  left: -1.3rem;
+  right: 0%;
+  
 }
 .like {
 
