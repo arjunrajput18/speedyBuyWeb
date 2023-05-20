@@ -1,5 +1,6 @@
 import "./App.css";
 import "./utils.css";
+
 import { Home } from "./Pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import { ProductListing } from "./Pages/ProductListing/ProductListing";
@@ -9,6 +10,10 @@ import { Wishlist } from "./Pages/Wishlist/Wishlist";
 import { ProductDetail } from "./Pages/ProductDetail/ProductDetail";
 import Mockman from "mockman-js";
 import { RequiresAuth } from "./Components/RequiresAuth/RequiresAuth";
+import { Login } from "./Pages/Login/Login";
+import { SignUp } from "./Pages/Login/SignUp";
+
+
 
 function App() {
   return (
@@ -25,9 +30,14 @@ function App() {
             </RequiresAuth>
           }
         />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/wishlist" element={
+         <RequiresAuth>
+        <Wishlist />
+        </RequiresAuth>
+        } />
         <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/login" element={<h1>Auth Required</h1>} />
+        <Route path="/login" element={<Login/> } />
+        <Route path="/signup" element={<SignUp/>}/>
       </Routes>
       {/* <Mockman/> */}
     </div>
