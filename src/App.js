@@ -12,6 +12,7 @@ import Mockman from "mockman-js";
 import { RequiresAuth } from "./Components/RequiresAuth/RequiresAuth";
 import { Login } from "./Pages/Login/Login";
 import { SignUp } from "./Pages/Login/SignUp";
+import { Profile } from "./Pages/Profile/Profile";
 
 
 
@@ -38,6 +39,12 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/login" element={<Login/> } />
         <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/profile" element={
+   <RequiresAuth>
+  <Profile/>
+   </RequiresAuth>
+
+      }/>
       </Routes>
       {/* <Mockman/> */}
     </div>

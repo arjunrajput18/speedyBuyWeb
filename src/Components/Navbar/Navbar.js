@@ -25,11 +25,6 @@ export const Navbar = () => {
     dispatch({ type: "SEARCH_PRODUCT", payload: e.target.value })
   }
 
-  const loginHandler=()=>{
-    setIsLoggedIn(!isLoggedIn)
-    // console.log(location?.state?.from?.pathname)
-    navigate(location?.state?.from?.pathname)
-  }
   const allProductNames = products.reduce((acc, curr) => acc.includes(curr.itemName) ? acc : [...acc, curr.itemName], [])
 
   return (
@@ -51,7 +46,7 @@ export const Navbar = () => {
           menuClass === "hide-menu" ? <div className='navigation-menu' onClick={() => handleMenuClick()}><AiOutlineMenu /></div> : <div className='navigation-menu' onClick={() => handleMenuClick("hide")}><RxCross1 /></div>
         }
 
-        <button onClick={loginHandler} style={{padding:"1rem"}}>{ isLoggedIn?"logout":"login"}</button>
+      
 
         <ul className={menuClass}>
           {/* <li className='menu-item'><NavLink onClick={() => setSearchBar(prev => !prev)} className="nav-link">{searchBar ? <RxCross1 /> : <AiOutlineSearch />}</NavLink></li> */}
@@ -61,7 +56,7 @@ export const Navbar = () => {
           </li>
           <li className='menu-item'><NavLink to="/wishlist" className="nav-link"><AiOutlineHeart /></NavLink></li>
           <li className='menu-item'><NavLink to="/cart" className="nav-link"><AiOutlineShoppingCart /></NavLink></li>
-          <li className='menu-item'><NavLink className="nav-link"><AiOutlineUser /></NavLink></li>
+          <li className='menu-item'><NavLink to="/profile" className="nav-link"><AiOutlineUser /></NavLink></li>
         </ul>
 
         <ul className='menus-md' >
@@ -69,7 +64,7 @@ export const Navbar = () => {
           <li className='menu-item'><NavLink className="nav-link" to="/productlisting" ><MdOutlineLocalMall /></NavLink></li>
           <li className='menu-item'><NavLink to="/wishlist" className="nav-link"><AiOutlineHeart /></NavLink></li>
           <li className='menu-item'><NavLink to="/cart" className="nav-link"><AiOutlineShoppingCart /></NavLink></li>
-          <li className='menu-item'><NavLink className="nav-link"><AiOutlineUser /></NavLink></li>
+          <li className='menu-item'><NavLink to="/profile" className="nav-link"><AiOutlineUser /></NavLink></li>
         </ul>
 
       </nav>
