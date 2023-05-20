@@ -1,0 +1,48 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  /* border: solid; */
+  margin: 1rem;
+}
+
+.signup-innerContainer {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.7rem;
+  box-shadow: 0px 4px 6px;
+}
+
+.name-container {
+  display: flex;
+}
+
+.email-box,
+.password-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 3.5rem;
+}
+
+.signup-input-box {
+  padding: 0.3rem;
+  font-size: medium;
+}
+.signup-btn {
+  width: 100%;
+  background-color: var(--primary);
+  border: 1px solid var(--white);
+  padding: 0.6rem;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 700px) {
+  .signup-innerContainer {
+    width: 450px;
+  }
+}

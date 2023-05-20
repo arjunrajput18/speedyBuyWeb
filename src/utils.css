@@ -8,6 +8,8 @@
 .font-bold {
   font-weight: bold;
 }
+
+
 .font-roboto {
   font-family: "Roboto", sans-serif;
 }
@@ -30,6 +32,7 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
 
 .flex {
   display: flex;
