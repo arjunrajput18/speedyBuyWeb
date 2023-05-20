@@ -1,10 +1,14 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 export const AuthContext=createContext();
 
 
 export const AuthContextProvider = ({children}) => {
-    const[isLoggedIn,setIsLoggedIn]=useState(false)
+  
+const token=localStorage.getItem("encodedToken")//initial token :-null kiva undefined
+const[isLoggedIn,setIsLoggedIn]=useState(token)
+// console.log(isLoggedIn,"aaa")
+
 
   return (
     <AuthContext.Provider value={{isLoggedIn,setIsLoggedIn}}>

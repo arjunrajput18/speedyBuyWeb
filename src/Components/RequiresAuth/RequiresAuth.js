@@ -6,6 +6,8 @@ import { AuthState } from "../../Contexts/Auth/AuthContext";
 export const RequiresAuth = ({children}) => {
     const { isLoggedIn } =AuthState();
   let location = useLocation();
+  console.log(isLoggedIn,"aaaa")
+
   return isLoggedIn ? (
     children
   ) : (
