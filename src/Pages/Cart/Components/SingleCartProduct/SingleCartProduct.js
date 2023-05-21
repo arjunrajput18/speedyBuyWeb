@@ -1,34 +1,13 @@
 import { DataState } from '../../../../Contexts/Data/DataContext';
+import { RemoveFromCart, moveToWishlist, updatedQtyFromCart } from '../../../../Services/Cart/CartServices';
 import './SingleCartProduct.css';
 
 export const SingleCartProduct = ({ product }) => {
   const { _id, image, rating, reviews, size, category, itemName, oldPrice, newPrice, discount, isTrending } = product
-  const { state: { cart },dispatch } = DataState();
+  const {dispatch } = DataState();
 
 
-const removeCartHandler=async()=>{
-
-  
-  try {
-    const response=await fetch(`api/user/cart/${_id}`,{
-      method:"DELETE",
-      headers: {
-        authorization: localStorage.getItem("token"),
-      }
-    })
-    console.log(response)
-    const data=await response.json()
-    console.log(data)
-    // const filterCart=cart.filter((data)=>data._id!== _id)
-// 
-  dispatch({type:"CART_OPERATIONS",payload:data.cart})
-} catch (error) {
-  console.log(error)
-}
-
-
-
-}
+const qtyHandler=(type)=>updatedQtyFromCart(product,_id,dispatch,type)
 
   return (
     <div className="cart-product-card ">
@@ -44,15 +23,15 @@ const removeCartHandler=async()=>{
           <div className='quantity-operations'>
 
             <p className='qty-label'>Quantity: </p>
-            <button className='decrease-qty'>-</button>
-            <p className='qty'>1</p>
-            <button className='increase-qty'>+</button>
+            <button className='decrease-qty cursor-pointer'  onClick={()=>qtyHandler("decrement")} disabled={product.qty<2}>-</button>
+            <p className='qty'>{product.qty}</p>
+            <button className='increase-qty cursor-pointer'  onClick={()=>qtyHandler("increment")}>+</button>
           </div>
         </div>
       </div>
       <div className='remove-operations'>
-        <button className='remove-product ' onClick={removeCartHandler}>Remove</button>
-        <button className='move-to-wishlist'>Move To Wishlist</button>
+        <button className='remove-product ' onClick={()=>RemoveFromCart(_id,dispatch)}>Remove</button>
+        <button className='move-to-wishlist'onClick={()=>moveToWishlist(product,dispatch,_id)}>Move To Wishlist</button>
       </div>
     </div>
   )
