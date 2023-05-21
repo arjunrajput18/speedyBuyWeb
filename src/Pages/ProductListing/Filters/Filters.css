@@ -38,7 +38,7 @@ input {
   font-size: 1.2rem;
   padding-top: 0.7rem;
 }
-/*  */
+
 
 .filters-box {
   padding: 2rem;
@@ -53,6 +53,21 @@ input {
   position: unset;
   z-index: 1;
   font-family: "Roboto", sans-serif;
+  overflow-y: scroll;
+  height: 35rem;
+  
+}
+.filters-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.filters-box::-webkit-scrollbar-thumb {
+  background-color: var(--header-color);
+  border-radius: 5px; 
+}
+
+.filters-box::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary); 
 }
 
 .filters-top {
@@ -111,7 +126,8 @@ input {
     top: 0px;
     z-index: 1;
     padding-right: 0;
-    height: fit-content;
+    /* height: fit-content; */
+    
   }
   .filters-top h2 {
     font-size: 1.75rem;

@@ -9,7 +9,7 @@ export const ProductListing = () => {
   const { state: { products, filters } } = DataState();
   const { searchValue, sort, selectedCategories, selectedSizes, rating,price } = filters;
 
-  console.log(rating)
+  // console.log(rating)
 
   const transformData = () => {
     let filteredData = [...products];

@@ -14,8 +14,6 @@ import { Login } from "./Pages/Login/Login";
 import { SignUp } from "./Pages/Login/SignUp";
 import { Profile } from "./Pages/Profile/Profile";
 
-
-
 function App() {
   return (
     <div className="App">
@@ -31,22 +29,28 @@ function App() {
             </RequiresAuth>
           }
         />
-        <Route path="/wishlist" element={
-         <RequiresAuth>
-        <Wishlist />
-        </RequiresAuth>
-        } />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
         <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/login" element={<Login/> } />
-        <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/profile" element={
-   <RequiresAuth>
-  <Profile/>
-   </RequiresAuth>
-
-      }/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/profile"
+          element={
+            <RequiresAuth>
+              <Profile />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/mockman" element={<Mockman />} />
       </Routes>
-      {/* <Mockman/> */}
+
     </div>
   );
 }

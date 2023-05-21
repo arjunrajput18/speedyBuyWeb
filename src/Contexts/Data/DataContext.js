@@ -28,10 +28,26 @@ export const DataContextProvider = ({ children }) => {
     }
 
   }
-
+  
+  const getCarts=async ()=>{
+    try {
+      const response=await fetch("/api/user/cart",{
+        method:"GET",
+        headers:{
+          authorization:localStorage.getItem("token")
+        }
+      })
+      const data=await response.json()
+      console.log(data.cart)
+    
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
     getCategories();
-    getProducts()
+    getProducts();
+    getCarts()
   }, [])
 
   return <DataContext.Provider value={{ state, dispatch }}>

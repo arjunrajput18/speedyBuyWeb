@@ -9,16 +9,21 @@ export const initialState = {
   },
   categories: [],
   products: [],
+  cart:[],
 }
 
 
 export const dataReducer = (state, action) => {
+  console.log(state.cart)
   switch (action.type) {
 
    
     case "INITIALIZE_CATEGORIES": return {
       ...state,
       categories: action.payload
+    }
+    case "CART_OPERATIONS":return {
+      ...state,cart:action.payload
     }
 
     case "INITIALIZE_PRODUCTS": return {
@@ -48,6 +53,10 @@ export const dataReducer = (state, action) => {
       ...state, filters: { ...state.filters, rating: action.payload }
     }
 
+
+
+   
+
     case "CLEAR_ALL_FILTERS": return {
       ...state, filters: {
         searchValue: null,
@@ -57,7 +66,10 @@ export const dataReducer = (state, action) => {
         rating: null,
         price:null
       }
+
+      
     }
+
 
     default: return state;
   }

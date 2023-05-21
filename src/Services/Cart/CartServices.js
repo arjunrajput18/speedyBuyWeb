@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-export const addToCart = (product) => {
 
-}
+export const AddToCart = (product) => {
+};
 
-export const RemoveFromCart = (id) => {
-
-}
+export const RemoveFromCart = (id) => {};

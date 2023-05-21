@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: 1,
+    _id: "1",
     itemName: "Esprit Ruffle Shirt",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-01.jpg.webp",
     description: "A premium quality and stylish T-shirt for men.",
@@ -25,24 +25,7 @@ export const products = [
 
   },
   {
-    _id: 2,
-    itemName: "Herschel supply",
-    image: "https://preview.colorlib.com/theme/cozastore/images/product-02.jpg.webp",
-    description: "An elegant and fashionable dress for women.",
-    rating: 3.2,
-    reviews: 5,
-    size: "M",
-    category: "Women",
-    oldPrice: 1290.99,
-    newPrice: 990.99,
-    discount: 23,
-    isTrending: false,
-    inStock: true,
-    delivery_time: "3-5 business days",
-    fewLeft: true,
-  },
-  {
-    _id: 3,
+    _id: "2",
     itemName: "Only Check Trouser",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-03.jpg.webp",
     description: "A cozy and warm hoodie for kids.",
@@ -59,7 +42,25 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 4,
+    _id: "3",
+    itemName: "Herschel supply",
+    image: "https://preview.colorlib.com/theme/cozastore/images/product-02.jpg.webp",
+    description: "An elegant and fashionable dress for women.",
+    rating: 3.2,
+    reviews: 5,
+    size: "M",
+    category: "Women",
+    oldPrice: 1290.99,
+    newPrice: 990.99,
+    discount: 23,
+    isTrending: false,
+    inStock: true,
+    delivery_time: "3-5 business days",
+    fewLeft: true,
+  },
+  
+  {
+    _id: "4",
     itemName: "Classic Trench Coat",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-04.jpg.webp",
     description: "A stylish and durable jacket for men.",
@@ -76,7 +77,7 @@ export const products = [
     fewLeft: true,
   },
   {
-    _id: 5,
+    _id: "5",
     itemName: "Front Pocket Jumper",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-05.jpg.webp",
     description: "A comfortable and trendy pair of jeans for women.",
@@ -93,7 +94,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 6,
+    _id: "6",
     itemName: "Vintage Inspired Classic Watch",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-06.jpg.webp",
     description: "A classic and formal shirt for men.",
@@ -110,7 +111,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 7,
+    _id: "7",
     itemName: "Shirt in Stretch Cotton",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-07.jpg.webp",
     description: "A cozy and stylish sweater for women.",
@@ -127,7 +128,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 8,
+    _id: "8",
     itemName: "Pieces Metallic Printed",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-08.jpg.webp",
     description: "Comfortable and breathable shorts for men.",
@@ -144,7 +145,7 @@ export const products = [
     fewLeft: true,
   },
   {
-    _id: 9,
+    _id: "9",
     itemName: "Converse All Star Hi Plimsolls shoes",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-09.jpg.webp",
     description: "A stylish and elegant blouse for women.",
@@ -161,7 +162,7 @@ export const products = [
     fewLeft: true,
   },
   {
-    _id: 10,
+    _id: "10",
     itemName: "Femme T-Shirt In Stripe",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-10.jpg.webp",
     description: "Stylish and comfortable pants for men.",
@@ -178,7 +179,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 11,
+    _id: "11",
     itemName: "Herschel supply",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-11.jpg.webp",
     description: "A fashionable and versatile skirt for women.",
@@ -195,7 +196,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 12,
+    _id: "12",
     itemName: "H&M Leather Belt ",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-12.jpg.webp",
     description: "A comfortable and stylish T-shirt for kids.",
@@ -212,7 +213,7 @@ export const products = [
     fewLeft: true,
   },
   {
-    _id: 13,
+    _id: "13",
     itemName: "BonOrganik",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-14.jpg.webp",
     description: "A warm and trendy hoodie for men.",
@@ -229,7 +230,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 14,
+    _id: "14",
     itemName: "Dennis Lingo Watch",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-15.jpg.webp",
     description: "A stylish and versatile jacket for women.",
@@ -246,7 +247,7 @@ export const products = [
     fewLeft: false
   },
   {
-    _id: 15,
+    _id: "15",
     itemName: "H&M shirt",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-16.jpg.webp",
     description: "A classic and formal shirt for men.",

@@ -1,14 +1,15 @@
 import React from "react";
-import { AiOutlineStar, AiFillHeart } from "react-icons/ai";
-
+import { AiOutlineStar, AiFillHeart,AiOutlineShoppingCart  } from "react-icons/ai";
+import {BsFillCartCheckFill,BsCartCheck} from "react-icons/bs"
 import "./SingleProduct.css";
 import { DataState } from "../../Contexts/Data/DataContext";
-import { addToCart } from "../../Services/Cart/CartServices";
-import { useNavigate } from "react-router-dom";
-
+// import { AddToCart } from "../../Services/Cart/CartServices";
+import { NavLink, useNavigate } from "react-router-dom";
+// import {DataState} from "../../Contexts/Data/DataContext"
 export const SingleProduct = ({ product }) => {
   const navigate = useNavigate();
-
+  
+  const { dispatch } = DataState()
   const {
     _id,
     image,
@@ -30,6 +31,28 @@ export const SingleProduct = ({ product }) => {
     navigate(`/product/${id}`);
   };
 
+
+  const addToCartHandler = async (product) => {
+    try {
+      const response = await fetch("/api/user/cart", {
+        method: "POST",
+        body: JSON.stringify({product}),
+        headers: {
+          authorization: localStorage.getItem("token"),
+        }
+      });
+      const data = await response.json();
+
+      // console.log(data,"kk")
+      dispatch({type:"CART_OPERATIONS",payload:data.cart})
+
+    } catch (error) {
+  
+      console.log(error)
+    }
+
+  };
+  
   return (
     <div className="product-card">
       <div className="card-header">
@@ -73,9 +96,9 @@ export const SingleProduct = ({ product }) => {
         </div>
         <p className="discount">{discount}% OFF</p>
       </div>
-      <button className="add-to-cart" onClick={() => addToCart}>
+      {cart?.some((data)=>data._id===product._id)?<NavLink to="/cart"><button className="go-to-cart">Go To Cart <BsCartCheck className="icon-size"/></button></NavLink>:<button className="add-to-cart" onClick={() => addToCartHandler(product)}>
         Add To Cart
-      </button>
+      </button>}
     </div>
   );
 };

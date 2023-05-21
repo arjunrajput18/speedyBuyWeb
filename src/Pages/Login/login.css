@@ -57,6 +57,13 @@ margin: 0.6rem 0rem;
   border: 1px solid var(--primary);
   color: var(--primary);
 }
+.eye-icon{
+ border: none;
+ position: absolute;
+ top: 1rem;
+ right: 1rem;
+ background-color: inherit;
+}
 
 @media (min-width: 700px) {
   .login-form-container {

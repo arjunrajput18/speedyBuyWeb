@@ -5,7 +5,7 @@ export const AuthContext=createContext();
 
 export const AuthContextProvider = ({children}) => {
   
-const token=localStorage.getItem("encodedToken")//initial token :-null kiva undefined
+const token=localStorage.getItem("token")//initial token :-null 
 const[isLoggedIn,setIsLoggedIn]=useState(token)
 // console.log(isLoggedIn,"aaa")
 
