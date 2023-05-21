@@ -1,0 +1,42 @@
+
+.main-coupon-container{
+
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.459);
+    width: 100%;
+    top:4.5rem;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    }
+    .inner-coupon-container{
+      border: solid;
+      padding: 1rem;
+      margin-bottom: 5rem;
+      background-color: white;  
+      width: 350px;
+      height: 200px;
+      position: absolute;
+    }
+    
+    .apply-discount-btn{
+      padding: 0.2rem;
+      width: 100%;
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    .discount-box{
+    margin: 0.8rem 0rem;
+    border: 1px solid black;
+    padding: 0.3rem 0.3rem;
+    }
+    .coupon-imCross-box{
+      position: absolute;
+      bottom:1rem;
+      right:0rem;
+      
+    }
+    

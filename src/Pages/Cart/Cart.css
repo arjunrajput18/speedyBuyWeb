@@ -11,9 +11,16 @@
   align-items: center;
 }
 
+.empty-cart{
+  position: absolute;
+  left:35rem ;
+}
+
 @media (min-width: 1024px) {
   .cart-main {
     grid-template-columns: repeat(2, 1fr);
     padding: 0rem 18rem;
   }
 }
+
+

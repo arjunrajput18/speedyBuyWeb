@@ -1,17 +1,18 @@
 import React from 'react'
 import { AiOutlineStar, AiFillHeart } from 'react-icons/ai'
-
+import {BsCartCheck} from "react-icons/bs"
 import './ProductDetail.css'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { DataState } from '../../Contexts/Data/DataContext'
+import { addToCart } from '../../Services/Cart/CartServices'
 
 export const ProductDetail = () => {
   const { id } = useParams();
 
-  const { state: { products } } = DataState();
+  const { state: { products ,cart},dispatch } = DataState();
 
 
-  const product = products?.find(product => product._id === Number(id));
+  const product = products?.find(product => product._id === id);
   console.log(product, "detaio")
   const { _id, image, rating, reviews, size, category, itemName, oldPrice, newPrice, discount, isTrending, inStock, delivery_time, fewLeft } = product
   return (
@@ -52,7 +53,7 @@ export const ProductDetail = () => {
         </div>
 
         <div>
-          <button className='add-to-cart sm-fontsize'>Add To Cart</button>
+         {cart.some((data)=>data._id===_id)?<NavLink to="/cart"><button  className="go-to-cart">Go To Cart <BsCartCheck className="icon-size"/></button></NavLink>:<button className='add-to-cart sm-fontsize' onClick={()=>addToCart(product,dispatch)}>Add To Cart</button>} 
         </div>
       </div>
 

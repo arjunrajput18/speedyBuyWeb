@@ -6,10 +6,12 @@ export const initialState = {
     selectedSizes: [],
     rating: null,
     price:null,
+
   },
   categories: [],
   products: [],
   cart:[],
+  wishlist:[],
 }
 
 
@@ -24,6 +26,10 @@ export const dataReducer = (state, action) => {
     }
     case "CART_OPERATIONS":return {
       ...state,cart:action.payload
+    }
+    case "WISHLIST_OPERATION":return{
+      ...state,
+      wishlist:action.payload
     }
 
     case "INITIALIZE_PRODUCTS": return {
@@ -52,11 +58,6 @@ export const dataReducer = (state, action) => {
     case "FILTER_BY_RATING": return {
       ...state, filters: { ...state.filters, rating: action.payload }
     }
-
-
-
-   
-
     case "CLEAR_ALL_FILTERS": return {
       ...state, filters: {
         searchValue: null,
@@ -66,9 +67,11 @@ export const dataReducer = (state, action) => {
         rating: null,
         price:null
       }
-
-      
     }
+
+    case "UPDATE_QTY_IN_CART":return{
+      ...state,cart:[...action.payload]
+            }
 
 
     default: return state;
