@@ -20,7 +20,6 @@ export const Filters = () => {
     dispatch({ type: "FILTER_BY_RATING", payload: e.target.value });
   };
 
-
   const handlePriceRangeChange=(e)=>{
     setPriceRange(e.target.value)
     // console.log(e.target.value)
@@ -65,18 +64,19 @@ export const Filters = () => {
           <input type="range" className="ratings-box flex justify-between" onChange={handlePriceRangeChange} value={priceRange} min="500"
             max="2000" step={500}/>
             {/* style={{color:priceRange===data?"black":"white"}}  */}
-         { ["500","1000","1500","2000"].map((data)=><span className={`price-num ${priceRange===data && "font-bold" }`}>{data}</span>)}
+         { ["500","1000","1500","2000"].map((data)=><span className={`price-num ${priceRange===data && "font-bold" }`} key={data}>{data}</span>)}
         </div>
         <h4 className="font-1-2  top-margin margin-bottom-1">Sort By Price</h4>
 
         <label
           htmlFor="lowToHigh"
-          className="cursor-pointer bottom-margin-md"
-          onClick={() =>
+          className="cursor-pointer bottom-margin-md" >
+          <input type="radio" name="sort" onChange={() =>
             dispatch({ type: "SORT_BY_PRICE", payload: "LOW_TO_HIGH" })
-          }
-        >
-          <input type="radio" name="sort" checked={sort === "LOW_TO_HIGH"} />
+          } checked={sort === "LOW_TO_HIGH"} />
+
+
+
           <span className="display-inline-block bottom-margin-md">
             Low To High
           </span>
@@ -84,12 +84,11 @@ export const Filters = () => {
 
         <label
           htmlFor="highToLow"
-          onClick={() =>
-            dispatch({ type: "SORT_BY_PRICE", payload: "HIGH_TO_LOW" })
-          }
           className="cursor-pointer bottom-margin-md "
         >
-          <input type="radio" name="sort" checked={sort === "HIGH_TO_LOW"} />
+          <input type="radio" name="sort" onChange={() =>
+            dispatch({ type: "SORT_BY_PRICE", payload: "HIGH_TO_LOW" })
+          } checked={sort === "HIGH_TO_LOW"} />
           <span className="display-inline-block bottom-margin-md ">
             {" "}
             High To Low
@@ -103,13 +102,13 @@ export const Filters = () => {
             <label
               htmlFor={category}
               className="cursor-pointer"
-              onClick={() =>
-                dispatch({ type: "FILTER_BY_CATEGORIES", payload: category })
-              }
+              key={category}
             >
               <input
                 type="checkbox"
                 className="bottom-margin-md font-roboto"
+                onChange={() =>
+                dispatch({ type: "FILTER_BY_CATEGORIES", payload: category })}
                 checked={selectedCategories.includes(category)}
               />{" "}
               <span className="display-inline-block bottom-margin-md">
@@ -118,35 +117,8 @@ export const Filters = () => {
             </label>
           ))}
         </div>
-
-        {/* Sizes */}
-        <h4 className=" font-1-2  top-margin margin-bottom-1  bottom-margin-md font-roboto">
-          Sizes
-        </h4>
-        <div className="flex direction-column">
-          {["S", "M", "L", "XL", "XXL"].map((size) => (
-            <label
-              htmlFor=""
-              className="cursor-pointer"
-              key={size}
-              onClick={() =>
-                dispatch({ type: "FILTER_BY_SIZE", payload: size })
-              }
-            >
-              <input
-                type="checkbox"
-                className="bottom-margin-md font-roboto"
-                checked={selectedSizes.includes(size)}
-              />{" "}
-              <span className="display-inline-block bottom-margin-md">
-                {size}
-              </span>
-            </label>
-          ))}
-        </div>
-
-        {/* Ratings */}
-        <h4 className="bottom-margin-md font-1-2  top-margin margin-bottom-1 ">
+         {/* Ratings */}
+         <h4 className="bottom-margin-md font-1-2  top-margin margin-bottom-1 ">
           Ratings
         </h4>
 
@@ -162,12 +134,37 @@ export const Filters = () => {
           />
         </label>
         <div className="ratings-box flex justify-between">
-          <span className="rating-num">1</span>
-          <span className="rating-num">2</span>
-          <span className="rating-num">3</span>
-          <span className="rating-num">4</span>
-          <span className="rating-num">5</span>
+        {[1,2,3,4,5].map((num)=> <span className="rating-num" key={num}>{num}</span>)}
         </div>
+
+        {/* Sizes */}
+        <h4 className=" font-1-2  top-margin margin-bottom-1  bottom-margin-md font-roboto">
+          Sizes
+        </h4>
+        <div className="flex direction-column">
+          {["S", "M", "L", "XL", "XXL"].map((size) => (
+            <label
+              htmlFor=""
+              className="cursor-pointer"
+              key={size}
+              
+            >
+              <input
+                type="checkbox"
+                className="bottom-margin-md font-roboto"
+                checked={selectedSizes.includes(size)}
+                onChange={() =>
+                dispatch({ type: "FILTER_BY_SIZE", payload: size })
+              }
+              />{" "}
+              <span className="display-inline-block bottom-margin-md">
+                {size}
+              </span>
+            </label>
+          ))}
+        </div>
+
+       
       </div>
     </div>
   );

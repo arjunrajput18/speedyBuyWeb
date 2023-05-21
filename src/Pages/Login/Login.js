@@ -3,14 +3,14 @@ import { NavLink, useLocation } from "react-router-dom";
 import "./login.css";
 import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { useNavigate } from "react-router";
-
+import { VscEyeClosed,VscEye } from 'react-icons/vsc'
 export const Login = () => {
   const { setIsLoggedIn } = AuthState();
   const location = useLocation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [toggleEye,setToggleEye]=useState(false)
   const loginHandler = async () => {
    if(email && password){
     const creds = {
@@ -23,10 +23,10 @@ export const Login = () => {
         method: "POST",
         body: JSON.stringify(creds),
       });
-console.log(response)
+// console.log(response)
       const  { foundUser, encodedToken }  = await response.json();
       if(response.status===200){
-        console.log("a")
+        // console.log("a")
         setIsLoggedIn(true);
         localStorage.setItem("user", JSON.stringify(foundUser));
         localStorage.setItem("token", encodedToken);
@@ -64,9 +64,9 @@ console.log(response)
 
       const { foundUser, encodedToken } = data;
       // console.log(foundUser.email)
-      localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object
-      localStorage.setItem("encodedToken", encodedToken);
       setIsLoggedIn(true);
+      localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object[obj,obj]
+      localStorage.setItem("token", encodedToken);
       // console.log(location);
       navigate(location?.state?.from?.pathname);
     } catch (error) {
@@ -93,14 +93,17 @@ console.log(response)
                 value={email}
               />
             </div>
-            <div className="login-password">
+            <div className="login-password relative" >
               <input
-                type="password"
+                type={toggleEye?"text":"password"}
                 placeholder="password"
                 className="input-password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
+              { password && <p className="eye-icon" onClick={()=>setToggleEye(!toggleEye)}>
+                { toggleEye? <VscEye/>:<VscEyeClosed/>}
+            </p>}
             </div>
           </div>
 

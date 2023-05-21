@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthState } from "../../Contexts/Auth/AuthContext";
+import { VscEyeClosed,VscEye } from 'react-icons/vsc'
 export const SignUp = () => {
   const [user, setUser] = useState({
     firstName: "",
@@ -10,7 +11,7 @@ export const SignUp = () => {
     password: "",
   });
   const { setIsLoggedIn } = AuthState();
-
+  const [toggleEye,setToggleEye]=useState(false)
    
   // console.log(user)
 // const location=useLocation();
@@ -81,8 +82,9 @@ const navigate=useNavigate()
         </div>
         <div className="password-box">
           <label>Password</label>
+          <div className="relative">
           <input
-            type="password"
+            type={toggleEye?"text":"password"}
             placeholder="******"
             className="signup-input-box"
             required
@@ -90,6 +92,11 @@ const navigate=useNavigate()
               setUser((prev) => ({ ...prev, password: e.target.value }))
             }
           />
+          { user.password &&  <p className="eye-icon-signup" onClick={()=>setToggleEye(!toggleEye)}>
+                {toggleEye? <VscEye/>:<VscEyeClosed/>}
+            </p>}
+          </div>
+        
         </div>
         <div>
           <button className="signup-btn" onClick={newAccountHandler}>

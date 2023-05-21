@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import { AiOutlineMenu, AiOutlineSearch, AiOutlineShoppingCart, AiOutlineHeart, AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineMenu,  AiOutlineShoppingCart, AiOutlineHeart, AiOutlineUser } from 'react-icons/ai'
 import { MdOutlineLocalMall } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
 import './Navbar.css'
-import { NavLink, useLoaderData, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink,  useNavigate } from 'react-router-dom'
 import { DataState } from '../../Contexts/Data/DataContext'
-import { AuthState } from '../../Contexts/Auth/AuthContext'
+// import { AuthState } from '../../Contexts/Auth/AuthContext'
 
 
 export const Navbar = () => {
   const [menuClass, setMenuClass] = useState("hide-menu");
   // const [searchBar, setSearchBar] = useState(false);
-  const { isLoggedIn,setIsLoggedIn } =AuthState();
+
   const { state: { products }, dispatch } = DataState()
   const navigate = useNavigate();
-  const location = useLocation();
+
   const handleMenuClick = (data) => {
     const updatedDisplay = data === "hide" ? "hide-menu" : "menus";
     setMenuClass(updatedDisplay)
