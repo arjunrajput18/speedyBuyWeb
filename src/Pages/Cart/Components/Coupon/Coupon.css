@@ -1,7 +1,7 @@
 
 .main-coupon-container{
-
     position: fixed;
+    left: 0rem;
     background-color: rgba(0, 0, 0, 0.459);
     width: 100%;
     top:4.5rem;

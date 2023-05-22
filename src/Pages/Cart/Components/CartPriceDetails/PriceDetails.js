@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RiCoupon2Fill } from 'react-icons/ri'
 import './PriceDetails.css'
 import { DataState } from '../../../../Contexts/Data/DataContext'
 import {RxCross2} from "react-icons/rx"
 import {RiCoupon3Line} from "react-icons/ri"
-export const PriceDetails = ({setCouponDiscount,setHideCouponBox,couponDiscount,setIsCouponApplied,isCouponApplied}) => {
+import { Coupon } from '../Coupon/Coupon'
+import {  useOrder } from '../../../../Contexts/Data/OrderContext'
+import { NavLink } from 'react-router-dom'
+export const PriceDetails = () => {
 
 const {state:{cart}}=DataState()
 
+const {couponInfo, setCouponInfo}=useOrder()
 
 const totalNewPrice=cart.reduce((acc,curr)=>curr.newPrice*curr.qty+acc,0).toFixed(2);
 const totalOldPrice=cart.reduce((acc,curr)=>curr.oldPrice*curr.qty+acc,0).toFixed(2);
+const [isHideBox,setIsHideBox]=useState(true)
 
 
-const removeHandler =()=>{
-  setIsCouponApplied(false)
-  setCouponDiscount(0)
+
+const couponDiscount=(totalNewPrice*couponInfo.value/100).toFixed(2)
+
+const totalAmount=totalNewPrice-couponDiscount
+
+
+const handlerRemoveCoupon=()=>{
+  setCouponInfo({name:"",value:0})
 }
+
 
   return (
     <div className='price-detail-card'>
@@ -31,31 +42,31 @@ const removeHandler =()=>{
 
         <div className='displayFlex'>
           <p className='sm-fontsize sm-margin-bottom'>Discount</p>
-          <p className='sm-fontsize sm-margin-bottom'>₹ {(totalNewPrice-totalOldPrice).toFixed(2)}</p>
+          <p className='sm-fontsize sm-margin-bottom'>-₹{(totalOldPrice-totalNewPrice).toFixed(2)}</p>
         </div>
 
         <div className='displayFlex'>
           <p className='sm-fontsize sm-margin-bottom'>Cuopon Discount</p>
-          <p className='sm-fontsize sm-margin-bottom'>₹ 0.00</p>
+          <p className='sm-fontsize sm-margin-bottom'>-₹{couponDiscount}</p>
         </div>
-{ isCouponApplied &&<div className='displayFlex sm-margin-bottom'>
-  <p> <RiCoupon3Line/> Applied Coupon</p>
-  <RxCross2 onClick={removeHandler}/>
+{couponInfo.name &&  <div className='displayFlex sm-margin-bottom'>
+  <p className='color-green'> <RiCoupon3Line/> {couponInfo.name}</p>
+  <span onClick={handlerRemoveCoupon}><RxCross2  /></span>
 </div>}
 
         <div className='displayFlex total-amt'>
           <h5 className='sm-fontsize sm-margin-bottom'>Total Amount</h5>
-          <h5 className='sm-fontsize sm-margin-bottom'>₹ {!couponDiscount?totalNewPrice :totalNewPrice-totalNewPrice*couponDiscount/100 }</h5>
+          <h5 className='sm-fontsize sm-margin-bottom'>₹{totalAmount}</h5>
         </div>
         <div className='displayFlex coupon-box'>
           <p className='sm-fontsize sm-margin-bottom coupon-text'><RiCoupon2Fill />Have a Coupon ?</p>
-          <button className='apply-coupon-btn' onClick={()=>setHideCouponBox(true)}>Apply</button>
+          <button className='apply-coupon-btn' onClick={()=>setIsHideBox(false)}>Apply</button>
         </div>
-
       </div>
 
-      <p className='sm-fontsize sm-margin-bottom saved-price-info'>You will save ₹ 958 on this order</p>
-      <button className='checkout-btn'>Checkout</button>
+      <p className='sm-fontsize sm-margin-bottom saved-price-info'>You will save ₹ {(totalOldPrice-totalAmount).toFixed(2)} on this order</p>
+      <NavLink to={"/checkout"}><button className='checkout-btn'>Checkout</button></NavLink>
+     {!isHideBox && <Coupon  setIsHideBox={setIsHideBox}  />  }
     </div>
   )
 }

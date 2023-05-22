@@ -6,7 +6,7 @@ import { DataState } from "../../../Contexts/Data/DataContext";
 
 export const Filters = () => {
   const [isFilters, setIsFilters] = useState(false);
-  const [rangeValue, setRangeValue] = useState(3);
+  // const [rangeValue, setRangeValue] = useState(3);
   const [priceRange,setPriceRange]=useState(1500)
   const {
     dispatch,
@@ -15,9 +15,9 @@ export const Filters = () => {
     },
   } = DataState();
 
-  const handleRangeChange = (e) => {
-    setRangeValue(e.target.value);
-    dispatch({ type: "FILTER_BY_RATING", payload: e.target.value });
+  const handleRangeChange = (value) => {
+    // setRangeValue(e.target.value);
+    dispatch({ type: "FILTER_BY_RATING", payload: value });
   };
 
   const handlePriceRangeChange=(e)=>{
@@ -122,20 +122,10 @@ export const Filters = () => {
           Ratings
         </h4>
 
-        <label htmlFor="" className="range-input cursor-pointer">
-          <input
-            type="range"
-            id="range"
-            className="bottom-margin-md"
-            onChange={handleRangeChange}
-            min="1"
-            max="5"
-            value={rangeValue}
-          />
-        </label>
-        <div className="ratings-box flex justify-between">
-        {[1,2,3,4,5].map((num)=> <span className="rating-num" key={num}>{num}</span>)}
-        </div>
+     
+        <div className="ratings-box ">
+        {[1,2,3,4].map((num)=> <label ><input type="radio" className="bottom-margin-md radio-rating"  onChange={()=>handleRangeChange(num)} value={num} name={"group1-rating"}/>{num} Stars & above </label>)}
+        </div> 
 
         {/* Sizes */}
         <h4 className=" font-1-2  top-margin margin-bottom-1  bottom-margin-md font-roboto">

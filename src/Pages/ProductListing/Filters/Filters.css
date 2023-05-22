@@ -111,6 +111,9 @@ input {
   margin-top: -10px;
 }
 
+.radio-rating{
+  margin-right: 0.2rem;
+}
 .clear-filters {
   color: var(--header-color);
 }

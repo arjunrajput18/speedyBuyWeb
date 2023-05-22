@@ -13,6 +13,7 @@ import { RequiresAuth } from "./Components/RequiresAuth/RequiresAuth";
 import { Login } from "./Pages/Login/Login";
 import { SignUp } from "./Pages/Login/SignUp";
 import { Profile } from "./Pages/Profile/Profile";
+import { Checkout } from "./Pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           }
         />
         <Route path="/mockman" element={<Mockman />} />
+        <Route path="/checkout" element={<Checkout/>} />
       </Routes>
 
     </div>

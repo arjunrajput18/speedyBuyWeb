@@ -8,6 +8,8 @@ import './index.css'
 import { makeServer } from "./server";
 import { DataContextProvider } from "./Contexts/Data/DataContext";
 import { AuthContextProvider } from "./Contexts/Auth/AuthContext";
+import { OrderContextProvider } from "./Contexts/Data/OrderContext";
+
 
 
 // Call make Server
@@ -18,7 +20,9 @@ ReactDOM.render(
     <Router>
       <DataContextProvider>
       <AuthContextProvider>
+      <OrderContextProvider>
         <App />
+        </OrderContextProvider>
         </AuthContextProvider>
       </DataContextProvider>
     </Router>
