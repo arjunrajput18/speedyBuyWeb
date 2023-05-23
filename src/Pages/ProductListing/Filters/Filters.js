@@ -3,6 +3,7 @@ import { MdFilterAlt } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import "./Filters.css";
 import { DataState } from "../../../Contexts/Data/DataContext";
+import { AiFillStar } from "react-icons/ai";
 
 export const Filters = () => {
   const [isFilters, setIsFilters] = useState(false);
@@ -11,7 +12,7 @@ export const Filters = () => {
   const {
     dispatch,
     state: {
-      filters: { sort, selectedCategories, selectedSizes },
+      filters: { sort, selectedCategories, selectedSizes,byStock },
     },
   } = DataState();
 
@@ -60,17 +61,21 @@ export const Filters = () => {
         </div>
         {/* Price Range */}
         <h4 className="font-1-2 top-margin margin-bottom-1"> Price Range</h4>
-        <div>
+        <div className="bottom-margin-md">
           <input type="range" className="ratings-box flex justify-between" onChange={handlePriceRangeChange} value={priceRange} min="500"
             max="2000" step={500}/>
             {/* style={{color:priceRange===data?"black":"white"}}  */}
          { ["500","1000","1500","2000"].map((data)=><span className={`price-num ${priceRange===data && "font-bold" }`} key={data}>{data}</span>)}
         </div>
+        <div>
+        <label className="cursor-pointer top-margin bottom-margin-md display-inline-block ">
+          <input type="checkbox"  onChange={()=>dispatch({type:"BY_STOCK"})} checked={byStock}/><span  className="out-of-stock-input">Include Out of Stock</span>
+        </label></div>
         <h4 className="font-1-2  top-margin margin-bottom-1">Sort By Price</h4>
 
         <label
           htmlFor="lowToHigh"
-          className="cursor-pointer bottom-margin-md" >
+          className="cursor-pointer bottom-margin-md " >
           <input type="radio" name="sort" onChange={() =>
             dispatch({ type: "SORT_BY_PRICE", payload: "LOW_TO_HIGH" })
           } checked={sort === "LOW_TO_HIGH"} />
@@ -124,7 +129,7 @@ export const Filters = () => {
 
      
         <div className="ratings-box ">
-        {[1,2,3,4].map((num)=> <label ><input type="radio" className="bottom-margin-md radio-rating"  onChange={()=>handleRangeChange(num)} value={num} name={"group1-rating"}/>{num} Stars & above </label>)}
+        {[1,2,3,4].map((num)=> <label ><input type="radio" className="bottom-margin-md radio-rating"  onChange={()=>handleRangeChange(num)} value={num} name={"group1-rating"}/>{num} <span className="star-color"><AiFillStar/></span> & above </label>)}
         </div> 
 
         {/* Sizes */}

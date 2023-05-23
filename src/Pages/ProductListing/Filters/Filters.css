@@ -107,10 +107,15 @@ input {
 }
 
 .ratings-box {
-  width: 126px;
+  width: 120px;
   margin-top: -10px;
 }
-
+.star-color{
+  color: #FFD700;
+}
+.out-of-stock-input{
+  padding-left: 0.2rem;
+}
 .radio-rating{
   margin-right: 0.2rem;
 }

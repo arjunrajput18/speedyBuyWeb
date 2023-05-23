@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+
 
 /**
  * Product Database can be added here.
@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: "1",
-    itemName: "Esprit Ruffle Shirt",
+    itemName: "Esprit  Shirt",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-01.jpg.webp",
     description: "A premium quality and stylish T-shirt for men.",
     rating: 4.5,
@@ -26,7 +26,7 @@ export const products = [
   },
   {
     _id: "2",
-    itemName: "Only Check Trouser",
+    itemName: " Check Trouser",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-03.jpg.webp",
     description: "A cozy and warm hoodie for kids.",
     rating: 4.7,
@@ -61,7 +61,7 @@ export const products = [
   
   {
     _id: "4",
-    itemName: "Classic Trench Coat",
+    itemName: "Classic  Coat",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-04.jpg.webp",
     description: "A stylish and durable jacket for men.",
     rating: 4.2,
@@ -78,7 +78,7 @@ export const products = [
   },
   {
     _id: "5",
-    itemName: "Front Pocket Jumper",
+    itemName: "Front  Jumper",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-05.jpg.webp",
     description: "A comfortable and trendy pair of jeans for women.",
     rating: 4.8,
@@ -95,7 +95,7 @@ export const products = [
   },
   {
     _id: "6",
-    itemName: "Vintage Inspired Classic Watch",
+    itemName: "Vintage   Watch",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-06.jpg.webp",
     description: "A classic and formal shirt for men.",
     rating: 3.9,
@@ -112,7 +112,7 @@ export const products = [
   },
   {
     _id: "7",
-    itemName: "Shirt in Stretch Cotton",
+    itemName: "Shirt   Cotton",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-07.jpg.webp",
     description: "A cozy and stylish sweater for women.",
     rating: 4.1,
@@ -129,7 +129,7 @@ export const products = [
   },
   {
     _id: "8",
-    itemName: "Pieces Metallic Printed",
+    itemName: "Pieces  Printed",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-08.jpg.webp",
     description: "Comfortable and breathable shorts for men.",
     rating: 4.6,
@@ -146,7 +146,7 @@ export const products = [
   },
   {
     _id: "9",
-    itemName: "Converse All Star Hi Plimsolls shoes",
+    itemName: "Converse shoes",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-09.jpg.webp",
     description: "A stylish and elegant blouse for women.",
     rating: 3.8,
@@ -163,7 +163,7 @@ export const products = [
   },
   {
     _id: "10",
-    itemName: "Femme T-Shirt In Stripe",
+    itemName: "Femme T-Shirt ",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-10.jpg.webp",
     description: "Stylish and comfortable pants for men.",
     rating: 4.4,
@@ -253,7 +253,7 @@ export const products = [
     description: "A classic and formal shirt for men.",
     rating: 4.1,
     reviews: 9,
-    size: "S",
+    size: "XXL",
     category: "Women",
     oldPrice: 990.99,
     newPrice: 790.99,

@@ -11,14 +11,14 @@ export const PriceDetails = () => {
 
 const {state:{cart}}=DataState()
 
-const {couponInfo, setCouponInfo}=useOrder()
+const {couponInfo, setCouponInfo,orderDispatch}=useOrder()
 
 const totalNewPrice=cart.reduce((acc,curr)=>curr.newPrice*curr.qty+acc,0).toFixed(2);
 const totalOldPrice=cart.reduce((acc,curr)=>curr.oldPrice*curr.qty+acc,0).toFixed(2);
 const [isHideBox,setIsHideBox]=useState(true)
 
 
-
+ 
 const couponDiscount=(totalNewPrice*couponInfo.value/100).toFixed(2)
 
 const totalAmount=totalNewPrice-couponDiscount
@@ -28,7 +28,8 @@ const handlerRemoveCoupon=()=>{
   setCouponInfo({name:"",value:0})
 }
 
-
+const discount=(totalOldPrice-totalNewPrice).toFixed(2)
+const totalItems=cart.length
   return (
     <div className='price-detail-card'>
       <h4 className='price-detail-heading'>Price Details</h4>
@@ -36,13 +37,13 @@ const handlerRemoveCoupon=()=>{
       <div>
 
         <div className='displayFlex'>
-          <p className='sm-fontsize sm-margin-bottom '>Price ({cart.length}items)</p>
+          <p className='sm-fontsize sm-margin-bottom '>Price ({totalItems}items)</p>
           <p className='sm-fontsize'>₹ {totalOldPrice}</p>
         </div>
 
         <div className='displayFlex'>
           <p className='sm-fontsize sm-margin-bottom'>Discount</p>
-          <p className='sm-fontsize sm-margin-bottom'>-₹{(totalOldPrice-totalNewPrice).toFixed(2)}</p>
+          <p className='sm-fontsize sm-margin-bottom'>-₹{discount}</p>
         </div>
 
         <div className='displayFlex'>
@@ -65,7 +66,7 @@ const handlerRemoveCoupon=()=>{
       </div>
 
       <p className='sm-fontsize sm-margin-bottom saved-price-info'>You will save ₹ {(totalOldPrice-totalAmount).toFixed(2)} on this order</p>
-      <NavLink to={"/checkout"}><button className='checkout-btn'>Checkout</button></NavLink>
+      <NavLink to={"/checkout"}><button className='checkout-btn' onClick={()=>orderDispatch({type:"CHECKOUT",payload:{totalOldPrice,totalAmount,couponDiscount,discount,totalItems}})}>Checkout</button></NavLink>
      {!isHideBox && <Coupon  setIsHideBox={setIsHideBox}  />  }
     </div>
   )
