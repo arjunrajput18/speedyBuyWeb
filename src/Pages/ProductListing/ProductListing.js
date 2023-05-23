@@ -7,7 +7,7 @@ import './ProductListing.css';
 
 export const ProductListing = () => {
   const { state: { products, filters } } = DataState();
-  const { searchValue, sort, selectedCategories, selectedSizes, rating,price } = filters;
+  const { searchValue, sort, selectedCategories, selectedSizes, rating,price,byStock } = filters;
 
   // console.log(rating)
 
@@ -15,6 +15,9 @@ export const ProductListing = () => {
     let filteredData = [...products];
     if (searchValue) {
       filteredData = filteredData.filter(product => product.itemName.toLowerCase().includes(searchValue.toLowerCase()))
+    }
+    if(!byStock){
+      filteredData=filteredData.filter(product=>product.inStock)
     }
     if(price){
 filteredData=filteredData.filter(product=>product.newPrice<=price)

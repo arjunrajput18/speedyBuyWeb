@@ -17,7 +17,7 @@ const  navigate=useNavigate()
           <p className='sale-on'>winter sale is on</p>
           <h3 className='header-title'>Polish Your Fashion to Perfection</h3>
           <p className='header-desc'>Discover the World of Online Shopping.</p>
-          <button  className='exploreMore-link' onClick={clickHandler}>Explore More</button>
+          <button  className='exploreMore-link cursor-pointer' onClick={clickHandler}>Explore More</button>
           <div className='toggle-div'>
 
          
