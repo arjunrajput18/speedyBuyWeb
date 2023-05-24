@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "dayjs": "^1.11.7",
+    "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
     "miragejs": "^0.1.47",
     "mockman-js": "^1.1.5",
