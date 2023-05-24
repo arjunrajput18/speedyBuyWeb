@@ -19,9 +19,12 @@ export const Profile = () => {
   //   localStorage.getItem("user")
   // );
   var userJson = localStorage.getItem("user");
-if (userJson) {
-  var user = JSON.parse(userJson);
-}
+  if (userJson) {
+    var user = JSON.parse(userJson);
+  } else {
+    localStorage.removeItem("user");
+  }
+  
 // const { firstName, lastName, email } =user
 
   return (
