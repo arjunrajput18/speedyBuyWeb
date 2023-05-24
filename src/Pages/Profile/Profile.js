@@ -15,10 +15,10 @@ export const Profile = () => {
     setIsLoggedIn(null);
     localStorage.clear();
   };
-  const { firstName, lastName, email } = JSON.parse(
+  const user= JSON.parse(
     localStorage.getItem("user")
   );
-
+const { firstName, lastName, email } =user
 
   return (
     <div>
