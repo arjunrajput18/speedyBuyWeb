@@ -48,7 +48,7 @@ export const Checkout = () => {
     pay.open();
   };
 
-  const { id, name, street, city, state, country, postalCode, MobileNum } =
+  const {  name, street, city, state, country, postalCode, MobileNum } =
     selectedAddress;
 
   return (
