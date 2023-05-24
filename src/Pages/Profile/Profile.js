@@ -15,9 +15,13 @@ export const Profile = () => {
     setIsLoggedIn(null);
     localStorage.clear();
   };
-  const user= JSON.parse(
-    localStorage.getItem("user")
-  );
+  // const user= JSON.parse(
+  //   localStorage.getItem("user")
+  // );
+  var userJson = localStorage.getItem("user");
+if (userJson) {
+  var user = JSON.parse(userJson);
+}
 // const { firstName, lastName, email } =user
 
   return (
