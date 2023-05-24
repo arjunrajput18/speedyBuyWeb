@@ -37,33 +37,36 @@ export const Address = () => {
     addressDispatch({ type: "EDIT_ADDRESS", payload: editId });
     // console.log(editId)
   };
-
+  
   return (
     <>
       <div className="address-card">
-        <p>My Address: </p>
-        <button onClick={HandleNewAddress}>Add New Address</button>
-        <hr></hr>
-        <div>
+      <div className="flex address-btn-heading">
+        <span className="My-Address-heading">My Address: </span>
+
+      </div>
+      
+        <div className="address-info">
           {address.map(
             (
               {  id,name, street, city, state, country, postalCode, MobileNum },
               i
             ) => (
-              <div className="new-added-address" key={i}>
-                <p className="font-bold"> {name}</p>
+              <div className="new-added-address bottom-margin-md" key={id}>
+                <p className="font-bold sm-margin-bottom"> {name}</p>
                 <p>
                   {" "}
                   {street},{city},{state},{country}
                 </p>
                 <p>{postalCode}</p>
                 <p>Phone Number :{MobileNum}</p>
-                <button onClick={() => editHandler(id)}>Edit</button>
-                <button onClick={() => removeHandler(id)}>Remove</button>
+                <button onClick={() => editHandler(id)} className="edit-btn">Edit</button>
+                <button onClick={() => removeHandler(id)} className="remove-btn">Remove</button>
               </div>
             )
           )}
         </div>
+    <button onClick={HandleNewAddress} className="add-new-address-btn">+Add New Address</button>
       </div>
     </>
   );

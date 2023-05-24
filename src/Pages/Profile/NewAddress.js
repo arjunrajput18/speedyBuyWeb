@@ -1,5 +1,7 @@
 import React from "react";
 import "./NewAddress.css";
+// import { RxCross2 } from 'react-icons/rx'
+import {ImCross} from "react-icons/im"
 import { AddressState } from "../../Contexts/Data/AddressContext";
 export const NewAddress = () => {
   const {
@@ -26,9 +28,7 @@ console.log(updatedId,"updatedId")
     e.preventDefault();
   };
   const handleSave = () => {
-    // console.log(saveCondition)
 if(values.name && values.city && values.state && values.country && values.street &&values.postalCode){
-  console.log(saveCondition)
   if (saveCondition) {
     console.log(values)
     const updatedData = address.map((data,i) =>
@@ -58,7 +58,7 @@ if(values.name && values.city && values.state && values.country && values.street
 
   const handleDummyAddress = () => {
     setValues(() => ({
-      id:"2",
+      id:new Date().getTime(),
       name: "Arjunsingh Rajput",
       street: "204, sai jyot, s. n road Mulund WEST",
       city: "MUMBAI",
@@ -73,7 +73,13 @@ if(values.name && values.city && values.state && values.country && values.street
     <div>
       {" "}
       <form className="adress-form-details" onSubmit={handleSubmit}>
-        <div>
+        <div className="address-form-container">
+        <button
+              className="cross-address-btn"
+              onClick={() => setisHideBox(false)}
+            >
+              <ImCross/>
+            </button>
           <p className="text-center top-margin font-bold sm-margin-bottom">
             Add New Address
           </p>

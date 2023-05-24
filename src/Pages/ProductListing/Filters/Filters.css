@@ -135,6 +135,8 @@ input {
     z-index: 1;
     padding-right: 0;
     /* height: fit-content; */
+    height: 100vh;
+    /* overflow-y: scroll; */
     
   }
   .filters-top h2 {
