@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignUp.css";
-import { NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { NavLink,   useNavigate } from "react-router-dom";
 import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { VscEyeClosed,VscEye } from 'react-icons/vsc'
 export const SignUp = () => {

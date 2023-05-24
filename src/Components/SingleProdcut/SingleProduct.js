@@ -1,23 +1,23 @@
 import React from "react";
-import { AiOutlineStar, AiFillHeart,AiOutlineShoppingCart, AiFillStar  } from "react-icons/ai";
-import {BsFillCartCheckFill,BsCartCheck,BsCartPlus} from "react-icons/bs"
+import {  AiFillHeart, AiFillStar  } from "react-icons/ai";
+import {BsCartCheck,BsCartPlus} from "react-icons/bs"
 import "./SingleProduct.css";
 import { DataState } from "../../Contexts/Data/DataContext";
 import { addToCart } from "../../Services/Cart/CartServices";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { addToWishlist, removeFromWishlist } from "../../Services/Wishlist/WishlistServices";
+import { AuthState } from "../../Contexts/Auth/AuthContext";
 // import {DataState} from "../../Contexts/Data/DataContext"
 export const SingleProduct = ({ product }) => {
+  const {token}=AuthState()
   const navigate = useNavigate();
-  
+  let location = useLocation();
   const { state:{wishlist},dispatch } = DataState()
   const {
     _id,
     image,
     rating,
-    reviews,
     size,
-    category,
     itemName,
     oldPrice,
     newPrice,
@@ -64,9 +64,9 @@ export const SingleProduct = ({ product }) => {
           <div className="trending-like-box">
           {/* <h2>hi</h2> */}
 
-            {wishlist.some((data)=>data._id===_id)?<span className="liked" onClick={()=>removeFromWishlist(_id,dispatch)}>
+            {wishlist?.some((data)=>data._id===_id)?<span className="liked" onClick={()=>removeFromWishlist(_id,dispatch)}>
               <AiFillHeart />
-            </span>:<span className="like" onClick={()=>addToWishlist(product,dispatch)}>
+            </span>:<span className="like" onClick={()=>token?addToWishlist(product,dispatch):navigate("/login",{state:{from:location}})}>
               <AiFillHeart />
             </span>}
           </div>
@@ -83,7 +83,7 @@ export const SingleProduct = ({ product }) => {
       {/* {cart?.some((data)=>data._id===product._id)?<NavLink to="/cart"><button className="go-to-cart">Go To Cart <BsCartCheck className="icon-size"/></button></NavLink>:<button className={inStock?"add-to-cart":"go-to-cart"} onClick={() => addToCart(product,dispatch)}>
         {inStock?"Add To Cart":"Out Of Stock" } <BsCartPlus  className="icon-size"/>
       </button>} */}
-      {cart?.some((data)=>data._id===product._id)?<NavLink to="/cart"><button className="go-to-cart">Go To Cart <BsCartCheck className="icon-size"/></button></NavLink>:inStock?<button className={inStock?"add-to-cart":"go-to-cart"} onClick={() => addToCart(product,dispatch)}>
+      {cart?.some((data)=>data._id===product._id)?<NavLink to="/cart"><button className="go-to-cart">Go To Cart <BsCartCheck className="icon-size"/></button></NavLink>:inStock?   <button className={inStock?"add-to-cart":"go-to-cart"} onClick={() =>token?addToCart(product,dispatch):navigate("/login",{state:{from:location}})}>
         Add To Cart <BsCartPlus  className="icon-size"/>
       </button>:<button className="go-to-cart disabled-element" disabled>Out Of Stock</button>}
     </div>

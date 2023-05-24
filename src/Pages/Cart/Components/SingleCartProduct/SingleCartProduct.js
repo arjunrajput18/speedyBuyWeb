@@ -3,7 +3,7 @@ import { RemoveFromCart, moveToWishlist, updatedQtyFromCart } from '../../../../
 import './SingleCartProduct.css';
 
 export const SingleCartProduct = ({ product }) => {
-  const { _id, image, rating, reviews, size, category, itemName, oldPrice, newPrice, discount, isTrending } = product
+  const { _id, image,    itemName, oldPrice, newPrice, discount,  } = product
   const {dispatch } = DataState();
 
 

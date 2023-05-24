@@ -1,4 +1,7 @@
+// import { Navigate } from "react-router-dom";
+
 export const addToCart = async (product, dispatch) => {
+  // Navigate("/login")
   try {
     const response = await fetch("/api/user/cart", {
       method: "POST",
