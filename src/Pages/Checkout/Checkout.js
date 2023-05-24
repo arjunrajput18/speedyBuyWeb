@@ -89,7 +89,7 @@ export const Checkout = () => {
           <p> address details </p>
         </div>
         <div onClick={handleSubmit}>
-          <button className="place-order-button">Place Order</button>
+          <button className="place-order-button cursor-pointer">Place Order</button>
         </div>
       </div>
     </div>

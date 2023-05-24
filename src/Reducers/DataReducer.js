@@ -17,7 +17,7 @@ export const initialState = {
 
 
 export const dataReducer = (state, action) => {
-  console.log(state.cart)
+  // console.log(state.cart)
   switch (action.type) {
 
    

@@ -66,7 +66,7 @@ const totalItems=cart.length
       </div>
 
       <p className='sm-fontsize sm-margin-bottom saved-price-info'>You will save ₹ {(totalOldPrice-totalAmount).toFixed(2)} on this order</p>
-      <NavLink to={"/checkout"}><button className='checkout-btn' onClick={()=>orderDispatch({type:"CHECKOUT",payload:{totalOldPrice,totalAmount,couponDiscount,discount,totalItems}})}>Checkout</button></NavLink>
+      <NavLink to={"/checkout"}><button className='checkout-btn cursor-pointer' onClick={()=>orderDispatch({type:"CHECKOUT",payload:{totalOldPrice,totalAmount,couponDiscount,discount,totalItems}})}>Checkout</button></NavLink>
      {!isHideBox && <Coupon  setIsHideBox={setIsHideBox}  />  }
     </div>
   )
