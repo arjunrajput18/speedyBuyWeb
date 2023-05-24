@@ -1,6 +1,86 @@
-.address-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.address-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  padding: 1rem;
 }
 
+.My-Address-heading {
+  padding: 1rem 0rem;
+  text-align: left;
+  font-weight: bolder;
+  font-size: larger;
+  /* margin-bottom: 5px; */
+  /* border-bottom: 1px solid black; */
+  /* text-decoration: underline; */
+}
+.add-new-address-btn {
+  background-color: #40E0D0;
+  border: 1px solid var(--white);
+  padding: 0.6rem;
+  font-weight: bolder;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  /* margin-bottom: 0.5rem; */
+
+
+  /* cursor: pointer; */
+}
+.add-new-address-btn:hover {
+
+  color: var(--primary);
+  background-color: var(--alice-blue);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  cursor: pointer;
+}
+
+
+.edit-btn{
+    background-color: green;
+    border: 1px solid var(--white);
+    padding: 0.6rem;
+    color: var(--white);
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 0.8rem;
+}
+
+.edit-btn:hover {
+    color: var(--primary);
+    background-color: var(--alice-blue);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+  }
+  
+
+.remove-btn{
+    background-color:red;
+    border-radius: 0.8rem;
+    border: 1px solid var(--white);
+    padding: 0.6rem;
+    color: var(--white);
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    font-weight: bolder;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+}
+.remove-btn:hover {
+    color: var(--primary);
+    background-color: var(--alice-blue);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+  }
+  

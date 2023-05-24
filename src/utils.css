@@ -8,6 +8,9 @@
 .font-bold {
   font-weight: bold;
 }
+.font-bolder{
+  font-weight: bolder;
+}
 .relative{
   position: relative;
 }
@@ -49,6 +52,9 @@
 }
 .justify-between {
   justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
 }
 .justify-center {
   justify-content: center;

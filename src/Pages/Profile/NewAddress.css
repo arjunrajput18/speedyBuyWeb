@@ -1,10 +1,35 @@
 
 .adress-form-details{
-    width: 350px;
+    /* width: 350px; */
+    width: 100%;
     border: solid;
-    margin:2rem ;
-    
-    }
+    /* margin:2rem ; */
+    position: fixed;
+    top:10%;
+    border:solid;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.address-form-container{
+background-color: white;
+width: 350px;
+height: 60vh;
+border: 1px solid #40E0D0 ;
+position: relative;
+
+}
+
+.cross-address-btn{
+    background-color: white;
+    border: none;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+cursor: pointer;
+}
 
 .address-field{
     width: 90%;
@@ -18,11 +43,13 @@
     border: 2px solid lightblue;
     /* background-color: lightblue */
  }
+
  
  .btn-address-save-cancel{
      display: flex;
      justify-content: space-around;
-     margin-bottom: 1rem;
+     /* margin-bottom: 0.5rem; */
+     margin-top: 0.5rem;
  }
  .save-address-btn{
      padding: 0.3rem 0.3rem;

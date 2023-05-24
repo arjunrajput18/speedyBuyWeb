@@ -43,28 +43,32 @@ export const Profile = () => {
           {!toggleBtn && <Address />}
           {toggleBtn && (
             <div className="profile-tab-container">
-              <div>
+            
                 <div>
                   <h2>Profile Details</h2>
                 </div>
-                <div>
-                  <span className="font-bold">Full name:</span>
-                  <span>
+                <div className="main-profile-details">
+                <div className="align-profile-details">
+                  <div className="details-title">Full name:</div>
+                  
+                </div>
+                <div className="text-field">
                     {firstName} {lastName}
-                  </span>
+                  </div>
+                <div className=" align-profile-details">
+                  <div className="details-title">Email:</div>
+                
                 </div>
-                <div>
-                  <span className="font-bold">Email:</span>
-                  <span>{email}</span>
-                </div>
+                
+                <div className="text-field">{email}</div></div>
                 <div>
                   <h2>Account Settings</h2>
                 </div>
                 <div>
-                  <button onClick={logOutHandler}>Log Out</button>
+                  <button onClick={logOutHandler} className="profile-logout-btn">Log Out</button>
                 </div>
               </div>
-            </div>
+           
           )}
         </div>
       </div>
