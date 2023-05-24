@@ -66,7 +66,7 @@ export const Checkout = () => {
             MobileNum,
           } = addressData;
           return (
-            <div className="checkout-innerAddress-container">
+            <div className="checkout-innerAddress-container" key={id}>
               <div
                 className="checkout-address cursor-pointer"
                 key={id}
@@ -75,6 +75,7 @@ export const Checkout = () => {
                 <input
                   type="radio"
                   name="oneAddress"
+                  onChange={() => handleAddress(addressData)}
                   checked={selectedAddress.id === id}
                 />{" "}
                 <span className="font-bold sm-margin-bottom"> {name}</span>

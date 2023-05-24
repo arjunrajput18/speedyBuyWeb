@@ -129,7 +129,7 @@ export const Filters = () => {
 
      
         <div className="ratings-box ">
-        {[1,2,3,4].map((num)=> <label ><input type="radio" className="bottom-margin-md radio-rating"  onChange={()=>handleRangeChange(num)} value={num} name={"group1-rating"}/>{num} <span className="star-color"><AiFillStar/></span> & above </label>)}
+        {[1,2,3,4].map((num)=> <label key={num} ><input type="radio" className="bottom-margin-md radio-rating"  onChange={()=>handleRangeChange(num)} value={num} name={"group1-rating"}/>{num} <span className="star-color"><AiFillStar/></span> & above </label>)}
         </div> 
 
         {/* Sizes */}
