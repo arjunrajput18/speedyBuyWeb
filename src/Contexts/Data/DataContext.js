@@ -1,11 +1,11 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { dataReducer, initialState } from "../../Reducers/DataReducer";
 
 const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
-
+const [loading,setLoading]=useState(true)
 
   const getCategories = async () => {
     try {
@@ -15,6 +15,8 @@ export const DataContextProvider = ({ children }) => {
     }
     catch (e) {
       console.error(e)
+    }finally{
+      setLoading(false)
     }
   }
 
@@ -25,6 +27,8 @@ export const DataContextProvider = ({ children }) => {
       dispatch({ type: "INITIALIZE_PRODUCTS", payload: products });
     } catch (e) {
       console.error(e);
+    }finally{
+      setLoading(false)
     }
 
   }
@@ -42,6 +46,8 @@ export const DataContextProvider = ({ children }) => {
     
     } catch (error) {
       console.log(error)
+    }finally{
+      setLoading(false)
     }
   }
   useEffect(() => {
@@ -50,8 +56,8 @@ export const DataContextProvider = ({ children }) => {
     getCarts()
   }, [])
 
-  return <DataContext.Provider value={{ state, dispatch }}>
-    {children}
+  return <DataContext.Provider value={{ state, dispatch }}>{loading?<h1>loading</h1>:<> {children}</>}
+   
   </DataContext.Provider>
 }
 
