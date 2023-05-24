@@ -9,7 +9,7 @@ export const Profile = () => {
   const { setIsLoggedIn } = AuthState();
   const [toggleBtn, setToggleBtn] = useState(true);
   const {isHideBox, setisHideBox}=AddressState()
- 
+//  const [loading,setLoading]=useState(true)
  
   const logOutHandler = () => {
     setIsLoggedIn(null);
@@ -18,7 +18,7 @@ export const Profile = () => {
   const user= JSON.parse(
     localStorage.getItem("user")
   );
-const { firstName, lastName, email } =user
+// const { firstName, lastName, email } =user
 
   return (
     <div>
@@ -53,14 +53,14 @@ const { firstName, lastName, email } =user
                   
                 </div>
                 <div className="text-field">
-                    {firstName} {lastName}
+                    {user?.firstName} {user?.lastName}
                   </div>
                 <div className=" align-profile-details">
                   <div className="details-title">Email:</div>
                 
                 </div>
                 
-                <div className="text-field">{email}</div></div>
+                <div className="text-field">{user?.email}</div></div>
                 <div>
                   <h2>Account Settings</h2>
                 </div>
