@@ -3,7 +3,7 @@ import {  useNavigate } from "react-router-dom";
 import { DataState } from "../../Contexts/Data/DataContext";
 
 export const SingleCategory = ({ category }) => {
-  const { _id, categoryName, description, img } = category;
+  const {  categoryName, description, img } = category;
   const navigate = useNavigate();
   const { dispatch } = DataState();
 

@@ -2,31 +2,32 @@ import React from "react";
 import { AiFillStar, AiFillHeart } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import "./ProductDetail.css";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { DataState } from "../../Contexts/Data/DataContext";
 import { addToCart } from "../../Services/Cart/CartServices";
 import {
   addToWishlist,
   removeFromWishlist,
 } from "../../Services/Wishlist/WishlistServices";
+import { AuthState } from "../../Contexts/Auth/AuthContext";
 
 export const ProductDetail = () => {
   const { id } = useParams();
-
+const {token}=AuthState()
   const {
     state: { products, cart, wishlist },
     dispatch,
   } = DataState();
+  let location = useLocation();
 
   const product = products?.find((product) => product._id === id);
   // console.log(product, "detail")
+  const navigate=useNavigate()
   const {
     _id,
     image,
     rating,
-    reviews,
     size,
-    category,
     itemName,
     oldPrice,
     newPrice,
@@ -121,8 +122,8 @@ export const ProductDetail = () => {
             </NavLink>
           ) : (
             <button
-              className="add-to-cart sm-fontsize"
-              onClick={() => addToCart(product, dispatch)}
+              className="add-to -cart sm-fontsize"
+              onClick={() =>token?addToCart(product, dispatch):navigate("/login",{state:{ from: location }})}
             >
               Add To Cart
             </button>

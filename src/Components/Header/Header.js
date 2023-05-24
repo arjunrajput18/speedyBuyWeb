@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 import headerImg from './Images/head-img-6.png'
-import { NavLink, useNavigate,  } from 'react-router-dom'
+import {  useNavigate,  } from 'react-router-dom'
 import  {DataState} from "../../Contexts/Data/DataContext"
 export const Header = () => {
   const {dispatch}=DataState()

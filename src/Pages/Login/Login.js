@@ -68,6 +68,8 @@ export const Login = () => {
       localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object[obj,obj]
       localStorage.setItem("token", encodedToken);
       // console.log(location);
+      console.log("login guest click");
+      console.log(location)
       navigate(location?.state?.from?.pathname);
     } catch (error) {
       console.log(error);
