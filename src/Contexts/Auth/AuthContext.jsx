@@ -11,7 +11,7 @@ const[isLoggedIn,setIsLoggedIn]=useState(token)
 
 
   return (
-    <AuthContext.Provider value={{isLoggedIn,setIsLoggedIn,token}}>
+    <AuthContext.Provider value={{isLoggedIn,setIsLoggedIn}}>
         {children}
     </AuthContext.Provider>
   )

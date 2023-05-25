@@ -1,13 +1,13 @@
 // import { Navigate } from "react-router-dom";
 
-export const addToCart = async (product, dispatch) => {
+export const addToCart = async (product, dispatch,token) => {
   // Navigate("/login")
   try {
     const response = await fetch("/api/user/cart", {
       method: "POST",
       body: JSON.stringify({ product }),
       headers: {
-        authorization: localStorage.getItem("token"),
+        authorization: token,
       },
     });
     const data = await response.json();
@@ -17,12 +17,12 @@ export const addToCart = async (product, dispatch) => {
   }
 };
 
-export const RemoveFromCart = async (_id, dispatch) => {
+export const RemoveFromCart = async (_id, dispatch,token) => {
   try {
     const response = await fetch(`api/user/cart/${_id}`, {
       method: "DELETE",
       headers: {
-        authorization: localStorage.getItem("token"),
+        authorization:token,
       },
     });
     console.log(response);
@@ -36,12 +36,12 @@ export const RemoveFromCart = async (_id, dispatch) => {
   }
 };
 
-export const moveToWishlist = async (product, dispatch, _id) => {
+export const moveToWishlist = async (product, dispatch, _id,token) => {
   try {
     const response = await fetch(`api/user/wishlist/`, {
       method: "POST",
       headers: {
-        authorization: localStorage.getItem("token"),
+        authorization:token,
       },
       body: JSON.stringify({ product }),
     });
@@ -54,14 +54,14 @@ export const moveToWishlist = async (product, dispatch, _id) => {
   }
 };
 
-export const updatedQtyFromCart = async (product,_id,dispatch,type) => {
+export const updatedQtyFromCart = async (product,_id,dispatch,type,token) => {
   try {
     const response= await fetch(
       `api/user/cart/${_id}`,{
             method:"POST",
            body:JSON.stringify({ action: {type}}) ,
            headers: {
-            authorization: localStorage.getItem("token"),
+            authorization:token,
           },
           },
       );

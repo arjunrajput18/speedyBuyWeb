@@ -3,6 +3,7 @@ import "./SignUp.css";
 import { NavLink,   useNavigate } from "react-router-dom";
 import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { VscEyeClosed,VscEye } from 'react-icons/vsc'
+import { DataState } from "../../Contexts/Data/DataContext";
 export const SignUp = () => {
   const [user, setUser] = useState({
     firstName: "",
@@ -12,7 +13,7 @@ export const SignUp = () => {
   });
   const { setIsLoggedIn } = AuthState();
   const [toggleEye,setToggleEye]=useState(false)
-   
+  const { dispatch } = DataState();
   // console.log(user)
 // const location=useLocation();
 const navigate=useNavigate()
@@ -32,7 +33,8 @@ const navigate=useNavigate()
         setIsLoggedIn(true);
         // console.log(createdUser);
         localStorage.setItem("user",JSON.stringify(createdUser))
-        localStorage.setItem("token",encodedToken)
+        // localStorage.setItem("token",encodedToken)
+        dispatch({type:"SET_TOKEN",payload:encodedToken});
         navigate("/productlisting")
       } catch (error) {
         console.log(error);

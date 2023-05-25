@@ -1,10 +1,10 @@
-export const addToWishlist=async (product,dispatch)=>{
+export const addToWishlist=async (product,dispatch,token)=>{
     try {
       const response=await fetch("/api/user/wishlist",{
         method:"POST",
         body:JSON.stringify({product}),
         headers:{
-          authorization:localStorage.getItem("token"),
+          authorization:token,
         }
       })
 const data=await response.json();
@@ -15,12 +15,12 @@ const data=await response.json();
     }
   }
 
-  export const removeFromWishlist=async  (_id,dispatch)=>{
+  export const removeFromWishlist=async  (_id,dispatch,token)=>{
     try {
       const response=await fetch(`/api/user/wishlist/${_id}`,{
         method:"DELETE",
         headers:{
-          authorization:localStorage.getItem("token")
+          authorization:token
         }
       })
       const data=await response.json();
