@@ -1,21 +1,40 @@
 // import { Navigate } from "react-router-dom";
 
+import  axios  from "axios";
+
 export const addToCart = async (product, dispatch) => {
   // Navigate("/login")
-  try {
-    const response = await fetch("/api/user/cart", {
-      method: "POST",
-      body: JSON.stringify({ product }),
-      headers: {
-        authorization: localStorage.getItem("token"),
-      },
-    });
-    const data = await response.json();
-    dispatch({ type: "CART_OPERATIONS", payload: data.cart });
-  } catch (error) {
-    console.log(error);
-  }
+//   try {
+//     const response = await Axios( {
+//       method: "POST",
+//       url:"/api/user/cart",
+//       body: JSON.stringify({ product }),
+//       headers: {
+//         authorization: localStorage.getItem("token"),
+//       },
+//     });
+//     const data = await response.json();
+//     dispatch({ type: "CART_OPERATIONS", payload: data.cart });
+//   } catch (error) {
+//     console.log(error);
+//   }
+try {
+  const response = await axios({
+    method: 'POST',
+    url: '/api/user/cart',
+    data: JSON.stringify({ product }),
+    headers: {
+      authorization: localStorage.getItem('token'),
+    },
+  });
+
+  const data = response.data;
+  dispatch({ type: 'CART_OPERATIONS', payload: data.cart });
+} catch (error) {
+  console.log(error);
+}
 };
+
 
 export const RemoveFromCart = async (_id, dispatch) => {
   try {
