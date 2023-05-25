@@ -3,45 +3,47 @@ import { NavLink, useLocation } from "react-router-dom";
 import "./login.css";
 import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { useNavigate } from "react-router";
-import { VscEyeClosed,VscEye } from 'react-icons/vsc'
+import { VscEyeClosed, VscEye } from "react-icons/vsc";
+import { DataState } from "../../Contexts/Data/DataContext";
 export const Login = () => {
   const { setIsLoggedIn } = AuthState();
   const location = useLocation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [toggleEye,setToggleEye]=useState(false)
+  const [toggleEye, setToggleEye] = useState(false);
+  const { dispatch } = DataState();
+
   const loginHandler = async () => {
-   if(email && password){
-    const creds = {
-      email,
-      password,
-    };
-    
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify(creds),
-      });
-// console.log(response)
-      const  { foundUser, encodedToken }  = await response.json();
-      if(response.status===200){
-        // console.log("a")
-        setIsLoggedIn(true);
-        localStorage.setItem("user", JSON.stringify(foundUser));
-        localStorage.setItem("token", encodedToken);
-      navigate(location?.state?.from?.pathname);
-      
-   
-        // location?.state?.from?.pathname
-      }else{
-        alert(response.statusText)
+    if (email && password) {
+      const creds = {
+        email,
+        password,
+      };
+
+      try {
+        const response = await fetch("/api/auth/login", {
+          method: "POST",
+          body: JSON.stringify(creds),
+        });
+        // console.log(response)
+        const { foundUser, encodedToken } = await response.json();
+        if (response.status === 200) {
+          // console.log("a")
+          setIsLoggedIn(true);
+          localStorage.setItem("user", JSON.stringify(foundUser));
+          // localStorage.setItem("token", encodedToken);
+          dispatch({type:"SET_TOKEN",payload:encodedToken});
+          navigate(location?.state?.from?.pathname);
+
+          // location?.state?.from?.pathname
+        } else {
+          alert(response.statusText);
+        }
+      } catch (error) {
+        console.log(error);
       }
-     
-    } catch (error) {
-      console.log(error);
     }
-   }
 
     // console.log(email)
   };
@@ -66,10 +68,11 @@ export const Login = () => {
       // console.log(foundUser.email)
       setIsLoggedIn(true);
       localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object[obj,obj]
-      localStorage.setItem("token", encodedToken);
+      // localStorage.setItem("token", encodedToken);
+      dispatch({type:"SET_TOKEN",payload:encodedToken});
       // console.log(location);
       console.log("login guest click");
-      console.log(location)
+      console.log(location);
       navigate(location?.state?.from?.pathname);
     } catch (error) {
       console.log(error);
@@ -95,17 +98,22 @@ export const Login = () => {
                 value={email}
               />
             </div>
-            <div className="login-password relative" >
+            <div className="login-password relative">
               <input
-                type={toggleEye?"text":"password"}
+                type={toggleEye ? "text" : "password"}
                 placeholder="password"
                 className="input-password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
-              { password && <p className="eye-icon" onClick={()=>setToggleEye(!toggleEye)}>
-                { toggleEye? <VscEye/>:<VscEyeClosed/>}
-            </p>}
+              {password && (
+                <p
+                  className="eye-icon"
+                  onClick={() => setToggleEye(!toggleEye)}
+                >
+                  {toggleEye ? <VscEye /> : <VscEyeClosed />}
+                </p>
+              )}
             </div>
           </div>
 

@@ -14,6 +14,7 @@ import { Login } from "./Pages/Login/Login";
 import { SignUp } from "./Pages/Login/SignUp";
 import { Profile } from "./Pages/Profile/Profile";
 import { Checkout } from "./Pages/Checkout/Checkout";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -52,7 +53,15 @@ function App() {
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/checkout" element={<Checkout/>} />
       </Routes>
-
+      <ToastContainer position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover />
     </div>
   );
 }
