@@ -68,7 +68,7 @@ export const Login = () => {
       // console.log(foundUser.email)
       setIsLoggedIn(true);
       localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object[obj,obj]
-      // localStorage.setItem("token", encodedToken);
+      const encoded=localStorage.setItem("token", encodedToken);
       dispatch({type:"SET_TOKEN",payload:encodedToken});
       // console.log(location);
       console.log("login guest click");

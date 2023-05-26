@@ -1,5 +1,16 @@
+
+var userToken = localStorage.getItem("token");
+console.log(userToken,"userToken")
+if (userToken) {
+  var token = userToken;
+} else {
+   token=""
+}
+
+console.log(token,"tokebnnnnn")
+
 export const initialState = {
-  token: "",
+  token:token,
   filters: {
     searchValue: null,
     sort: null,
