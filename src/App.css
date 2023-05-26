@@ -9,3 +9,6 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #f8f8f8;
 }
+#toast-container > .toast {
+  width: 1200px; /* width: 100% */
+}
