@@ -3,11 +3,13 @@ import "./Checkout.css";
 import { useOrder } from "../../Contexts/Data/OrderContext";
 import { DataState } from "../../Contexts/Data/DataContext";
 import { AddressState } from "../../Contexts/Data/AddressContext";
+import { useNavigate } from "react-router-dom";
+
 export const Checkout = () => {
   const {
     state: { cart },
   } = DataState();
-
+  const navigate = useNavigate();
   const { orderState } = useOrder();
   const {
     addressState: { address },
@@ -48,9 +50,19 @@ export const Checkout = () => {
     pay.open();
   };
 
-  const {  name, street, city, state, country, postalCode, MobileNum } =
-    selectedAddress;
+ const handlePlaceorder=()=>{
+  if(selectedAddress){
+    handleSubmit()
+  }else{
+    navigate("/profile")
+  }
+ }
 
+  // if(selectedAddress){
+  //   const {  name, street, city, state, country, postalCode, MobileNum } =
+  //   selectedAddress;
+  // }
+  
   return (
     <div className="checkout-main-container">
       <div>
@@ -136,19 +148,19 @@ export const Checkout = () => {
         <div className="text-center border-bottom border-top padding-top-bottom-5">
           <h3>DELIVER TO</h3>
         </div>
-        <div className="padding-bottom-5">
-          <div>
+      {selectedAddress && <div className="padding-bottom-5">
+         <div>
             {" "}
-            <span className="font-bold sm-margin-bottom"> {name}</span>
+            <span className="font-bold sm-margin-bottom"> {selectedAddress.name}</span>
             <p>
               {" "}
-              {street},{city},{state},{country}
+              {selectedAddress.street},{selectedAddress.city},{selectedAddress.state},{selectedAddress.country}
             </p>
-            <p>{postalCode}</p>
-            <p>Phone Number :{MobileNum}</p>{" "}
+            <p>{selectedAddress.postalCode}</p>
+            <p>Phone Number :{selectedAddress.MobileNum}</p>{" "}
           </div>
-        </div>
-        <div onClick={handleSubmit}>
+        </div>}
+        <div onClick={handlePlaceorder}>
           <button className="place-order-button cursor-pointer">
             Place Order
           </button>

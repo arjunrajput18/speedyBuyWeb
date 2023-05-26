@@ -56,13 +56,13 @@
 }
 .profile-tab-container{
    padding: 2rem;
-   height: 40vh;
+   height: 50vh;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
 }
 .profile-logout-btn{
-  background-color: #40E0D0;
+  background-color: red;
   border: 1px solid var(--white);
   padding: 0.6rem;
   font-weight: bolder;
@@ -81,6 +81,39 @@
   color: var(--primary);
   cursor: pointer;
 }
+.profile-Address-btn{
+  background-color: #40E0D0;
+  border: 1px solid var(--white);
+  padding: 0.6rem;
+  font-weight: bolder;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  
+  margin: 1rem 0rem;
+
+}
+.navlink-address-setting{
+  text-decoration: none;
+color:var(--primary);
+}
+.navlink-address-setting:hover{
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+.profile-Address-btn:hover{
+  color: var(--primary);
+  background-color: var(--alice-blue);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  cursor: pointer;
+}
+
 
 
 .main-profile-details{
