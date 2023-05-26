@@ -5,6 +5,7 @@ import { Address } from "./Address";
 import { NewAddress } from "./NewAddress";
 import { AddressState } from "../../Contexts/Data/AddressContext";
 import { DataState } from "../../Contexts/Data/DataContext";
+import { NavLink } from "react-router-dom";
 export const Profile = () => {
 
   const { setIsLoggedIn } = AuthState();
@@ -72,6 +73,9 @@ export const Profile = () => {
                 <div className="text-field">{user?.email}</div></div>
                 <div>
                   <h2>Account Settings</h2>
+                </div>
+                <div>
+                <NavLink className={"navlink-address-setting"}><button onClick={()=>setToggleBtn(!toggleBtn)} className="profile-Address-btn">Address Setting</button></NavLink>
                 </div>
                 <div>
                   <button onClick={logOutHandler} className="profile-logout-btn">Log Out</button>

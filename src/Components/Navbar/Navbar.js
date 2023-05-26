@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { AiOutlineMenu,  AiOutlineShoppingCart, AiOutlineHeart, AiOutlineUser } from 'react-icons/ai'
 import { MdOutlineLocalMall } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
+import logo from "../../Assets/shopping-cart.png"
 import './Navbar.css'
 import { NavLink,  useNavigate } from 'react-router-dom'
+
 import { DataState } from '../../Contexts/Data/DataContext'
 // import { AuthState } from '../../Contexts/Auth/AuthContext'
 
@@ -30,7 +32,7 @@ export const Navbar = () => {
   return (
     <>
       <nav className='navigation flex justify-between align-center'>
-        <h1 className='navigation-header'><NavLink className="header-link" to="/" >SpeedyBuy</NavLink></h1>
+        <h1 className='navigation-header'><NavLink className="header-link flex align-center" to="/" ><img src={logo} alt='logo'  width={40}/>  <span className='margin-left-1'> SpeedyBuy</span></NavLink></h1>
             <div>
             <input type="text" list="search-products" className='search-bar' placeholder='Search Product' onChange={handleSearchProduct} />
             <span></span>
