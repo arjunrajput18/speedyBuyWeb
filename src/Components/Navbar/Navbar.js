@@ -14,7 +14,7 @@ export const Navbar = () => {
   const [menuClass, setMenuClass] = useState("hide-menu");
   // const [searchBar, setSearchBar] = useState(false);
 
-  const { state: { products }, dispatch } = DataState()
+  const { state: { products,cart,wishlist }, dispatch } = DataState()
   const navigate = useNavigate();
 
   const handleMenuClick = (data) => {
@@ -49,24 +49,25 @@ export const Navbar = () => {
         }
 
       
-
+{/* {mobile view} */}
         <ul className={menuClass}>
           {/* <li className='menu-item'><NavLink onClick={() => setSearchBar(prev => !prev)} className="nav-link">{searchBar ? <RxCross1 /> : <AiOutlineSearch />}</NavLink></li> */}
 
           <li className='menu-item'>
             <NavLink className="nav-link" to="/productlisting"><MdOutlineLocalMall /></NavLink>
           </li>
-          <li className='menu-item'><NavLink to="/wishlist" className="nav-link"><AiOutlineHeart /></NavLink></li>
-          <li className='menu-item'><NavLink to="/cart" className="nav-link"><AiOutlineShoppingCart /></NavLink></li>
+          <li className='menu-item menu-item-cart'><NavLink to="/wishlist" className="nav-link"><AiOutlineHeart /><span className='cart-length'>{wishlist?.length}</span></NavLink></li>
+          <li className='menu-item menu-item-cart'><NavLink to="/cart" className="nav-link"><AiOutlineShoppingCart /><span className='cart-length'>{cart?.length}</span></NavLink></li>
           <li className='menu-item'><NavLink to="/profile" className="nav-link"><AiOutlineUser /></NavLink></li>
         </ul>
-
+{/* {desktop view} */}
         <ul className='menus-md' >
           {/* <li className='menu-item'><NavLink onClick={() => setSearchBar(prev => !prev)} className="nav-link">{searchBar ? <RxCross1 /> : <AiOutlineSearch />}</NavLink></li> */}
           <li className='menu-item'><NavLink className="nav-link" to="/productlisting" ><MdOutlineLocalMall /></NavLink></li>
-          <li className='menu-item'><NavLink to="/wishlist" className="nav-link"><AiOutlineHeart /></NavLink></li>
-          <li className='menu-item'><NavLink to="/cart" className="nav-link"><AiOutlineShoppingCart /></NavLink></li>
+          <li className='menu-item'><NavLink to="/wishlist" className="nav-link"><AiOutlineHeart /><span className='cart-length'>{wishlist?.length}</span></NavLink></li>
+          <li className='menu-item'><NavLink to="/cart" className="nav-link"><AiOutlineShoppingCart /><span className='cart-length'>{cart?.length}</span></NavLink></li>
           <li className='menu-item'><NavLink to="/profile" className="nav-link"><AiOutlineUser /></NavLink></li>
+       
         </ul>
 
       </nav>

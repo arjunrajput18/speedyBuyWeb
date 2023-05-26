@@ -81,7 +81,7 @@
   font-size: 0.95rem;
   padding: 0.1rem;
   border: none;
-  background-color: var(--white);
+  background-color: #f8f8f8;
   color: var(--red);
   font-weight: bold;
   border-bottom: 1px solid var(--white);
@@ -96,6 +96,14 @@
 }
 .move-to-wishlist {
   color: var(--primary);
+}
+.cart-like-btn{
+  border: none;
+  background-color: #f8f8f8;
+}
+.cart-like-btn:hover{
+  border: none;
+  background-color: #f8f8f8;
 }
 
 @media (min-width: 720px) {
