@@ -27,7 +27,7 @@ export const RemoveFromCart = async (_id, dispatch,token) => {
     });
     console.log(response);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     // const filterCart=cart.filter((data)=>data._id!== _id)
     //
     dispatch({ type: "CART_OPERATIONS", payload: data.cart });
@@ -48,7 +48,7 @@ export const moveToWishlist = async (product, dispatch, _id,token) => {
     const data = await response.json();
     console.log(data);
     dispatch({ type: "WISHLIST_OPERATION", payload: data.wishlist });
-    RemoveFromCart(_id, dispatch);
+    RemoveFromCart(_id, dispatch,token);
   } catch (error) {
     console.log(error);
   }
@@ -65,7 +65,7 @@ export const updatedQtyFromCart = async (product,_id,dispatch,type,token) => {
           },
           },
       );
-    console.log(response)
+    // console.log(response)
     const data=await response.json()
     console.log(data);
     dispatch({ type: "UPDATE_QTY_IN_CART", payload: data.cart });

@@ -115,7 +115,7 @@ export const dataReducer = (state, action) => {
     case "UPDATE_QTY_IN_CART":
       return {
         ...state,
-        cart: [...action.payload],
+        cart: action.payload,
       };
     case "SET_TOKEN":
       return {

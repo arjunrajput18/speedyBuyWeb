@@ -13,12 +13,12 @@ export const Cart = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const cartHasValue = cart.length;
+  // const cartHasValue =;
   return (
     <>
-      {cart.length > 0 ? (
+      {cart?.length > 0 ? (
         <div>
-          <h2 className="text-center top-margin">My Cart({cartHasValue})</h2>}
+          <h2 className="text-center top-margin">My Cart({ cart?.length})</h2>
           <div className="cart-main">
             <div className="cart-container">
               {cart?.map((product) => (

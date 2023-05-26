@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillStar, AiFillHeart } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import "./ProductDetail.css";
@@ -9,17 +9,20 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "../../Services/Wishlist/WishlistServices";
-import { AuthState } from "../../Contexts/Auth/AuthContext";
+
+import { loginTocontinue, remove, success } from "../../Services/Toast/ToastServices";
 
 export const ProductDetail = () => {
   const { id } = useParams();
-const {token}=AuthState()
+  const {
+    state: { token },
+  } = DataState();
   const {
     state: { products, cart, wishlist },
     dispatch,
   } = DataState();
   let location = useLocation();
-
+const [isDisabled,setISDisabled]=useState(false)
   const product = products?.find((product) => product._id === id);
   // console.log(product, "detail")
   const navigate=useNavigate()
@@ -38,6 +41,44 @@ const {token}=AuthState()
     fewLeft,
     description,
   } = product;
+
+
+
+
+  const handleAddToCart=()=>{
+    setISDisabled(true)
+    if(token){
+      addToCart(product, dispatch, token, navigate, location)
+      success("Added To Cart!")
+      setTimeout(()=>setISDisabled(false),1500) 
+    }else{
+      navigate("/login",{state:{from :location}})
+      loginTocontinue("Login To Continue")
+
+    }
+  }
+  const handleAddToWishlist=()=>{
+    setISDisabled(true)
+    if(token){
+      addToWishlist(product,dispatch,token)
+      success("Added To Wishlist!")
+      setTimeout(()=>setISDisabled(false),1500) 
+    }else{
+      navigate("/login",{state:{from :location}})
+      loginTocontinue("Login To Continue")
+    }
+  }
+
+
+  const handleRemoveFromWishlist=()=>{
+    if(token){
+      removeFromWishlist(_id, dispatch, token)
+      remove("Removed from Wishlist!")
+    }
+  }
+
+
+   
   return (
     <div className="product-detail-main-container">
     <div className="product-detail-container flex justify-center align-center wrap">
@@ -53,17 +94,17 @@ const {token}=AuthState()
       <div className="product-details flex direction-column justify-between">
         <div className="flex justify-between ">
           <h2 className="font-1-3 header-md">{itemName}</h2>
-          {wishlist.some((product) => product._id === _id) ? (
+          {token && wishlist.some((product) => product._id === _id) ? (
             <span
               className="liked"
-              onClick={() => removeFromWishlist(_id, dispatch)}
+              onClick={handleRemoveFromWishlist}
             >
               <AiFillHeart />
             </span>
           ) : (
             <span
               className="like"
-              onClick={() => addToWishlist(product, dispatch)}
+              onClick={handleAddToWishlist}
             >
               <AiFillHeart />
             </span>
@@ -114,7 +155,7 @@ const {token}=AuthState()
         </div>
 
         <div className="top-margin">
-          {cart.some((data) => data._id === _id) ? (
+          {token && cart.some((data) => data._id === _id) ? (
             <NavLink to="/cart">
               <button className="go-to-cart">
                 Go To Cart <BsCartCheck className="icon-size" />
@@ -122,15 +163,16 @@ const {token}=AuthState()
             </NavLink>
           ) : (
             <button
-              className="add-to -cart sm-fontsize"
-              onClick={() =>token?addToCart(product, dispatch):navigate("/login",{state:{ from: location }})}
+              className="add-to-cart sm-fontsize"
+              onClick={handleAddToCart}
+              disabled={isDisabled}
             >
               Add To Cart
             </button>
           )}
         </div>
         <div className="top-margin margin-bottom-1">
-          {wishlist.some(data=>data._id===_id)?<NavLink to={"/wishlist"}><button className="go-to-cart liked">Go To Wishlist <AiFillHeart /></button></NavLink>:<button onClick={()=>addToWishlist(product, dispatch)} className="add-to-cart sm-fontsize like">Add To Wishlist <AiFillHeart /></button>}
+          {token && wishlist.some(data=>data._id===_id)?<NavLink to={"/wishlist"}><button className="go-to-cart liked">Go To Wishlist <AiFillHeart /></button></NavLink>:<button onClick={handleAddToWishlist} className="add-to-cart sm-fontsize like" disabled={isDisabled}>Add To Wishlist <AiFillHeart /></button>}
         </div>
       </div>
     </div>

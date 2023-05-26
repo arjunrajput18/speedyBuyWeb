@@ -1,5 +1,8 @@
 import "./App.css";
 import "./utils.css";
+import { injectStyle } from "react-toastify/dist/inject-style";
+
+// CALL IT ONCE IN YOUR APP
 
 import { Home } from "./Pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
@@ -17,6 +20,7 @@ import { Checkout } from "./Pages/Checkout/Checkout";
 import { ToastContainer } from "react-toastify";
 
 function App() {
+  injectStyle();
   return (
     <div className="App">
       <Navbar />

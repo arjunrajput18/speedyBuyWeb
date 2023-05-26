@@ -4,10 +4,10 @@ import './SingleCartProduct.css';
 
 export const SingleCartProduct = ({ product }) => {
   const { _id, image,    itemName, oldPrice, newPrice, discount,  } = product
-  const {dispatch } = DataState();
+  const {dispatch,state:{token} } = DataState();
 
 
-const qtyHandler=(type)=>updatedQtyFromCart(product,_id,dispatch,type)
+const qtyHandler=(type)=>updatedQtyFromCart(product,_id,dispatch,type,token)
 
   return (
     <div className="cart-product-card ">
@@ -30,8 +30,8 @@ const qtyHandler=(type)=>updatedQtyFromCart(product,_id,dispatch,type)
         </div>
       </div>
       <div className='remove-operations'>
-        <button className='remove-product ' onClick={()=>RemoveFromCart(_id,dispatch)}>Remove</button>
-        <button className='move-to-wishlist'onClick={()=>moveToWishlist(product,dispatch,_id)}>Move To Wishlist</button>
+        <button className='remove-product ' onClick={()=>RemoveFromCart(_id,dispatch,token)}>Remove</button>
+        <button className='move-to-wishlist'onClick={()=>moveToWishlist(product,dispatch,_id,token)}>Move To Wishlist</button>
       </div>
     </div>
   )

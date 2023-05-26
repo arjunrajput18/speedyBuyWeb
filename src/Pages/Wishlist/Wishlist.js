@@ -14,8 +14,8 @@ export const Wishlist = () => {
   })
   return (
     <>
-{wishlist.length>0?<div>
-<h2 className='text-center top-margin'>My Wishlist({wishlist.length})</h2>
+{wishlist?.length>0?<div>
+<h2 className='text-center top-margin'>My Wishlist({wishlist?.length})</h2>
       <div className='wishlist-container'>
         {
           wishlist?.map(product => <SingleProduct key={product._id} product={product} />)
