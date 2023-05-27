@@ -130,13 +130,14 @@ input {
 
   .filters-box {
     display: flex !important ;
-    position: sticky;
-    top: 0px;
+    position: fixed;
+    top: 10%;
     z-index: 1;
     padding-right: 0;
     /* height: fit-content; */
     height: 90vh;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
+    width: 15rem;
     
   }
   .filters-top h2 {

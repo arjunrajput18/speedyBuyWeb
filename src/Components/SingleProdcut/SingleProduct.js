@@ -45,8 +45,8 @@ export const SingleProduct = ({ product }) => {
   } = DataState();
 
   const handleProductClick =async  (_id) => {
-   const data= await ProductDetailsServices(_id)
-   setProduct(data)
+  //  const data= await ProductDetailsServices(_id)
+  //  setProduct(data)
     navigate(`/product/${_id}`);
   };
 

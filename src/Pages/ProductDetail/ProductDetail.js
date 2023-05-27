@@ -24,43 +24,33 @@ export const ProductDetail = () => {
     state: { token },
   } = DataState();
   const {
-    state: {  cart, wishlist },firstproduct,
+    state: {  cart, wishlist,products },firstproduct,loading,setLoading ,
     dispatch,
   } = DataState();
   let location = useLocation();
   const [isDisabled, setISDisabled] = useState(false);
-  const [product, setProduct] = useState(firstproduct);
+  // const [product, setProduct] = useState();
 
-  const handleProduct = async () => {
-    const data = await ProductDetailsServices(id);
-    setProduct(data);
-  };
+  // const handleProduct = async () => {
+  //   const data = await ProductDetailsServices(id);
+  //   setProduct(data);
+  // };
 
-  useEffect(() => {
-    handleProduct();
-  }, []);
+  // useEffect(() => {
+    // setLoading(true)
+    // handleProduct();
+    // console.log("handleProduct")
+// setTimeout(()=>{setLoading(false)},500)
+  // }, []);
   // const product=await ProductDetailsServices(id)
   // console.log(product, "prod");
 
   // const product = products?.find((product) => product._id === id);
   // console.log(product, "detail")
   const navigate = useNavigate();
-  const {
-    _id,
-    image,
-    rating,
-    size,
-    itemName,
-    oldPrice,
-    newPrice,
-    discount,
-    isTrending,
-    inStock,
-    delivery_time,
-    fewLeft,
-    description,
-  } = product;
-  console.log(rating, "rating");
+ 
+  const product=products?.find((prod)=>prod?.id===id) || {}
+
 
   const handleAddToCart = () => {
     setISDisabled(true);
@@ -88,30 +78,31 @@ export const ProductDetail = () => {
   const handleRemoveFromWishlist = () => {
     setISDisabled(true);
     if (token) {
-      removeFromWishlist(_id, dispatch, token);
+      removeFromWishlist(product._id, dispatch, token);
       remove("Removed from Wishlist!");
       setTimeout(() => setISDisabled(false), 1500);
     }
   };
 
   return (
-    <div className="product-detail-main-container">
+    <>{
+      product && <div className="product-detail-main-container">
       <div className="product-detail-container flex justify-center align-center wrap">
         <div className="detail-img-box">
-          {isTrending && (
+          {product.isTrending && (
             <span className="product-details-trending">Trending</span>
           )}
-          <img src={image} alt={itemName} className="detail-img" />
+          <img src={product.image} alt={product.itemName} className="detail-img" />
           <div className="detail-star-rating rating-star ">
             <AiFillStar className="star-color-productDetail" />
-            <span>{rating}</span>
+            <span>{product.rating}</span>
           </div>
         </div>
 
         <div className="product-details flex direction-column justify-between">
           <div className="flex justify-between ">
-            <h2 className="font-1-3 header-md">{itemName}</h2>
-            {token && wishlist.some((product) => product._id === _id) ? (
+            <h2 className="font-1-3 header-md">{product.itemName}</h2>
+            {token && wishlist.some((product) => product._id ===product. _id) ? (
               <button
                 className="cart-like-btn liked"
                 onClick={handleRemoveFromWishlist}
@@ -130,13 +121,13 @@ export const ProductDetail = () => {
             )}
           </div>
           <div>
-            <span className="new-price sm-fontsize">₹{newPrice}</span>
+            <span className="new-price sm-fontsize">₹{product.newPrice}</span>
             <span className="old-price right-margin sm-fontsize">
-              ₹{oldPrice}
+              ₹{product.oldPrice}
             </span>
-            <span className="discount sm-fontsize">{discount}% OFF</span>
+            <span className="discount sm-fontsize">{product.discount}% OFF</span>
           </div>
-          {fewLeft && (
+          {product.fewLeft && (
             <p className="few-left font-extra-sm font-bold-md">
               {" "}
               Hurry, Only Few Left!
@@ -147,7 +138,7 @@ export const ProductDetail = () => {
               Availability :{" "}
             </span>{" "}
             <span className="in-stock font-md sm-fontsize">
-              {inStock ? (
+              {product.inStock ? (
                 "In Stock"
               ) : (
                 <span className="font-sm font-md" style={{ color: "red" }}>
@@ -160,29 +151,29 @@ export const ProductDetail = () => {
             <span className="right-margin font-sm font-bold font-md">
               Description :{" "}
             </span>
-            <span className="sm-fontsize line-height">{description}</span>
+            <span className="sm-fontsize line-height">{product.description}</span>
           </div>
           <div>
             <span className="right-margin font-bold font-sm font-md">
               Size :
             </span>
-            <span className="sm-fontsize">{size}</span>
+            <span className="sm-fontsize">{product.size}</span>
           </div>
           <div>
             <span className="right-margin font-bold font-sm font-md">
               Delivery :{" "}
             </span>
-            <span className="sm-fontsize">{delivery_time}</span>
+            <span className="sm-fontsize">{product.delivery_time}</span>
           </div>
 
           <div className="top-margin">
-            {token && cart.some((data) => data._id === _id) ? (
+            {token && cart.some((data) => data._id === product._id) ? (
               <NavLink to="/cart">
                 <button className="go-to-cart">
                   Go To Cart <BsCartCheck className="icon-size" />
                 </button>
               </NavLink>
-            ) : inStock ? (
+            ) : product.inStock ? (
               <button
                 className="add-to-cart sm-fontsize"
                 onClick={handleAddToCart}
@@ -197,7 +188,7 @@ export const ProductDetail = () => {
             )}
           </div>
           <div className="top-margin margin-bottom-1">
-            {token && wishlist.some((data) => data._id === _id) ? (
+            {token && wishlist.some((data) => data._id === product._id) ? (
               <NavLink to={"/wishlist"}>
                 <button className="go-to-cart liked">
                   Go To Wishlist <AiFillHeart />
@@ -216,5 +207,6 @@ export const ProductDetail = () => {
         </div>
       </div>
     </div>
+    }</>
   );
 };
