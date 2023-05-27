@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { ImCross } from 'react-icons/im'
 import "./Coupon.css"
 import { useOrder } from '../../../../Contexts/Data/OrderContext'
+import { loginTocontinue, remove, success } from "../../../../Services/Toast/ToastServices"
+
 export const Coupon = ({setIsHideBox}) => {
 
   const {setCouponInfo,couponInfo}=useOrder()
@@ -14,7 +16,9 @@ export const Coupon = ({setIsHideBox}) => {
   const handleApplyCoupon=()=>{
     if(couponDetails.name){
       setIsHideBox(true)
-      setCouponInfo(couponDetails) // value set for entire children orderContext
+      setCouponInfo(couponDetails)
+       // value set for entire children orderContext
+       success("Applied Coupon")
     }
   }
 console.log(couponInfo.value);

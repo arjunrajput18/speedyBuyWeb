@@ -7,6 +7,7 @@ import {RiCoupon3Line} from "react-icons/ri"
 import { Coupon } from '../Coupon/Coupon'
 import {  useOrder } from '../../../../Contexts/Data/OrderContext'
 import { NavLink } from 'react-router-dom'
+import { remove } from '../../../../Services/Toast/ToastServices'
 export const PriceDetails = () => {
 
 const {state:{cart}}=DataState()
@@ -26,7 +27,9 @@ const totalAmount=totalNewPrice-couponDiscount
 
 const handlerRemoveCoupon=()=>{
   setCouponInfo({name:"",value:0})
+  remove("Coupon Remove successfully!")
 }
+
 
 const discount=(totalOldPrice-totalNewPrice).toFixed(2)
 const totalItems=cart.length
@@ -57,7 +60,7 @@ const totalItems=cart.length
 
         <div className='displayFlex total-amt'>
           <h5 className='sm-fontsize sm-margin-bottom'>Total Amount</h5>
-          <h5 className='sm-fontsize sm-margin-bottom'>₹{totalAmount}</h5>
+          <h5 className='sm-fontsize sm-margin-bottom'>₹{(totalAmount).toFixed(2)}</h5>
         </div>
         <div className='displayFlex coupon-box'>
           <p className='sm-fontsize sm-margin-bottom coupon-text'><RiCoupon2Fill />Have a Coupon ?</p>
