@@ -10,13 +10,14 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "../../Services/Wishlist/WishlistServices";
+import { ProductDetailsServices } from "../../Services/ProductDetails/ProductDetailsServices";
 
 
 export const SingleProduct = ({ product }) => {
 
   
   const {
-    state: { token },
+    state: { token },setProduct
   } = DataState();
 
 
@@ -43,8 +44,10 @@ export const SingleProduct = ({ product }) => {
     state: { cart },
   } = DataState();
 
-  const handleProductClick = (id) => {
-    navigate(`/product/${id}`);
+  const handleProductClick =async  (_id) => {
+   const data= await ProductDetailsServices(_id)
+   setProduct(data)
+    navigate(`/product/${_id}`);
   };
 
 
