@@ -1,11 +1,12 @@
 .products-container {
   margin-top: 4rem;
+
 }
 
 .productlisting-header {
   display: flex;
   position: absolute;
-  top: 8rem;
+  top: 10rem;
   left: 18%;
   font-size: 1rem;
   z-index: -1;

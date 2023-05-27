@@ -2,8 +2,9 @@
   margin-bottom: 3rem;
 }
 .features .features-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  /* grid-template-columns: repeat(2, 1fr); */
+  flex-wrap: wrap;
   place-items: center;
 }
 

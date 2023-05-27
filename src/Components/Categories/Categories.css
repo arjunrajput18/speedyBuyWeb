@@ -8,15 +8,15 @@ justify-content: center;
 text-align: center;
 }
 .category-img{
-  height: 350px;
-  width: 350px;
+  height: 250px;
+  width: 250px;
   border: 2px solid lightgray;
 }
 
 
 .category-card{
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   position: relative;
   margin: 2rem;
   display: flex;
@@ -27,10 +27,10 @@ text-align: center;
 }
 
 .toggle-background{
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   position: absolute;
-  
+  margin: 1rem;
 }
 
 .toggle-background:hover{

@@ -18,15 +18,28 @@ import { SignUp } from "./Pages/Login/SignUp";
 import { Profile } from "./Pages/Profile/Profile";
 import { Checkout } from "./Pages/Checkout/Checkout";
 import { ToastContainer } from "react-toastify";
+import { DataState } from "./Contexts/Data/DataContext";
+import { Loading } from "./Components/Loading/Loading";
+
+
+
+
+
 
 function App() {
   injectStyle();
+
+
+
+  const {loading}=DataState()
   return (
     <div className="App">
-      <Navbar />
+{loading && <Loading/>}
+    <div>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/productlisting" element={<ProductListing />} />
+        <Route path="/productlisting" element={ <ProductListing />} />
         <Route
           path="/cart"
           element={
@@ -66,6 +79,8 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover />
+    </div>
+    
     </div>
   );
 }

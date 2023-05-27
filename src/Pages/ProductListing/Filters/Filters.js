@@ -28,7 +28,7 @@ export const Filters = () => {
   }
 
   return (
-    <div>
+    <div >
   
       <div onClick={() => setIsFilters((prev) => !prev)} className="btn-box">
         {isFilters ? (

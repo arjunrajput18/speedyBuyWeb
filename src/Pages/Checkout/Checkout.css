@@ -3,28 +3,38 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 2rem;
+
     align-items: center;
-    height: 85vh;
+    height: auto;
+    overflow-y: scroll;
+}
+.checkout-mainAddress-container{
+  box-shadow: 0 7px 30px -10px rgba(24, 28, 30, 0.518);
+  margin: 3rem;
+  padding: 1rem;
 }
 .checkout-innerAddress-container{
-  margin-bottom: 3rem;
-  box-shadow: 0 7px 30px -10px rgba(24, 28, 30, 0.518);;
-  padding: 2rem;
+ 
+  
+  padding: 1rem;
   line-height: 1.4;
   align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .checkout-inner-container{
-    width: 25rem;
+    width: 16rem;
     /* border: solid; */
     /* height: 70vh; */
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
   justify-content: space-around;
-  box-shadow: 0px 5px 15px rgba(90, 90, 90, 0.35);
+/* align-self: start; */
+
   padding: 1.3rem;
- 
+
+
 }
 
 .place-order-button{
@@ -37,7 +47,12 @@
     border-radius: 0.3rem;
     width: 100%;
   }
-  
+  .checkout-bill-container{
+    box-shadow: 0px 5px 15px rgba(90, 90, 90, 0.35);
+    height: auto;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+  }
   .place-order-button:hover {
     background-color: var(--white);
     color: var(--primary);
@@ -56,7 +71,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items:normal
+    align-items:normal;
+    width:auto
   }
+  .checkout-inner-container{
+    width:20rem
+  }
+ 
  
 }
