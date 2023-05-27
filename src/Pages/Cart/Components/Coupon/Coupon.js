@@ -29,13 +29,13 @@ console.log(couponInfo.value);
      </div>
      <div className='discount-box'>
      <label>
-       <input type='radio' name="coupon-discount" value={50} onChange={()=>setCouponDetails({name:"SUMMER_SALE",value:50})} checked={couponDetails.value===50}/>
-     50% OFF: SUMMER_SALE
+       <input type='radio' name="coupon-discount" value={30} onChange={()=>setCouponDetails({name:"DIWALI_SALE",value:30})} checked={couponDetails.value===30}/>
+     30% OFF: DIWALI_SALE
      </label>
      </div>
      <div className='discount-box'>
        <label>
-         <input type='radio' name="coupon-discount"  value={10} onChange={()=>setCouponDetails({name:"NEW_USER",value:10})} checked={couponDetails.value===10}/> 10% OFF:NEW_USER
+         <input type='radio' name="coupon-discount"  value={15} onChange={()=>setCouponDetails({name:"NEW_USER",value:15})} checked={couponDetails.value===15}/> 15% OFF:NEW_USER
        </label>
      </div>
      <button className="apply-discount-btn" onClick={handleApplyCoupon}> Apply</button>
