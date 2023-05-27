@@ -20,6 +20,7 @@ import { Checkout } from "./Pages/Checkout/Checkout";
 import { ToastContainer } from "react-toastify";
 import { DataState } from "./Contexts/Data/DataContext";
 import { Loading } from "./Components/Loading/Loading";
+import { PageNotFound } from "./Pages/ErrorPage/PageNotFound";
 
 
 
@@ -68,10 +69,16 @@ function App() {
           }
         />
         <Route path="/mockman" element={<Mockman />} />
-        <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/checkout" element={
+          <RequiresAuth>
+        <Checkout/>
+          </RequiresAuth>
+        } />
+           <Route path="/*" element={<PageNotFound/>} />
       </Routes>
-      <ToastContainer position="top-right"
+      <ToastContainer position="bottom-center"
         autoClose={1000}
+        
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

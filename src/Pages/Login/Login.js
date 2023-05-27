@@ -5,7 +5,10 @@ import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { useNavigate } from "react-router";
 import { VscEyeClosed, VscEye } from "react-icons/vsc";
 import { DataState } from "../../Contexts/Data/DataContext";
-import { guestLoginhandler } from "../../Services/AuthService/AuthService";
+import {
+  guestLoginhandler,
+  loginHandler,
+} from "../../Services/AuthService/AuthService";
 export const Login = () => {
   const { setIsLoggedIn } = AuthState();
   const location = useLocation();
@@ -15,48 +18,12 @@ export const Login = () => {
   const [toggleEye, setToggleEye] = useState(false);
   const { dispatch } = DataState();
 
-  const loginHandler = async () => {
-    if (email && password) {
-      const creds = {
-        email,
-        password,
-      };
-
-      try {
-        const response = await fetch("/api/auth/login", {
-          method: "POST",
-          body: JSON.stringify(creds),
-        });
-        // console.log(response)
-        const { foundUser, encodedToken } = await response.json();
-        if (response.status === 200) {
-          // console.log("a")
-          setIsLoggedIn(true);
-          localStorage.setItem("user", JSON.stringify(foundUser));
-          // localStorage.setItem("token", encodedToken);
-          dispatch({type:"SET_TOKEN",payload:encodedToken});
-          navigate(location?.state?.from?.pathname);
-
-          // location?.state?.from?.pathname
-        } else {
-          alert(response.statusText);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    // console.log(email)
-  };
-
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div>
-      <form className="login-form-container" onSubmit={submitHandler}>
+      <form
+        className="login-form-container"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <div className="login-form-innerContainer">
           <h1>Sign In</h1>
           <div className="">
@@ -88,11 +55,35 @@ export const Login = () => {
             </div>
           </div>
 
-          <button className="login-btn" onClick={loginHandler}>
+          <button
+            className="login-btn"
+            onClick={() =>
+              loginHandler(
+                email,
+                password,
+                setIsLoggedIn,
+                navigate,
+                dispatch,
+                location
+              )
+            }
+          >
             Login
           </button>
 
-          <button className="login-guest-btn" onClick={()=>guestLoginhandler(setEmail,setPassword,setIsLoggedIn,dispatch,location,navigate)}>
+          <button
+            className="login-guest-btn"
+            onClick={() =>
+              guestLoginhandler(
+                setEmail,
+                setPassword,
+                setIsLoggedIn,
+                dispatch,
+                location,
+                navigate
+              )
+            }
+          >
             Login as Guest
           </button>
 

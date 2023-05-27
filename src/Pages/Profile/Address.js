@@ -1,6 +1,7 @@
 import React from "react";
 import "./Address.css";
 import { AddressState } from "../../Contexts/Data/AddressContext";
+import { loginTocontinue, remove, success } from "../../Services/Toast/ToastServices"
 
 export const Address = () => {
   const {
@@ -23,10 +24,12 @@ export const Address = () => {
       postalCode: "",
       MobileNum: "",
     }));
+
   };
   const removeHandler = (id) => {
     // console.log(i)
     addressDispatch({ type: "REMOVE_ADDRESS", payload: id });
+    remove("Address Removed Successfully!")
   };
 
   const editHandler = (editId) => {

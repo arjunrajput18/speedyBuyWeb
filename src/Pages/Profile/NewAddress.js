@@ -1,6 +1,8 @@
 import React from "react";
 import "./NewAddress.css";
 // import { RxCross2 } from 'react-icons/rx'
+import { loginTocontinue, remove, success } from "../../Services/Toast/ToastServices"
+
 import {ImCross} from "react-icons/im"
 import { AddressState } from "../../Contexts/Data/AddressContext";
 export const NewAddress = () => {
@@ -37,6 +39,7 @@ if(values.name && values.city && values.state && values.country && values.street
     console.log("updatedData",updatedData)
     addressDispatch({ type: "UPDATE_ADDRESS", payload: updatedData });
     setisHideBox(false);
+    success("Address Updated successfully!")
   } else {
     setisHideBox(false);
     addressDispatch({ type: "ADD_NEW_ADDRESS", payload: values });
@@ -51,6 +54,7 @@ if(values.name && values.city && values.state && values.country && values.street
       postalCode: "",
       MobileNum: "",
     }));
+    success("Address Added successfully!")
   }
 }
  
@@ -70,9 +74,9 @@ if(values.name && values.city && values.state && values.country && values.street
     // console.log(values)
   };
   return (
-    <div>
+    <div className="adress-form-details">
       {" "}
-      <form className="adress-form-details" onSubmit={handleSubmit}>
+      <form  onSubmit={handleSubmit}>
         <div className="address-form-container">
         <button
               className="cross-address-btn"
