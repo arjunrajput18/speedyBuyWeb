@@ -5,6 +5,7 @@ import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { useNavigate } from "react-router";
 import { VscEyeClosed, VscEye } from "react-icons/vsc";
 import { DataState } from "../../Contexts/Data/DataContext";
+import { guestLoginhandler } from "../../Services/AuthService/AuthService";
 export const Login = () => {
   const { setIsLoggedIn } = AuthState();
   const location = useLocation();
@@ -48,36 +49,6 @@ export const Login = () => {
     // console.log(email)
   };
 
-  const guestLoginhandler = async () => {
-    const creds = {
-      email: "arjun@gmail.com",
-      password: "rajput",
-    };
-    setEmail(creds.email);
-    setPassword(creds.password);
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify(creds),
-      });
-      const data = await response.json(); //readable format convert //if not await used promise is pending
-      // console.log( await response.json()) readiable format convert into .json()
-      // console.log( await response.json())
-
-      const { foundUser, encodedToken } = data;
-      // console.log(foundUser.email)
-      setIsLoggedIn(true);
-      localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object[obj,obj]
-      const encoded=localStorage.setItem("token", encodedToken);
-      dispatch({type:"SET_TOKEN",payload:encodedToken});
-      // console.log(location);
-      console.log("login guest click");
-      console.log(location);
-      navigate(location?.state?.from?.pathname);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -121,7 +92,7 @@ export const Login = () => {
             Login
           </button>
 
-          <button className="login-guest-btn" onClick={guestLoginhandler}>
+          <button className="login-guest-btn" onClick={()=>guestLoginhandler(setEmail,setPassword,setIsLoggedIn,dispatch,location,navigate)}>
             Login as Guest
           </button>
 

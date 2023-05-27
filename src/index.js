@@ -51,6 +51,6 @@ ReactDOM.render(
         </AuthContextProvider>
       </DataContextProvider>
     </Router>
-  </React.StrictMode>,
+ </React.StrictMode>,
   document.getElementById("root")
 );

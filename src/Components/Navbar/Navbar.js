@@ -91,13 +91,13 @@ export const Navbar = () => {
             <li className="menu-item menu-item-cart">
               <NavLink to="/wishlist" className="nav-link">
                 <AiOutlineHeart />
-                <span className="cart-length">{wishlist?.length}</span>
+                <span className="cart-length">{wishlist?.length>0 && wishlist?.length}</span>
               </NavLink>
             </li>
             <li className="menu-item menu-item-cart">
               <NavLink to="/cart" className="nav-link">
                 <AiOutlineShoppingCart />
-                <span className="cart-length">{cart?.length}</span>
+                <span className="cart-length">{cart?.length>0 && cart?.length}</span>
               </NavLink>
             </li>
             <li className="menu-item">
@@ -117,13 +117,13 @@ export const Navbar = () => {
             <li className="menu-item">
               <NavLink to="/wishlist" className="nav-link">
                 <AiOutlineHeart />
-                <span className="cart-length">{wishlist?.length}</span>
+                <span className="cart-length">{wishlist?.length>0 && wishlist?.length}</span>
               </NavLink>
             </li>
             <li className="menu-item">
               <NavLink to="/cart" className="nav-link">
                 <AiOutlineShoppingCart />
-                <span className="cart-length">{cart?.length}</span>
+                <span className="cart-length">{cart?.length>0 && cart?.length}</span>
               </NavLink>
             </li>
             <li className="menu-item">

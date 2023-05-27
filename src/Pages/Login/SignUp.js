@@ -4,6 +4,7 @@ import { NavLink,   useNavigate } from "react-router-dom";
 import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { VscEyeClosed,VscEye } from 'react-icons/vsc'
 import { DataState } from "../../Contexts/Data/DataContext";
+import { newAccountHandler } from "../../Services/AuthService/AuthService";
 export const SignUp = () => {
   const [user, setUser] = useState({
     firstName: "",
@@ -14,34 +15,10 @@ export const SignUp = () => {
   const { setIsLoggedIn } = AuthState();
   const [toggleEye,setToggleEye]=useState(false)
   const { dispatch } = DataState();
-  // console.log(user)
-// const location=useLocation();
 const navigate=useNavigate()
 
 
-  const newAccountHandler = async (user) => {
-    if (user.firstName && user.lastName && user.email && user.password ) {
-      try {
-        const response = await fetch("/api/auth/signup", {
-          method: "POST",
-          body: JSON.stringify(user),
-        });
-        console.log(response);
-        const data = await response.json();
-        // console.log(a, "a");
-        const {createdUser,encodedToken}=data
-        setIsLoggedIn(true);
-        // console.log(createdUser);
-        localStorage.setItem("user",JSON.stringify(createdUser))
-        // localStorage.setItem("token",encodedToken)
-        dispatch({type:"SET_TOKEN",payload:encodedToken});
-        navigate("/productlisting")
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-
+    
   return (
     <form className="signup-container" onSubmit={(e) => e.preventDefault()}>
       <div className="signup-innerContainer">
@@ -101,7 +78,7 @@ const navigate=useNavigate()
         
         </div>
         <div>
-          <button className="signup-btn" onClick={newAccountHandler}>
+          <button className="signup-btn" onClick={()=>newAccountHandler(user,setIsLoggedIn,dispatch,navigate)}>
             Create New Account
           </button>
         </div>
