@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillStar, AiFillHeart } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import "./ProductDetail.css";
@@ -15,6 +15,8 @@ import {
   remove,
   success,
 } from "../../Services/Toast/ToastServices";
+import { ProductDetailsServices } from "../../Services/ProductDetails/ProductDetailsServices";
+// import { ProductListing } from "../ProductListing/ProductListing";
 
 export const ProductDetail = () => {
   const { id } = useParams();
@@ -22,12 +24,25 @@ export const ProductDetail = () => {
     state: { token },
   } = DataState();
   const {
-    state: { products, cart, wishlist },
+    state: { products, cart, wishlist },firstproduct,
     dispatch,
   } = DataState();
   let location = useLocation();
   const [isDisabled, setISDisabled] = useState(false);
-  const product = products?.find((product) => product._id === id);
+  const [product, setProduct] = useState(firstproduct);
+
+  const handleProduct = async () => {
+    const data = await ProductDetailsServices(id);
+    setProduct(data);
+  };
+
+  useEffect(() => {
+    handleProduct();
+  }, []);
+  // const product=await ProductDetailsServices(id)
+  // console.log(product, "prod");
+
+  // const product = products?.find((product) => product._id === id);
   // console.log(product, "detail")
   const navigate = useNavigate();
   const {
@@ -45,6 +60,7 @@ export const ProductDetail = () => {
     fewLeft,
     description,
   } = product;
+  console.log(rating, "rating");
 
   const handleAddToCart = () => {
     setISDisabled(true);
@@ -96,11 +112,19 @@ export const ProductDetail = () => {
           <div className="flex justify-between ">
             <h2 className="font-1-3 header-md">{itemName}</h2>
             {token && wishlist.some((product) => product._id === _id) ? (
-              <button className="cart-like-btn liked" onClick={handleRemoveFromWishlist}   disabled={isDisabled}>
+              <button
+                className="cart-like-btn liked"
+                onClick={handleRemoveFromWishlist}
+                disabled={isDisabled}
+              >
                 <AiFillHeart />
               </button>
             ) : (
-              <button className="cart-like-btn like" onClick={handleAddToWishlist}  disabled={isDisabled}>
+              <button
+                className="cart-like-btn like"
+                onClick={handleAddToWishlist}
+                disabled={isDisabled}
+              >
                 <AiFillHeart />
               </button>
             )}
@@ -158,16 +182,18 @@ export const ProductDetail = () => {
                   Go To Cart <BsCartCheck className="icon-size" />
                 </button>
               </NavLink>
-            ) : (
-             inStock ?<button
+            ) : inStock ? (
+              <button
                 className="add-to-cart sm-fontsize"
                 onClick={handleAddToCart}
                 disabled={isDisabled}
               >
                 Add To Cart
-              </button>: <button className="go-to-cart disabled-element" disabled>
-          Out Of Stock
-        </button>
+              </button>
+            ) : (
+              <button className="go-to-cart disabled-element" disabled>
+                Out Of Stock
+              </button>
             )}
           </div>
           <div className="top-margin margin-bottom-1">

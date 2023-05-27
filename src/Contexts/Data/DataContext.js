@@ -6,7 +6,7 @@ const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
 const [loading,setLoading]=useState(true)
-
+const [firstproduct, setProduct] = useState({});
   const getCategories = async () => {
     try {
       const response = await fetch("/api/categories");
@@ -56,7 +56,7 @@ const [loading,setLoading]=useState(true)
     getCarts()
   }, [])
 
-  return <DataContext.Provider value={{ state, dispatch,loading,setLoading }}><> {children}</>
+  return <DataContext.Provider value={{ state, dispatch,loading,setLoading ,setProduct,firstproduct}}><> {children}</>
    
   </DataContext.Provider>
 }
