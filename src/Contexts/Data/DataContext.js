@@ -56,7 +56,7 @@ const [loading,setLoading]=useState(true)
     getCarts()
   }, [])
 
-  return <DataContext.Provider value={{ state, dispatch }}>{loading?<h1>loading</h1>:<> {children}</>}
+  return <DataContext.Provider value={{ state, dispatch,loading,setLoading }}><> {children}</>
    
   </DataContext.Provider>
 }

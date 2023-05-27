@@ -28,7 +28,7 @@ export const SingleCartProduct = ({ product }) => {
       remove("Removed from Wishlist!");
       setTimeout(() => {
         setIsDisabledWishlist(false);
-      }, 1500);
+      }, 1000);
     }
   };
 
@@ -39,9 +39,21 @@ export const SingleCartProduct = ({ product }) => {
       success("Added To Wishlist!");
       setTimeout(() => {
         setIsDisabledWishlist(false);
-      }, 1500);
+      }, 1000);
     }
   };
+
+const handleRemove=()=>{
+ setIsDisabledWishlist(true)
+  if(token){
+    RemoveFromCart(_id, dispatch, token)
+    remove("Removed from Cart!")
+    setTimeout(()=>{
+      setIsDisabledWishlist(false);
+    },1000)
+  }
+}
+
   return (
     <div className="cart-product-card ">
       <div className="cart-product-details">
@@ -53,7 +65,7 @@ export const SingleCartProduct = ({ product }) => {
               ₹{newPrice}
             </span>
             <span className="old-price font-1-rem">₹{oldPrice}</span>
-            <span className="discount get-fontsize">({discount}%OFF)</span>
+            <p className="discount get-fontsize">({discount}%OFF)</p>
           </div>
           <div className="quantity-operations">
             <p className="qty-label">Quantity: </p>
@@ -77,7 +89,8 @@ export const SingleCartProduct = ({ product }) => {
       <div className="remove-operations">
         <button
           className="remove-product "
-          onClick={() => RemoveFromCart(_id, dispatch, token)}
+          onClick={handleRemove}
+          disabled={isDisabledWishlist}
         >
           Remove
         </button>

@@ -47,6 +47,18 @@
   color: #00b6ff;
 }
 
+.developedBy{
+  text-align: center;
+  background-color: #333333;
+  color: white;
+  padding-bottom: 1rem;
+}
+.developer_name{
+  color: white;
+  /* text-decoration: underline; */
+}
+
+
 @media (min-width: 720px) {
   .social-links {
     width: 18%;

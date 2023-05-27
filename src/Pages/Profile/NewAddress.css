@@ -15,8 +15,8 @@
 }
 .address-form-container{
 background-color: white;
-width: 350px;
-height: 60vh;
+width: 15rem;
+height: auto;
 border: 1px solid #40E0D0 ;
 position: relative;
 
@@ -48,15 +48,16 @@ cursor: pointer;
  .btn-address-save-cancel{
      display: flex;
      justify-content: space-around;
-     /* margin-bottom: 0.5rem; */
+     margin-bottom: 0.5rem;
      margin-top: 0.5rem;
+   
  }
  .save-address-btn{
      padding: 0.3rem 0.3rem;
      background-color: var(--primary);
      color: white;
      cursor: pointer;
-     
+     margin: 0.5rem;
  }
  .cancel-address-btn{
      padding: 0.3rem 0.3rem;
@@ -64,6 +65,7 @@ cursor: pointer;
      color: white;
      border: none;
      cursor: pointer;
+     margin: 0.5rem;
  }
  .dummy-address-btn{
      padding: 0.3rem 0.3rem;
@@ -71,4 +73,5 @@ cursor: pointer;
      color: white;
      border: none;
      cursor: pointer;
+     margin: 0.2rem;
  }

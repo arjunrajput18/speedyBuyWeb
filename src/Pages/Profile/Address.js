@@ -56,8 +56,10 @@ export const Address = () => {
                 <p className="font-bold sm-margin-bottom"> {name}</p>
                 <p>
                   {" "}
-                  {street},{city},{state},{country}
+                  {street},{city},{state},
+                  {/* <p></p> */}
                 </p>
+                <p>{country}</p>
                 <p>{postalCode}</p>
                 <p>Phone Number :{MobileNum}</p>
                 <button onClick={() => editHandler(id)} className="edit-btn">Edit</button>

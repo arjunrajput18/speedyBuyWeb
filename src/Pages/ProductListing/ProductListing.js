@@ -3,10 +3,10 @@ import { Filters } from './Filters/Filters'
 import { DataState } from '../../Contexts/Data/DataContext'
 import { SingleProduct } from '../../Components/SingleProdcut/SingleProduct'
 import './ProductListing.css';
-
+import { Loading } from "../../Components/Loading/Loading";
 
 export const ProductListing = () => {
-  const { state: { products, filters } } = DataState();
+  const { state: { products, filters },setLoading,loading } = DataState();
   const { searchValue, sort, selectedCategories, selectedSizes, rating,price,byStock } = filters;
 
   // console.log(rating)
@@ -39,7 +39,9 @@ filteredData=filteredData.filter(product=>product.newPrice<=price)
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
+    setLoading(true)
+    setTimeout(()=>{setLoading(false)},1000)
   }, [])
 
   return (
@@ -51,8 +53,9 @@ filteredData=filteredData.filter(product=>product.newPrice<=price)
             <p className='all-products-heading'>{searchValue ? "Search Results for" : "Showing All Products"} </p>
             <p className='products-count'>{searchValue ? <strong>{searchValue}</strong> : `(${transformData().length} products)`}</p>
           </div>
+    
           {
-            transformData()?.map(product => <SingleProduct product={product} key={product._id} />)
+             transformData()?.map(product => <SingleProduct product={product} key={product._id} />)
           }
         </div>
       </div>

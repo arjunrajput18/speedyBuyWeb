@@ -8,16 +8,18 @@
   z-index: 2;
   width: 100%;
   height: 4.5rem;
+ margin-bottom:3rem ;
 }
 
 .navigation .navigation-header {
   font-size: 1.5rem;
   color: var(--white);
+
 }
-.menu-item-cart{
+.menu-item-cart {
   position: relative;
 }
-.cart-length{
+.cart-length {
   /* background-color: black; */
   /* background-color: #E0DFE4; */
   position: absolute;
@@ -25,22 +27,23 @@
   font-size: 0.9rem;
   height: 22px;
   width: 18px;
-  border-radius:0.3rem ;
+  border-radius: 0.3rem;
   color: black;
   font-size: medium;
   font-weight: 600;
   padding: 0.1rem;
-  -webkit-border-radius:0.3rem ;
-  -moz-border-radius:0.3rem ;
-  -ms-border-radius:0.3rem ;
-  -o-border-radius:0.3rem ;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
 }
 
 .search-bar {
-  width: 15rem;
-  padding: 0.2rem 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.5rem;
   font-size: 0.9rem;
   border: none;
+
   outline: 1px solid var(--gray);
   letter-spacing: 1px;
   color: var(--header-color);
@@ -58,8 +61,9 @@
   position: absolute;
   right: 0px;
   top: 62px;
-  background-color: var(--alice-blue);
+  /* background-color: var(---blue); */
   flex-direction: column;
+  z-index: 2;
 }
 
 .hide-menu {
@@ -70,16 +74,17 @@
   list-style: none;
   padding: 0.5rem 1.2rem;
   font-size: 1.5rem;
-  color: var(--primary);
+  /* color: white; */
+  /* background-color: var(--primary); */
   cursor: pointer;
 }
-.menu-item:hover{
-  font-size:xx-large ;
+.menu-item:hover {
+  font-size: xx-large;
+  cursor: pointer;
 }
 .menus-md {
   display: none;
 }
-
 
 .nav-link {
   color: var(--primary);
@@ -93,11 +98,34 @@
   cursor: unset;
 }
 
-
+.search-navBar {
+  display: none;
+}
+.search-navBar-mobile-view{
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  position: fixed;
+  z-index: 1;
+  top: 4rem;
+  outline: 1rem;
+  outline: 3px solid var(--primary);
+}
 
 @media (min-width: 720px) {
+  .navigation{
+    margin-bottom: 0px;
+  }
+  .search-navBar {
+    display: block;
+  }
+
+  .search-navBar-mobile-view {
+    display: none;
+  }
+
   .search-bar {
-    width: 18rem;
+    width: 20rem;
   }
   .nav-link {
     color: var(--white);
@@ -119,7 +147,7 @@
   .menus-md {
     display: flex;
   }
-  .cart-length{
+  .cart-length {
     color: white;
     top: 6%;
   }
@@ -127,8 +155,8 @@
 
 @media (min-width: 1024px) {
   .search-bar {
-    width: 25rem;
-    padding: 0.5rem;
+    width: 35rem;
+    padding: 0.7rem;
     font-size: 1rem;
   }
   .navigation {
@@ -140,7 +168,7 @@
   .menu-item {
     font-size: 1.8rem;
   }
-  .cart-length{
+  .cart-length {
     color: white;
     top: 6%;
   }

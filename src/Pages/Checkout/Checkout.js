@@ -78,6 +78,9 @@ export const Checkout = () => {
             MobileNum,
           } = addressData;
           return (
+            <div className="checkout-mainAddress-container">
+
+       
             <div className="checkout-innerAddress-container" key={id}>
               <div
                 className="checkout-address cursor-pointer"
@@ -93,15 +96,20 @@ export const Checkout = () => {
                 <span className="font-bold sm-margin-bottom"> {name}</span>
                 <p>
                   {" "}
-                  {street},{city},{state},{country}
+                  {street},{city},{postalCode}
                 </p>
-                <p>{postalCode}</p>
-                <p>Phone Number :{MobileNum}</p>{" "}
+                <p>{state}</p>
+                <p>{country}</p>
+                {/* <p></p> */}
+                <p>Phone Number: {MobileNum}</p>{" "}
               </div>
+            </div>
             </div>
           );
         })}
       </div>
+<div className="checkout-bill-container">
+
 
       <div className="checkout-inner-container">
         <div className="checkout-header-box text-center padding-top-bottom-5 ">
@@ -121,7 +129,7 @@ export const Checkout = () => {
             <div>{qty}</div>
           </div>
         ))}
-        <div className="text-center border-bottom border-top padding-top-bottom-5">
+        <div className="text-center border-bottom border-top padding-top-bottom-5 margin-bottom-1">
           <h2>PRICE DETAILS</h2>
         </div>
 
@@ -137,26 +145,27 @@ export const Checkout = () => {
           <div>Delivery Charges</div>
           <div>FREE</div>
         </div>
-        <div className="flex justify-between padding-bottom-2">
+        <div className="flex justify-between padding-bottom-2 ">
           <div>Coupon Discount</div>
           <div>₹{couponDiscount}</div>
         </div>
-        <div className="flex justify-between padding-bottom-2">
+        <div className="flex justify-between margin-bottom-1">
           <h4>Total Amount</h4>
           <h4>₹{totalAmount}</h4>
         </div>
-        <div className="text-center border-bottom border-top padding-top-bottom-5">
+        <div className="text-center border-bottom border-top padding-top-bottom-5 margin-bottom-1">
           <h3>DELIVER TO</h3>
         </div>
       {selectedAddress && <div className="padding-bottom-5">
-         <div>
+         <div className="margin-bottom-1">
             {" "}
             <span className="font-bold sm-margin-bottom"> {selectedAddress.name}</span>
             <p>
               {" "}
-              {selectedAddress.street},{selectedAddress.city},{selectedAddress.state},{selectedAddress.country}
+              {selectedAddress.street},{selectedAddress.city}  {selectedAddress.postalCode},
             </p>
-            <p>{selectedAddress.postalCode}</p>
+            <p>{selectedAddress.state}, </p>
+            <p> {selectedAddress.country}</p>
             <p>Phone Number :{selectedAddress.MobileNum}</p>{" "}
           </div>
         </div>}
@@ -165,6 +174,7 @@ export const Checkout = () => {
             Place Order
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

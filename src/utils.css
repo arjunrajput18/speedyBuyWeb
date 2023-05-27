@@ -47,6 +47,9 @@
 .padding-top-bottom-5{
   padding: 0.5rem 0rem;
 }
+.margin-top-1{
+  margin-top: 1rem;
+}
 .flex {
   display: flex;
 }

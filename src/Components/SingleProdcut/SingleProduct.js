@@ -13,9 +13,13 @@ import {
 
 
 export const SingleProduct = ({ product }) => {
+
+  
   const {
     state: { token },
   } = DataState();
+
+
   const navigate = useNavigate();
   let location = useLocation();
   const [isDisabled,setIsDisabled]=useState(false)
@@ -59,9 +63,11 @@ export const SingleProduct = ({ product }) => {
     }
   }
   const handleAddToWishlist=()=>{
+    setIsDisabled(true)
     if(token){
       addToWishlist(product,dispatch,token)
       success("Added To Wishlist!")
+      setTimeout(()=>setIsDisabled(false),1500)
     }else{
       navigate("/login",{state:{from :location}})
       loginTocontinue("Login To Continue")
@@ -70,9 +76,11 @@ export const SingleProduct = ({ product }) => {
 
 
   const handleRemoveFromWishlist=()=>{
+    setIsDisabled(true)
     if(token){
       removeFromWishlist(_id, dispatch, token)
       remove("Removed from Wishlist!")
+      setTimeout(()=>setIsDisabled(false),1500)
     }
   }
 
@@ -109,19 +117,21 @@ export const SingleProduct = ({ product }) => {
             {/* <h2>hi</h2> */}
 
             {token && wishlist?.some((data) => data._id === _id) ? (
-              <span
-                className="liked"
+              <button
+                className="cart-like-btn liked"
                 onClick={handleRemoveFromWishlist}
+                disabled={isDisabled}
               >
                 <AiFillHeart />
-              </span>
+              </button>
             ) : (
-              <span
-                className="like"
+              <button
+                className="cart-like-btn like"
                 onClick={handleAddToWishlist}
+                disabled={isDisabled}
               >
                 <AiFillHeart />
-              </span>
+              </button>
             )}
           </div>
         </div>

@@ -31,7 +31,7 @@ export const Profile = () => {
 // const { firstName, lastName, email } =user
 
   return (
-    <div>
+    <div className="profile-page-container">
       <p className="text-center heading-profile ">Account</p>
       { isHideBox&& <NewAddress setisHideBox={setisHideBox} />}
       <div className="profile-container">
@@ -54,7 +54,7 @@ export const Profile = () => {
           {toggleBtn && (
             <div className="profile-tab-container">
             
-                <div>
+                <div className="margin-bottom-1">
                   <h2>Profile Details</h2>
                 </div>
                 <div className="main-profile-details">
@@ -62,7 +62,7 @@ export const Profile = () => {
                   <div className="details-title">Full name:</div>
                   
                 </div>
-                <div className="text-field">
+                <div className="text-field profile-value">
                     {user?.firstName} {user?.lastName}
                   </div>
                 <div className=" align-profile-details">
@@ -70,15 +70,14 @@ export const Profile = () => {
                 
                 </div>
                 
-                <div className="text-field">{user?.email}</div></div>
-                <div>
-                  <h2>Account Settings</h2>
-                </div>
-                <div>
+                <div className="text-field profile-value">{user?.email}</div></div>
+                
+                <div className="btn-setting-logout flex justify-between">
                 <NavLink className={"navlink-address-setting"}><button onClick={()=>setToggleBtn(!toggleBtn)} className="profile-Address-btn">Address Setting</button></NavLink>
-                </div>
+            
                 <div>
-                  <button onClick={logOutHandler} className="profile-logout-btn">Log Out</button>
+                  <button onClick={logOutHandler} className="profile-logout-btn top-margin">Log Out</button>
+                </div>
                 </div>
               </div>
            
