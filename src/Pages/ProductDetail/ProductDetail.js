@@ -24,7 +24,7 @@ export const ProductDetail = () => {
     state: { token },
   } = DataState();
   const {
-    state: { products, cart, wishlist },firstproduct,
+    state: {  cart, wishlist },firstproduct,
     dispatch,
   } = DataState();
   let location = useLocation();

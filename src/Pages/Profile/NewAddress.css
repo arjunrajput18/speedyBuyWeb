@@ -2,16 +2,17 @@
 .adress-form-details{
     /* width: 350px; */
     width: 100%;
-    border: solid;
+    /* border: solid; */
     /* margin:2rem ; */
     position: fixed;
-    top:10%;
-    border:solid;
+    top:5%;
+    /* border:solid; */
     height: 100vh;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2px;
 }
 .address-form-container{
 background-color: white;
@@ -32,9 +33,10 @@ cursor: pointer;
 }
 
 .address-field{
-    width: 90%;
-    margin: 0.5rem 0.9rem;
-    padding: 0.2rem;
+    width: 89%;
+    margin: 0.5rem 0.6rem;
+    margin-left: 1rem;
+    padding: 0.6rem;
     border-radius:0.4rem ;
     -webkit-border-radius:0.4rem ;
     -moz-border-radius:0.4rem ;
@@ -73,5 +75,16 @@ cursor: pointer;
      color: white;
      border: none;
      cursor: pointer;
-     margin: 0.2rem;
+     margin: 0.5rem;
  }
+ @media (min-width:720px){
+    .address-form-container{
+        width:35rem;
+        height: 80vh;
+
+    }
+ 
+    .address-field{
+        width: 95%;
+    }
+}

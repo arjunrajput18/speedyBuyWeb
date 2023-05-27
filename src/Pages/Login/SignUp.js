@@ -19,7 +19,7 @@ export const SignUp = () => {
 const navigate=useNavigate()
 
 
-  const newAccountHandler = async () => {
+  const newAccountHandler = async (user) => {
     if (user.firstName && user.lastName && user.email && user.password ) {
       try {
         const response = await fetch("/api/auth/signup", {
