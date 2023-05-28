@@ -19,7 +19,7 @@ export const Navbar = () => {
   // const [searchBar, setSearchBar] = useState(false);
 
   const {
-    state: { products, cart, wishlist },
+    state: { products, cart, wishlist ,token},
     dispatch,
   } = DataState();
   const navigate = useNavigate();
@@ -91,13 +91,13 @@ export const Navbar = () => {
             <li className="menu-item menu-item-cart">
               <NavLink to="/wishlist" className="nav-link">
                 <AiOutlineHeart />
-                <span className="cart-length">{wishlist?.length>0 && wishlist?.length}</span>
+                <span className="cart-length">{token && wishlist?.length>0 && wishlist?.length}</span>
               </NavLink>
             </li>
             <li className="menu-item menu-item-cart">
               <NavLink to="/cart" className="nav-link">
                 <AiOutlineShoppingCart />
-                <span className="cart-length">{cart?.length>0 && cart?.length}</span>
+                <span className="cart-length">{token && cart?.length>0 && cart?.length}</span>
               </NavLink>
             </li>
             <li className="menu-item">
