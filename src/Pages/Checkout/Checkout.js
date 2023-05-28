@@ -4,6 +4,7 @@ import { useOrder } from "../../Contexts/Data/OrderContext";
 import { DataState } from "../../Contexts/Data/DataContext";
 import { AddressState } from "../../Contexts/Data/AddressContext";
 import { useNavigate } from "react-router-dom";
+import { success } from "../../Services/Toast/ToastServices";
 
 export const Checkout = () => {
   const {
@@ -55,6 +56,7 @@ export const Checkout = () => {
     handleSubmit()
   }else{
     navigate("/profile")
+    success("Please Add Your Address")
   }
  }
 
