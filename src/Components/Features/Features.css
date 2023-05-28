@@ -29,6 +29,7 @@
   text-align: center;
 }
 
+
 @media (min-width: 720px) {
   .features .features-list {
     grid-template-columns: repeat(4, 1fr);

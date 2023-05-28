@@ -1,8 +1,12 @@
+import './ProductListing.css'
 import React, { useEffect } from 'react'
 import { Filters } from './Filters/Filters'
 import { DataState } from '../../Contexts/Data/DataContext'
 import { SingleProduct } from '../../Components/SingleProdcut/SingleProduct'
-import './ProductListing.css';
+
+import no_data from "../../Assets/no_data.svg"
+
+
 import { Loading } from "../../Components/Loading/Loading";
 
 export const ProductListing = () => {
@@ -50,10 +54,18 @@ filteredData=filteredData.filter(product=>product.newPrice<=price)
         <Filters />
         <div className='products-container flex justify-center align-start wrap'>
           <div className="productlisting-header">
-            <p className='all-products-heading'>{searchValue ? "Search Results for" : "Showing All Products"} </p>
+            <p className='all-products-heading  '>{searchValue ? "Search Results for" : "Showing All Products"} </p>
             <p className='products-count'>{searchValue ? <strong>{searchValue}</strong> : `(${transformData().length} products)`}</p>
           </div>
-    
+          <>
+        {transformData().length===0 &&<div>
+
+         <img src={no_data} alt="empty_product" height={200} width={200}/>
+        <h2>Product not found ☹️</h2>
+         </div>
+         }
+          
+        </>
           {
              transformData()?.map(product => <SingleProduct product={product} key={product._id} />)
           }
