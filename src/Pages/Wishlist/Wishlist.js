@@ -3,7 +3,7 @@ import './Wishlist.css';
 import { SingleProduct } from '../../Components/SingleProdcut/SingleProduct';
 import { DataState } from '../../Contexts/Data/DataContext';
 
-
+import empty_wishlist from "../../Assets/empty_wishlist.svg"
 
 export const Wishlist = () => {
 
@@ -21,7 +21,11 @@ export const Wishlist = () => {
           wishlist?.map(product => <SingleProduct key={product._id} product={product} />)
         }
       </div>
-</div>:<h2 className="text-center top-margin">Your Wishlist is Empty ☹️</h2>}
+</div>:
+<div className="text-center">
+<img src={empty_wishlist} alt="empty_cart" height={250} width={250}/>
+<h2 className="text-center top-margin">Your Wishlist is Empty ☹️</h2>
+</div>}
 
     
     </>

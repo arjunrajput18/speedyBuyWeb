@@ -10,6 +10,7 @@
   left: 18%;
   font-size: 1rem;
   z-index: -1;
+
 }
 
 .all-products-heading {
@@ -45,7 +46,8 @@
   }
 
   .productlisting-header {
-    left: 18%;
+    left: 35%;
+  
   }
   .all-products-heading {
     font-size: 1.1rem;
