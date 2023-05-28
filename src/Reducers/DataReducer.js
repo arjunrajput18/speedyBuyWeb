@@ -1,16 +1,16 @@
 
-var userToken = localStorage.getItem("token");
-console.log(userToken,"userToken")
-if (userToken) {
-  var token = userToken;
-} else {
-   token=""
-}
+// var userToken = localStorage.getItem("token");
+// console.log(userToken,"userToken")
+// if (userToken) {
+//   var token = userToken;
+// } else {
+//    token=""
+// }
 
 // console.log(token,"tokebnnnnn")
 
 export const initialState = {
-  token:token,
+
   filters: {
     searchValue: null,
     sort: null,
@@ -128,16 +128,16 @@ export const dataReducer = (state, action) => {
         ...state,
         cart: action.payload,
       };
-    case "SET_TOKEN":
-      return {
-        ...state,
-        token: action.payload,
-      };
-    case "CLEAR_TOKEN":
-      return {
-        ...state,
-        token: "",
-      };
+    // case "SET_TOKEN":
+    //   return {
+    //     ...state,
+    //     token: action.payload,
+    //   };
+    // case "CLEAR_TOKEN":
+    //   return {
+    //     ...state,
+    //     token: "",
+    //   };
     default:
       return state;
   }
