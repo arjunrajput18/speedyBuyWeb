@@ -15,20 +15,22 @@ import {
   remove,
   success,
 } from "../../Services/Toast/ToastServices";
-import { ProductDetailsServices } from "../../Services/ProductDetails/ProductDetailsServices";
+// import { ProductDetailsServices } from "../../Services/ProductDetails/ProductDetailsServices";
 // import { ProductListing } from "../ProductListing/ProductListing";
 
 export const ProductDetail = () => {
   const { id } = useParams();
   const {
-    state: { token },
-  } = DataState();
-  const {
-    state: {  cart, wishlist,products },firstproduct,loading,setLoading ,
+    state: {  cart, wishlist,products },
     dispatch,
   } = DataState();
   let location = useLocation();
   const [isDisabled, setISDisabled] = useState(false);
+  const token=localStorage.getItem("token")
+
+
+
+
   // const [product, setProduct] = useState();
 
   // const handleProduct = async () => {
@@ -102,7 +104,7 @@ export const ProductDetail = () => {
         <div className="product-details flex direction-column justify-between">
           <div className="flex justify-between ">
             <h2 className="font-1-3 header-md">{product.itemName}</h2>
-            {token && wishlist.some((product) => product._id ===product. _id) ? (
+            {token && wishlist.some((prod) => prod._id ===product._id) ? (
               <button
                 className="cart-like-btn liked"
                 onClick={handleRemoveFromWishlist}

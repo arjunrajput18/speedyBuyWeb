@@ -4,18 +4,18 @@ import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { Address } from "./Address";
 import { NewAddress } from "./NewAddress";
 import { AddressState } from "../../Contexts/Data/AddressContext";
-import { DataState } from "../../Contexts/Data/DataContext";
+// import { DataState } from "../../Contexts/Data/DataContext";
 import { NavLink } from "react-router-dom";
 export const Profile = () => {
   const { setIsLoggedIn } = AuthState();
   const [toggleBtn, setToggleBtn] = useState(true);
   const { isHideBox, setisHideBox } = AddressState();
   //  const [loading,setLoading]=useState(true)
-  const { dispatch } = DataState();
+  // const { dispatch } = DataState();
   const logOutHandler = () => {
     setIsLoggedIn(null);
     localStorage.clear();
-    dispatch({ type: "CLEAR_TOKEN" });
+    // dispatch({ type: "CLEAR_TOKEN" });
   };
   // const user= JSON.parse(
   //   localStorage.getItem("user")

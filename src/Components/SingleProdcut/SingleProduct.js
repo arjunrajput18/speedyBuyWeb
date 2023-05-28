@@ -10,15 +10,12 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "../../Services/Wishlist/WishlistServices";
-import { ProductDetailsServices } from "../../Services/ProductDetails/ProductDetailsServices";
+
 
 
 export const SingleProduct = ({ product }) => {
-
   
-  const {
-    state: { token },setProduct
-  } = DataState();
+  const token=localStorage.getItem("token")
 
 
   const navigate = useNavigate();
@@ -49,7 +46,6 @@ export const SingleProduct = ({ product }) => {
   //  setProduct(data)
     navigate(`/product/${_id}`);
   };
-
 
 
   const handleAddToCart=()=>{

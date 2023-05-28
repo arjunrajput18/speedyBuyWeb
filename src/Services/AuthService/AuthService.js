@@ -19,9 +19,9 @@ export const newAccountHandler = async (
       setIsLoggedIn(true);
       // console.log(createdUser);
       localStorage.setItem("user", JSON.stringify(createdUser));
-     const encoded= localStorage.setItem("token", encodedToken);
+      localStorage.setItem("token", encodedToken);
       // localStorage.setItem("token",encodedToken)
-      dispatch({ type: "SET_TOKEN", payload: encodedToken });
+      // dispatch({ type: "SET_TOKEN", payload: encodedToken });
       navigate("/productlisting");
       success("Login Successfully!")
     } catch (error) {
@@ -57,8 +57,8 @@ export const guestLoginhandler = async (
     // console.log(foundUser.email)
     setIsLoggedIn(true);
     localStorage.setItem("user", JSON.stringify(foundUser)); //foundUse is object[obj,obj]
-    const encoded=localStorage.setItem("token", encodedToken);
-    dispatch({ type: "SET_TOKEN", payload: encodedToken });
+   localStorage.setItem("token", encodedToken);
+    // dispatch({ type: "SET_TOKEN", payload: encodedToken });
     // console.log(location);
     console.log("login guest click");
     // console.log(location);
@@ -107,7 +107,7 @@ export const loginHandler = async (
         localStorage.setItem("user", JSON.stringify(foundUser));
         localStorage.setItem("token", encodedToken);
         // localStorage.setItem("token", encodedToken);
-        dispatch({ type: "SET_TOKEN", payload: encodedToken });
+        // dispatch({ type: "SET_TOKEN", payload: encodedToken });
         navigate(location?.state?.from?.pathname);
         success("Login Successfully!")
         // location?.state?.from?.pathname
