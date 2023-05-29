@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom'
 import { remove } from '../../../../Services/Toast/ToastServices'
 export const PriceDetails = () => {
 
-const {state:{cart}}=DataState()
+const {state:{cart},dispatch}=DataState()
 
 const {couponInfo, setCouponInfo,orderDispatch}=useOrder()
 
@@ -30,6 +30,13 @@ const handlerRemoveCoupon=()=>{
   remove("Coupon Remove successfully!")
 }
 
+
+const handleCheckoutSubmit=()=>{
+  orderDispatch({type:"CHECKOUT",payload:{totalOldPrice,totalAmount,couponDiscount,discount,totalItems}})
+
+  dispatch({type:"CLEAR_CART"})
+
+}
 
 const discount=(totalOldPrice-totalNewPrice).toFixed(2)
 const totalItems=cart.length
@@ -69,7 +76,7 @@ const totalItems=cart.length
       </div>
 
       <p className='sm-fontsize sm-margin-bottom saved-price-info'>You will save ₹ {(totalOldPrice-totalAmount).toFixed(2)} on this order</p>
-      <NavLink to={"/checkout"}><button className='checkout-btn cursor-pointer' onClick={()=>orderDispatch({type:"CHECKOUT",payload:{totalOldPrice,totalAmount,couponDiscount,discount,totalItems}})}>Checkout</button></NavLink>
+      <NavLink to={"/checkout"}><button className='checkout-btn cursor-pointer' onClick={handleCheckoutSubmit}>Checkout</button></NavLink>
      {!isHideBox && <Coupon  setIsHideBox={setIsHideBox}  />  }
     </div>
   )

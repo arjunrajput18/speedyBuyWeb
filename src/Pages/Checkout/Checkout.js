@@ -5,13 +5,19 @@ import { DataState } from "../../Contexts/Data/DataContext";
 import { AddressState } from "../../Contexts/Data/AddressContext";
 import { useNavigate } from "react-router-dom";
 import { warning } from "../../Services/Toast/ToastServices";
+import { RemoveFromCart } from "../../Services/Cart/CartServices";
+
+
+
+
+
 
 export const Checkout = () => {
   const {
-    state: { cart },
+    state: { cart },dispatch
   } = DataState();
   const navigate = useNavigate();
-  const { orderState } = useOrder();
+  const { orderState,orderDispatch,OrderPlacedItems } = useOrder();
   const {
     addressState: { address },
   } = AddressState();
@@ -20,9 +26,12 @@ export const Checkout = () => {
     orderState;
   const [selectedAddress, setSelectedAddress] = useState(address[0]);
   console.log(address, "addddd");
-  const handleAddress = (addressInfo) => {
+
+ const handleAddress = (addressInfo) => {
     setSelectedAddress(addressInfo);
   };
+const token=localStorage.getItem("token")
+const cartItemsId=cart.map(({_id})=>_id)
 
   const handleSubmit = () => {
     var options = {
@@ -33,7 +42,9 @@ export const Checkout = () => {
       name: "SpeedyBuy",
       description: "for testing purpose",
       handler: function (response) {
-        alert(response.razorpay_payment_id);
+        localStorage.setItem("payment_key",response.razorpay_payment_id)
+        navigate("/orderPlaced")
+        // alert(response.razorpay_payment_id);
       },
       prefill: {
         name: "Arjun",
@@ -49,17 +60,23 @@ export const Checkout = () => {
     };
     var pay = new window.Razorpay(options);
     pay.open();
+    // console.log( "keyyyyyy",options.key)
   };
+
 
  const handlePlaceorder=()=>{
   if(selectedAddress){
     handleSubmit()
+    orderDispatch({type:"Selected_Address",payload:selectedAddress})
+    orderDispatch({type:"ORDER_PLACED_ITEMS",payload:cart})
+    cartItemsId?.forEach((_id)=>RemoveFromCart(_id, dispatch,token))
+
   }else{
     navigate("/profile")
     warning("Please Add Your Address")
   }
  }
-
+// console.log(response.razorpay_payment_id)
   // if(selectedAddress){
   //   const {  name, street, city, state, country, postalCode, MobileNum } =
   //   selectedAddress;
@@ -68,7 +85,7 @@ export const Checkout = () => {
   return (
     <div className="checkout-main-container">
       <div>
-        {address.map((addressData, i) => {
+        {address?.map((addressData, i) => {
           const {
             id,
             name,
@@ -122,7 +139,7 @@ export const Checkout = () => {
           <div className="font-bold">Item </div>
           <div className="font-bold">QTY</div>
         </div>
-        {cart.map(({ itemName, qty, _id }) => (
+        {OrderPlacedItems?.map(({ itemName, qty, _id }) => (
           <div
             className="flex justify-between text-center padding-bottom-2"
             key={_id}
@@ -153,7 +170,7 @@ export const Checkout = () => {
         </div>
         <div className="flex justify-between margin-bottom-1">
           <h4>Total Amount</h4>
-          <h4>₹{totalAmount}</h4>
+          <h4>₹{(totalAmount)?.toFixed(2)}</h4>
         </div>
         <div className="text-center border-bottom border-top padding-top-bottom-5 margin-bottom-1">
           <h3>DELIVER TO</h3>

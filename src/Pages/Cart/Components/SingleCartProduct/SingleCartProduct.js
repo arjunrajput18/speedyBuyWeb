@@ -15,9 +15,10 @@ export const SingleCartProduct = ({ product }) => {
   const { _id, image, itemName, oldPrice, newPrice, discount } = product;
   const {
     dispatch,
-    state: { token, wishlist },
+    state: {  wishlist },
   } = DataState();
   const [isDisabledWishlist, setIsDisabledWishlist] = useState(false);
+  const token=localStorage.getItem("token")
   const qtyHandler = (type) =>
     updatedQtyFromCart(product, _id, dispatch, type, token);
 

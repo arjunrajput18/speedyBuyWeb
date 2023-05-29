@@ -128,6 +128,8 @@ export const dataReducer = (state, action) => {
         ...state,
         cart: action.payload,
       };
+     
+      
     // case "SET_TOKEN":
     //   return {
     //     ...state,
