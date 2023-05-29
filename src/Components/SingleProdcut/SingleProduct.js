@@ -83,7 +83,7 @@ export const SingleProduct = ({ product }) => {
     }
   }
 
-  console.log(token, "token");
+
   return (
     <div className="product-card">
       <div className="card-header">

@@ -7,10 +7,8 @@ import { SingleProduct } from '../../Components/SingleProdcut/SingleProduct'
 import no_data from "../../Assets/no_data.svg"
 
 
-import { Loading } from "../../Components/Loading/Loading";
-
 export const ProductListing = () => {
-  const { state: { products, filters },setLoading,loading } = DataState();
+  const { state: { products, filters },setLoading } = DataState();
   const { searchValue, sort, selectedCategories, selectedSizes, rating,price,byStock } = filters;
 
   // console.log(rating)

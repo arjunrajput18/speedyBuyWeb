@@ -52,7 +52,6 @@ width: 100%;
 
   font-size: 1.6rem;
   width: fit-content;
-  color: var(--primary);
   color: gray;
 }
 .like:hover {
@@ -61,6 +60,12 @@ width: 100%;
 }
 .liked{
   color: var(--red);
+  cursor: pointer;
+  font-size: 1.6rem;
+  width: fit-content;
+}
+.liked:hover{
+  color: gray;
   cursor: pointer;
   font-size: 1.6rem;
   width: fit-content;
