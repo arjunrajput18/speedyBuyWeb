@@ -114,7 +114,7 @@ export const ProductDetail = () => {
               </button>
             ) : (
               <button
-                className="cart-like-btn like"
+                className="cart-like-btn like wislist-like"
                 onClick={handleAddToWishlist}
                 disabled={isDisabled}
               >
