@@ -36,6 +36,12 @@ width: 100%;
 .trending-like-box{
   position: relative;
 }
+.wislist-like{
+  color: gray!important
+}
+.wislist-like:hover{
+  color: red!important
+}
 
 .trending {
   font-size: 0.9rem;
@@ -60,16 +66,12 @@ width: 100%;
 }
 .liked{
   color: var(--red);
+  
   cursor: pointer;
   font-size: 1.6rem;
   width: fit-content;
 }
-.liked:hover{
-  color: gray;
-  cursor: pointer;
-  font-size: 1.6rem;
-  width: fit-content;
-}
+
 /*  */
 .rating-star {
   background-color: var(--green);

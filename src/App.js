@@ -23,73 +23,76 @@ import { Loading } from "./Components/Loading/Loading";
 import { PageNotFound } from "./Pages/ErrorPage/PageNotFound";
 import { OrderPlaced } from "./Pages/Order_Placed/OrderPlaced";
 
-
-
-
-
-
 function App() {
   injectStyle();
 
-
-
-  const {loading}=DataState()
+  const { loading } = DataState();
   return (
     <div className="App">
-{loading && <Loading/>}
-    <div>
-    <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productlisting" element={ <ProductListing />} />
-        <Route
-          path="/cart"
-          element={
-            <RequiresAuth>
-              <Cart />
-            </RequiresAuth>
-          }
+      {loading && <Loading />}
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productlisting" element={<ProductListing />} />
+          <Route
+            path="/cart"
+            element={
+              <RequiresAuth>
+                <Cart />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/wishlist"
+            element={
+              <RequiresAuth>
+                <Wishlist />
+              </RequiresAuth>
+            }
+          />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/profile"
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
+          <Route path="/mockman" element={<Mockman />} />
+          <Route
+            path="/checkout"
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/orderPlaced"
+            element={
+              <RequiresAuth>
+                <OrderPlaced />
+              </RequiresAuth>
+            }
+          />
+          <Route path="/*" element={<PageNotFound />} />
+        </Routes>
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
         />
-        <Route
-          path="/wishlist"
-          element={
-            <RequiresAuth>
-              <Wishlist />
-            </RequiresAuth>
-          }
-        />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route
-          path="/profile"
-          element={
-            <RequiresAuth>
-              <Profile />
-            </RequiresAuth>
-          }
-        />
-        <Route path="/mockman" element={<Mockman />} />
-        <Route path="/checkout" element={
-          <RequiresAuth>
-        <Checkout/>
-          </RequiresAuth>
-        } />
-           <Route path="/orderPlaced" element={<OrderPlaced/>} />
-            <Route path="/*" element={<PageNotFound/>} />
-      </Routes>
-      <ToastContainer position="bottom-center"
-        autoClose={1000}
-        
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover />
-    </div>
-    
+      </div>
     </div>
   );
 }

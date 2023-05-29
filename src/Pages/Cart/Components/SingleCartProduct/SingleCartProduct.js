@@ -112,7 +112,7 @@ const handleRemove=()=>{
               <button
                 onClick={handleAddToWishlist}
                 disabled={isDisabledWishlist}
-                className="like cart-like-btn"
+                className="like cart-like-btn wislist-like"
               >
                 <AiFillHeart />
               </button>
