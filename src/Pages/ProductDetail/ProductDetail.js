@@ -127,7 +127,7 @@ export const ProductDetail = () => {
             <span className="old-price right-margin sm-fontsize">
               ₹{product.oldPrice}
             </span>
-            <span className="discount sm-fontsize">{product.discount}% OFF</span>
+            <span className="discount">{product.discount}%OFF</span>
           </div>
           {product.fewLeft && (
             <p className="few-left font-extra-sm font-bold-md">

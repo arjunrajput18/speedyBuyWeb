@@ -21,6 +21,7 @@ import { ToastContainer } from "react-toastify";
 import { DataState } from "./Contexts/Data/DataContext";
 import { Loading } from "./Components/Loading/Loading";
 import { PageNotFound } from "./Pages/ErrorPage/PageNotFound";
+import { OrderPlaced } from "./Pages/Order_Placed/OrderPlaced";
 
 
 
@@ -74,7 +75,8 @@ function App() {
         <Checkout/>
           </RequiresAuth>
         } />
-           <Route path="/*" element={<PageNotFound/>} />
+           <Route path="/orderPlaced" element={<OrderPlaced/>} />
+            <Route path="/*" element={<PageNotFound/>} />
       </Routes>
       <ToastContainer position="bottom-center"
         autoClose={1000}

@@ -7,6 +7,7 @@ export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
 const [loading,setLoading]=useState(true)
 const [firstproduct, setProduct] = useState({});
+
   const getCategories = async () => {
     try {
       const response = await fetch("/api/categories");

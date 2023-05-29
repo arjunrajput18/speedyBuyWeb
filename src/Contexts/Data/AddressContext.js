@@ -5,6 +5,7 @@ export const AddressContext = createContext();
 
 export const AddressContextProvider = ({ children }) => {
 const [addressState,addressDispatch]=useReducer(AddressReducer,initialState)
+
 const [values, setValues] = useState({
   id:"",
   name: "",
@@ -18,7 +19,7 @@ const [values, setValues] = useState({
 const [isHideBox,setisHideBox]=useState(false)
 
     return (
-    <AddressContext.Provider value={{setisHideBox,isHideBox,addressState,addressDispatch,setValues,values}}>{children}</AddressContext.Provider>
+    <AddressContext.Provider value={{setisHideBox,isHideBox,addressState,addressDispatch,setValues,values,}}>{children}</AddressContext.Provider>
   );
 };
 
