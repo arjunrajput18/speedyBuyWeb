@@ -340,9 +340,9 @@ export const products = [
     ,
     {
     _id: "20",
-    itemName: "Cotton T-Shirt",
-    image: "https://preview.colorlib.com/theme/cozastore/images/product-13.jpg.webp",
-    description: "A comfortable and breathable cotton t-shirt for everyday wear.",
+    itemName: "Cotton Shirt",
+    image: "https://preview.colorlib.com/theme/cozastore/images/product-detail-03.jpg.webp",
+    description: "A comfortable and breathable cotton shirt for everyday wear.",
     rating: 4.3,
     reviews: 15,
     color: "White",

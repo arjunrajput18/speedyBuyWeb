@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Checkout.css";
 import { useOrder } from "../../Contexts/Data/OrderContext";
 import { DataState } from "../../Contexts/Data/DataContext";
@@ -27,11 +27,37 @@ export const Checkout = () => {
   const [selectedAddress, setSelectedAddress] = useState(address[0]);
   console.log(address, "addddd");
 
+useEffect(()=>{
+if(cart.length===0){
+  navigate("/productlisting")
+
+}
+},[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const handleAddress = (addressInfo) => {
     setSelectedAddress(addressInfo);
   };
 const token=localStorage.getItem("token")
 const cartItemsId=cart.map(({_id})=>_id)
+
+
+
+
+
+
 
   const handleSubmit = () => {
     var options = {
@@ -43,6 +69,7 @@ const cartItemsId=cart.map(({_id})=>_id)
       description: "for testing purpose",
       handler: function (response) {
         localStorage.setItem("payment_key",response.razorpay_payment_id)
+        cartItemsId?.forEach((_id)=>RemoveFromCart(_id, dispatch,token))
         navigate("/orderPlaced")
         // alert(response.razorpay_payment_id);
       },
@@ -66,10 +93,10 @@ const cartItemsId=cart.map(({_id})=>_id)
 
  const handlePlaceorder=()=>{
   if(selectedAddress){
-    handleSubmit()
     orderDispatch({type:"Selected_Address",payload:selectedAddress})
     orderDispatch({type:"ORDER_PLACED_ITEMS",payload:cart})
-    cartItemsId?.forEach((_id)=>RemoveFromCart(_id, dispatch,token))
+    handleSubmit()
+   
 
   }else{
     navigate("/profile")
@@ -139,7 +166,7 @@ const cartItemsId=cart.map(({_id})=>_id)
           <div className="font-bold">Item </div>
           <div className="font-bold">QTY</div>
         </div>
-        {OrderPlacedItems?.map(({ itemName, qty, _id }) => (
+        {cart?.map(({ itemName, qty, _id }) => (
           <div
             className="flex justify-between text-center padding-bottom-2"
             key={_id}
