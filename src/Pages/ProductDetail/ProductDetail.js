@@ -105,13 +105,13 @@ export const ProductDetail = () => {
           <div className="flex justify-between ">
             <h2 className="font-1-3 header-md">{product.itemName}</h2>
             {token && wishlist.some((prod) => prod._id ===product._id) ? (
-              <button
+              <span
                 className="cart-like-btn liked"
                 onClick={handleRemoveFromWishlist}
                 disabled={isDisabled}
               >
                 <AiFillHeart />
-              </button>
+              </span>
             ) : (
               <button
                 className="cart-like-btn like wislist-like"
