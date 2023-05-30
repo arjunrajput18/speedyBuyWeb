@@ -26,10 +26,10 @@ export const SingleCartProduct = ({ product }) => {
     setIsDisabledWishlist(true);
     if (token) {
       removeFromWishlist(_id, dispatch, token);
-      remove("Removed from Wishlist!");
       setTimeout(() => {
         setIsDisabledWishlist(false);
-      }, 1000);
+        remove("Removed from Wishlist!");
+      }, 500);
     }
   };
 
@@ -101,13 +101,12 @@ const handleRemove=()=>{
             {/* <h2>hi</h2> */}
 
             {token && wishlist?.some((data) => data._id === _id) ? (
-              <button
+              <span
                 className="liked cart-like-btn"
                 onClick={handleRemoveFromWishlist}
-                disabled={isDisabledWishlist}
               >
                 <AiFillHeart />
-              </button>
+              </span>
             ) : (
               <button
                 onClick={handleAddToWishlist}

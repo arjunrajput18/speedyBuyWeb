@@ -112,17 +112,17 @@ export const SingleProduct = ({ product }) => {
             </p>
           </div>
 
-          <div className="trending-like-box">
+          <div>
             {/* <h2>hi</h2> */}
 
             {token && wishlist?.some((data) => data._id === _id) ? (
-              <button
+              <span
                 className="cart-like-btn liked"
                 onClick={handleRemoveFromWishlist}
-                disabled={isDisabled}
+              
               >
                 <AiFillHeart />
-              </button>
+              </span>
             ) : (
               <button
                 className="cart-like-btn like wislist-like"
