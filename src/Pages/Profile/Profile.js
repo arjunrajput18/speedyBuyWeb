@@ -78,6 +78,7 @@ export const Profile = () => {
                     Address Setting
                   </button>
                 </NavLink>
+                <NavLink className={"navlink-address-setting"} to={"/orderPlaced"}> <button className="profile-Address-btn">Order History</button></NavLink>
 
                 <div>
                   <button

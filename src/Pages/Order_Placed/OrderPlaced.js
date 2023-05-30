@@ -2,6 +2,7 @@ import React from "react";
 import "./OrderPlaced.css";
 
 import { useOrder } from "../../Contexts/Data/OrderContext";
+import { NavLink } from "react-router-dom";
 
 export const OrderPlaced = () => {
     
@@ -18,7 +19,7 @@ const {
   MobileNum,}=selectedAddress
   return (
     <div>
-      <div className="order-plcaed-main-container">
+     {OrderPlacedItems.length<1?<div className="empty-cart-order">Your Order is Empty click here to <NavLink to="/productlisting"><button className="shop-now-btn"> Shop Now</button></NavLink> </div>: <div className="order-plcaed-main-container">
         <div className="top-margin font-bold font-2">Order Summary</div>
         <div className="Order-placed-container ">
           <h3 className="margin-bottom-1">Order Confirmed</h3>
@@ -81,7 +82,7 @@ const {
             
           
         </div>
-      </div>
+      </div> }
     </div>
   );
 };

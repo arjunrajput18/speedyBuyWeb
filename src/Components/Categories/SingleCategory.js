@@ -19,7 +19,7 @@ export const SingleCategory = ({ category }) => {
 <div className="toggle-background">
 
         <div className="category-info">
-          <h2 className="category-name">{categoryName}</h2>
+          <h3 className="category-name">{categoryName}</h3>
           <p className="category-desc">{description}</p>
         </div>
         <p className="category-shopNow">shop now</p>

@@ -41,3 +41,27 @@ height: 120px;
     padding-right: 0.8rem;
     margin-top: 0.3rem;
 }
+
+
+.empty-cart-order{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size:larger;
+   font-weight: bolder;
+   margin-top: 5rem;
+ 
+}
+.shop-now-btn{
+    background-color: var(--primary);
+   color: white;
+    margin-left: 1rem;
+    padding: 0.6rem;
+    cursor: pointer;
+}
+.shop-now-btn:hover{
+    background-color: white;
+   color: var(--primary);
+    margin-left: 1rem;
+    padding: 0.6rem;
+}
