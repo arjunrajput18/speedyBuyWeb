@@ -19,10 +19,12 @@ const {
   MobileNum,}=selectedAddress
   return (
     <div>
-     {OrderPlacedItems.length<1?<div className="empty-cart-order">Your Order is Empty click here to <NavLink to="/productlisting"><button className="shop-now-btn"> Shop Now</button></NavLink> </div>: <div className="order-plcaed-main-container">
+     {OrderPlacedItems.length<1?<div className="empty-cart-order">Your Order is Empty click here to<NavLink to="/productlisting"><button className="shop-now-btn"> Shop Now</button></NavLink> </div>: <div className="order-plcaed-main-container">
         <div className="top-margin font-bold font-2">Order Summary</div>
         <div className="Order-placed-container ">
-          <h3 className="margin-bottom-1">Order Confirmed</h3>
+          <h2 className="margin-bottom-1">Order Confirmed</h2>
+          <div className="innerContainer-orderPlaced">
+          <div className="margin-bottom-1">
           <p>Payment Id: {payment_key}</p>
           <p>Total Amount : ₹ {totalAmount} </p>
           <p>Order will be delivered to:</p>
@@ -53,8 +55,9 @@ const {
           </div>
         </div>
           </div>
+          </div>
           <div className="order-placed-product">
-          {OrderPlacedItems.map(({_id, image, itemName, oldPrice, newPrice, discount,qty })=><div key={_id} className="flex">
+          {OrderPlacedItems.map(({_id, image, itemName, oldPrice, newPrice, discount,qty })=><div key={_id} className="product-details-order flex">
             <img
               src={
                image
@@ -77,7 +80,7 @@ const {
           </div>)}
            
           </div>
-       
+       </div>
             
             
           
