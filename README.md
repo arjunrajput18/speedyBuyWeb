@@ -52,5 +52,9 @@ $ npm start
 
 ## ** DEMO VIDEO-**
 
-https://github.com/arjunrajput18/speedyBuyWeb/assets/31860250/1a4cc12d-5e23-437d-97b7-cdcea4e19e1e
+
+
+https://github.com/arjunrajput18/speedyBuyWeb/assets/31860250/0f02026b-6ece-4405-8533-858625ca040c
+
+
 
