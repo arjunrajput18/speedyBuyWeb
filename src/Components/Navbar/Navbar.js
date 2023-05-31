@@ -40,8 +40,7 @@ const token=localStorage.getItem("token")
       acc.includes(curr.itemName) ? acc : [...acc, curr.itemName],
     []
   );
-  // console.log("token",token)
-  // Boolean(token)
+ 
   return (
     <>
       <nav className=" navigation flex justify-between align-center">

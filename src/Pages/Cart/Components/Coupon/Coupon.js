@@ -21,7 +21,7 @@ export const Coupon = ({setIsHideBox}) => {
        success("Applied Coupon")
     }
   }
-console.log(couponInfo.value);
+
 
   return (
     <>

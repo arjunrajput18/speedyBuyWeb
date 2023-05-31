@@ -25,7 +25,6 @@ export const Checkout = () => {
   const { priceDetails, totalAmount, couponDiscount, discount, totalItems } =
     orderState;
   const [selectedAddress, setSelectedAddress] = useState(address[0]);
-  console.log(address, "addddd");
 
 useEffect(()=>{
 if(cart.length===0){
