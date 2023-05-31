@@ -12,6 +12,8 @@ $ cd speedyBuyWeb
 $ npm install
 $ npm start
 ```
+
+
 ## **Features-**
 
 - Home Page
@@ -47,3 +49,8 @@ $ npm start
 - Vanilla CSS
 - MockBee for backend
 - Razorpay payment gateway
+
+## ** DEMO VIDEO-**
+
+https://github.com/arjunrajput18/speedyBuyWeb/assets/31860250/1a4cc12d-5e23-437d-97b7-cdcea4e19e1e
+
