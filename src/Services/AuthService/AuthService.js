@@ -60,7 +60,7 @@ export const guestLoginhandler = async (
    localStorage.setItem("token", encodedToken);
     // dispatch({ type: "SET_TOKEN", payload: encodedToken });
     // console.log(location);
-    console.log("login guest click");
+    // console.log("login guest click");
     // console.log(location);
     const newPath = location?.state?.from?.pathname;
     // if()

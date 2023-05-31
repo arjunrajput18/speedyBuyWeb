@@ -13,7 +13,7 @@ export const NewAddress = () => {
     setValues,
     values,
   } = AddressState();
-console.log(updatedId,"updatedId")
+// console.log(updatedId,"updatedId")
   const saveCondition = updatedId? true : false;
 
 
@@ -32,11 +32,11 @@ console.log(updatedId,"updatedId")
   const handleSave = () => {
 if(values.name && values.city && values.state && values.country && values.street &&values.postalCode){
   if (saveCondition) {
-    console.log(values)
+    // console.log(values)
     const updatedData = address.map((data,i) =>
     data.id === updatedId ? values : data
     );
-    console.log("updatedData",updatedData)
+    // console.log("updatedData",updatedData)
     addressDispatch({ type: "UPDATE_ADDRESS", payload: updatedData });
     setisHideBox(false);
     success("Address Updated successfully!")
