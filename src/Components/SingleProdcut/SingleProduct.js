@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { BsCartCheck, BsCartPlus } from "react-icons/bs";
+import {RiDeleteBin5Line} from "react-icons/ri"
 import "./SingleProduct.css";
 import { loginTocontinue, remove, success } from "../../Services/Toast/ToastServices"
 import { DataState } from "../../Contexts/Data/DataContext";
@@ -13,7 +14,7 @@ import {
 
 
 
-export const SingleProduct = ({ product }) => {
+export const SingleProduct = ({ product ,deleteIcon}) => {
   
   const token=localStorage.getItem("token")
 
@@ -121,7 +122,8 @@ export const SingleProduct = ({ product }) => {
                 onClick={handleRemoveFromWishlist}
               
               >
-                <AiFillHeart />
+                {!deleteIcon && <AiFillHeart />}
+                {deleteIcon && <RiDeleteBin5Line/>}
               </span>
             ) : (
               <button

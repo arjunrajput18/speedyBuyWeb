@@ -6,6 +6,10 @@ justify-content: center;
 }
 .category-header{
 text-align: center;
+font-size: x-large;
+font-weight: 800;
+font-size: 2rem;
+color: var(--primary);
 }
 .category-img{
   height: 250px;

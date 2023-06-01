@@ -11,7 +11,7 @@ export const Categories = () => {
   return (
     <>
 
-      <h1 className='category-header'>shop by categories</h1>
+      <p className='category-header'>Featured shops by categories</p>
       <div className='categories'>
         {
           categories?.map(category => <SingleCategory category={category} key={category._id} />)

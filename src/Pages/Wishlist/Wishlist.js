@@ -18,7 +18,7 @@ export const Wishlist = () => {
 <h2 className='text-center top-margin'>My Wishlist({wishlist?.length})</h2>
       <div className='wishlist-container'>
         {
-          wishlist?.map(product => <SingleProduct key={product._id} product={product} />)
+          wishlist?.map(product => <SingleProduct key={product._id} product={product} deleteIcon />)
         }
       </div>
 </div>:
