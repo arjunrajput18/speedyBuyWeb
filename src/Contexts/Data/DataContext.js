@@ -43,7 +43,7 @@ const [firstproduct, setProduct] = useState({});
         }
       })
       const data=await response.json()
-      console.log(data.cart)
+      // console.log(data.cart)
     
     } catch (error) {
       console.log(error)
