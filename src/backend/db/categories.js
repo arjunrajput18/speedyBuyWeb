@@ -11,13 +11,13 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Women",
-    description:"Cloths 2023",
+    description:"clothes 2023",
     img: MensCategory
   },
   {
     _id: uuid(),
     categoryName: "Men",
-    description:"Cloths 2023",
+    description:"clothes 2023",
     img: WomensCategory
   },
   {
