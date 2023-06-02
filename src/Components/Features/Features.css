@@ -3,7 +3,6 @@
 }
 .features .features-list {
   display: flex;
-  /* grid-template-columns: repeat(2, 1fr); */
   flex-wrap: wrap;
   place-items: center;
 }
@@ -28,7 +27,6 @@
 .feature-title {
   text-align: center;
 }
-
 
 @media (min-width: 720px) {
   .features .features-list {

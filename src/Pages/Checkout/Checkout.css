@@ -1,89 +1,73 @@
-.checkout-main-container{
+.checkout-main-container {
   margin: 3rem 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    justify-content: space-around;
-    height: auto;
-    overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: auto;
+  overflow-y: scroll;
 }
-.checkout-mainAddress-container{
+.checkout-mainAddress-container {
   box-shadow: 0 7px 30px -10px rgba(24, 28, 30, 0.518);
   margin: 3rem;
   padding: 1rem;
 }
-.checkout-innerAddress-container{
+.checkout-innerAddress-container {
   padding: 1rem;
   line-height: 1.4;
   align-self: flex-start;
   display: flex;
   flex-wrap: wrap;
 }
-.checkout-bill-container{
+.checkout-bill-container {
   box-shadow: 0px 5px 15px rgba(90, 90, 90, 0.35);
   height: auto;
   margin-bottom: 1rem;
-  /* align-self: flex-start; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding:3rem ; */
 }
 
-.checkout-inner-container{
-    width: 20rem;
-    /* border: solid; */
-    /* height: 70vh; */
-    /* display: flex;
-    flex-direction: column; */
+.checkout-inner-container {
+  width: 20rem;
   justify-content: space-around;
-/* align-self: start; */
 
-margin: 1.5rem;
+  margin: 1.5rem;
   padding: 1.3rem;
-
-
 }
 
-.place-order-button{
-    background-color: var(--primary);
-    font-size: 1rem;
-    color: var(--white);
-    padding: 0.3rem;
-    margin-top: 0.6rem;
-    border: 1px solid var(--primary);
-    border-radius: 0.3rem;
-    width: 100%;
-  }
+.place-order-button {
+  background-color: var(--primary);
+  font-size: 1rem;
+  color: var(--white);
+  padding: 0.3rem;
+  margin-top: 0.6rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.3rem;
+  width: 100%;
+}
 
-  .place-order-button:hover {
-    background-color: var(--white);
-    color: var(--primary);
-  }
+.place-order-button:hover {
+  background-color: var(--white);
+  color: var(--primary);
+}
 
-.checkout-address{
+.checkout-address {
   padding-bottom: 1rem;
-  /* line-height: 1.4; */
 }
 
-/* .checkout-main-container{} */
-
-@media (min-width:720px){
-  .checkout-main-container{
- 
+@media (min-width: 720px) {
+  .checkout-main-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items:normal;
-    width:auto
+    align-items: normal;
+    width: auto;
   }
-  .checkout-inner-container{
-    width:18rem
+  .checkout-inner-container {
+    width: 18rem;
   }
-  .checkout-bill-container{
-    align-self: flex-start; 
+  .checkout-bill-container {
+    align-self: flex-start;
   }
- 
- 
 }

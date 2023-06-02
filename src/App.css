@@ -10,5 +10,5 @@ body {
   background-color: #f8f8f8;
 }
 #toast-container > .toast {
-  width: 1200px; /* width: 100% */
+  width: 1200px;
 }

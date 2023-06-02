@@ -11,9 +11,6 @@
   text-align: left;
   font-weight: bolder;
   font-size: larger;
-  /* margin-bottom: 5px; */
-  /* border-bottom: 1px solid black; */
-  /* text-decoration: underline; */
 }
 .add-new-address-btn {
   background-color: #40E0D0;
@@ -22,10 +19,6 @@
   font-weight: bolder;
   color: var(--white);
   letter-spacing: 1.5px;
-  /* margin-bottom: 0.5rem; */
-
-
-  /* cursor: pointer; */
 }
 .add-new-address-btn:hover {
 

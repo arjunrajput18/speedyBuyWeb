@@ -30,9 +30,8 @@
   font-size: 2rem;
   cursor: pointer;
 }
-.social-item :hover{
+.social-item :hover {
   font-size: 2.5rem;
-
 }
 
 .social-1 {
@@ -47,17 +46,15 @@
   color: #00b6ff;
 }
 
-.developedBy{
+.developedBy {
   text-align: center;
   background-color: #333333;
   color: white;
   padding-bottom: 1rem;
 }
-.developer_name{
+.developer_name {
   color: white;
-  /* text-decoration: underline; */
 }
-
 
 @media (min-width: 720px) {
   .social-links {

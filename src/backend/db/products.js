@@ -358,7 +358,7 @@ export const products = [
     },
     {
       _id: "21",
-      itemName: "Cotton Lether Jacket",
+      itemName: "Lether Jacket",
       image: "https://preview.colorlib.com/theme/cozastore/images/gallery-04.jpg.webp",
       description: "A stylish and comfortable cotton t-shirt for casual wear.",
       rating: 4.7,
@@ -375,7 +375,7 @@ export const products = [
       fewLeft: false
   },{
     _id: "22",
-    itemName: "V-Neck Cotton T-Shirt",
+    itemName: "V-Neck  T-Shirt",
     image: "https://preview.colorlib.com/theme/cozastore/images/slide-07.jpg.webp",
     description: "A classic V-neck cotton t-shirt for a stylish and casual look.",
     rating: 4.2,
@@ -392,7 +392,7 @@ export const products = [
     fewLeft: true
 },{
   _id: "23",
-  itemName: "Striped Cotton T-Shirt",
+  itemName: "Striped T-Shirt",
   image: "https://preview.colorlib.com/theme/cozastore/images/slide-06.jpg.webp",
   description: "A trendy striped cotton t-shirt for a chic and casual style.",
   rating: 4.5,
@@ -427,8 +427,8 @@ export const products = [
   fewLeft: false
 },{
   _id: "25",
-  itemName: "Graphic Print Cotton T-Shirt",
-  image: "https://preview.colorlib.com/theme/cozastore/images/slide-03.jpg.webp",
+  itemName: "Cotton T-Shirt",
+  image: "https://preview.colorlib.com/theme/cozastore/images/product-detail-01.jpg.webp",
   description: "A trendy graphic print cotton t-shirt for a unique and stylish look.",
   rating: 4.8,
   reviews: 25,
