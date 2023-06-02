@@ -1,9 +1,8 @@
 import React from "react";
 import "./NewAddress.css";
-// import { RxCross2 } from 'react-icons/rx'
-import { loginTocontinue, remove, success } from "../../Services/Toast/ToastServices"
+import { success } from "../../Services/Toast/ToastServices";
 
-import {ImCross} from "react-icons/im"
+import { ImCross } from "react-icons/im";
 import { AddressState } from "../../Contexts/Data/AddressContext";
 export const NewAddress = () => {
   const {
@@ -13,9 +12,7 @@ export const NewAddress = () => {
     setValues,
     values,
   } = AddressState();
-// console.log(updatedId,"updatedId")
-  const saveCondition = updatedId? true : false;
-
+  const saveCondition = updatedId ? true : false;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,39 +27,43 @@ export const NewAddress = () => {
     e.preventDefault();
   };
   const handleSave = () => {
-if(values.name && values.city && values.state && values.country && values.street &&values.postalCode){
-  if (saveCondition) {
-    // console.log(values)
-    const updatedData = address.map((data,i) =>
-    data.id === updatedId ? values : data
-    );
-    // console.log("updatedData",updatedData)
-    addressDispatch({ type: "UPDATE_ADDRESS", payload: updatedData });
-    setisHideBox(false);
-    success("Address Updated successfully!")
-  } else {
-    setisHideBox(false);
-    addressDispatch({ type: "ADD_NEW_ADDRESS", payload: values });
-    setValues((prev) => ({
-      ...prev,
-      id: new Date().getTime().toString(),
-      name: "",
-      street: "",
-      city: "",
-      state: "",
-      country: "",
-      postalCode: "",
-      MobileNum: "",
-    }));
-    success("Address Added successfully!")
-  }
-}
- 
+    if (
+      values.name &&
+      values.city &&
+      values.state &&
+      values.country &&
+      values.street &&
+      values.postalCode
+    ) {
+      if (saveCondition) {
+        const updatedData = address.map((data, i) =>
+          data.id === updatedId ? values : data
+        );
+        addressDispatch({ type: "UPDATE_ADDRESS", payload: updatedData });
+        setisHideBox(false);
+        success("Address Updated successfully!");
+      } else {
+        setisHideBox(false);
+        addressDispatch({ type: "ADD_NEW_ADDRESS", payload: values });
+        setValues((prev) => ({
+          ...prev,
+          id: new Date().getTime().toString(),
+          name: "",
+          street: "",
+          city: "",
+          state: "",
+          country: "",
+          postalCode: "",
+          MobileNum: "",
+        }));
+        success("Address Added successfully!");
+      }
+    }
   };
 
   const handleDummyAddress = () => {
     setValues(() => ({
-      id:new Date().getTime(),
+      id: new Date().getTime(),
       name: "Arjunsingh Rajput",
       street: "204, sai jyot, s. n road Mulund WEST",
       city: "MUMBAI",
@@ -71,19 +72,18 @@ if(values.name && values.city && values.state && values.country && values.street
       postalCode: "400080",
       MobileNum: "9320003120",
     }));
-    // console.log(values)
   };
   return (
     <div className="adress-form-details">
       {" "}
-      <form  onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="address-form-container">
-        <button
-              className="cross-address-btn"
-              onClick={() => setisHideBox(false)}
-            >
-              <ImCross/>
-            </button>
+          <button
+            className="cross-address-btn"
+            onClick={() => setisHideBox(false)}
+          >
+            <ImCross />
+          </button>
           <p className="text-center top-margin font-bold sm-margin-bottom">
             Add New Address
           </p>

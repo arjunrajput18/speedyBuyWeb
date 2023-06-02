@@ -22,7 +22,7 @@ color: var(--primary);
   width: 250px;
   height: 250px;
   position: relative;
-  margin: 2rem;
+  margin: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,6 @@ color: var(--primary);
   width: 250px;
   height: 250px;
   position: absolute;
-  margin: 1rem;
 }
 
 .toggle-background:hover{
@@ -62,6 +61,3 @@ padding-bottom: 0.3rem;
 
 
 
-/* .category-info:hover{
-  color: white;
-} */

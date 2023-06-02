@@ -4,30 +4,24 @@ import { AuthState } from "../../Contexts/Auth/AuthContext";
 import { Address } from "./Address";
 import { NewAddress } from "./NewAddress";
 import { AddressState } from "../../Contexts/Data/AddressContext";
-// import { DataState } from "../../Contexts/Data/DataContext";
+
 import { NavLink } from "react-router-dom";
 export const Profile = () => {
   const { setIsLoggedIn } = AuthState();
   const [toggleBtn, setToggleBtn] = useState(true);
   const { isHideBox, setisHideBox } = AddressState();
-  //  const [loading,setLoading]=useState(true)
-  // const { dispatch } = DataState();
+
   const logOutHandler = () => {
     setIsLoggedIn(null);
     localStorage.clear();
-    // dispatch({ type: "CLEAR_TOKEN" });
   };
-  // const user= JSON.parse(
-  //   localStorage.getItem("user")
-  // );
+
   var userJson = localStorage.getItem("user");
   if (userJson) {
     var user = JSON.parse(userJson);
   } else {
     localStorage.removeItem("user");
   }
-
-  // const { firstName, lastName, email } =user
 
   return (
     <div className="profile-page-container">
@@ -78,7 +72,13 @@ export const Profile = () => {
                     Address Setting
                   </button>
                 </NavLink>
-                <NavLink className={"navlink-address-setting"} to={"/orderPlaced"}> <button className="profile-Address-btn">Order History</button></NavLink>
+                <NavLink
+                  className={"navlink-address-setting"}
+                  to={"/orderPlaced"}
+                >
+                  {" "}
+                  <button className="profile-Address-btn">Order History</button>
+                </NavLink>
 
                 <div>
                   <button

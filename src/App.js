@@ -1,9 +1,6 @@
 import "./App.css";
 import "./utils.css";
 import { injectStyle } from "react-toastify/dist/inject-style";
-
-// CALL IT ONCE IN YOUR APP
-
 import { Home } from "./Pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import { ProductListing } from "./Pages/ProductListing/ProductListing";
@@ -25,7 +22,6 @@ import { OrderPlaced } from "./Pages/Order_Placed/OrderPlaced";
 
 function App() {
   injectStyle();
-
   const { loading } = DataState();
   return (
     <div className="App">

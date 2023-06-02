@@ -12,17 +12,15 @@ import "./Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { DataState } from "../../Contexts/Data/DataContext";
-// import { AuthState } from '../../Contexts/Auth/AuthContext'
 
 export const Navbar = () => {
   const [menuClass, setMenuClass] = useState("hide-menu");
-  // const [searchBar, setSearchBar] = useState(false);
 
   const {
-    state: { products, cart, wishlist,  },
+    state: { cart, wishlist },
     dispatch,
   } = DataState();
-const token=localStorage.getItem("token")
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const handleMenuClick = (data) => {
@@ -35,12 +33,6 @@ const token=localStorage.getItem("token")
     dispatch({ type: "SEARCH_PRODUCT", payload: e.target.value });
   };
 
-  const allProductNames = products.reduce(
-    (acc, curr) =>
-      acc.includes(curr.itemName) ? acc : [...acc, curr.itemName],
-    []
-  );
- 
   return (
     <>
       <nav className=" navigation flex justify-between align-center">
@@ -60,12 +52,6 @@ const token=localStorage.getItem("token")
           />
         </div>
 
-        <datalist id="search-products">
-          {allProductNames.map((name) => (
-            <option key={name}>{name}</option>
-          ))}
-        </datalist>
-
         {menuClass === "hide-menu" ? (
           <div className="navigation-menu" onClick={() => handleMenuClick()}>
             <AiOutlineMenu />
@@ -79,10 +65,7 @@ const token=localStorage.getItem("token")
           </div>
         )}
 
-        {/* {mobile view} */}
         <ul className={menuClass}>
-          {/* <li className='menu-item'><NavLink onClick={() => setSearchBar(prev => !prev)} className="nav-link">{searchBar ? <RxCross1 /> : <AiOutlineSearch />}</NavLink></li> */}
-
           <li className="menu-item">
             <NavLink className="nav-link" to="/productlisting">
               <MdOutlineLocalMall />
@@ -110,9 +93,7 @@ const token=localStorage.getItem("token")
             </NavLink>
           </li>
         </ul>
-        {/* {desktop view} */}
         <ul className="menus-md">
-          {/* <li className='menu-item'><NavLink onClick={() => setSearchBar(prev => !prev)} className="nav-link">{searchBar ? <RxCross1 /> : <AiOutlineSearch />}</NavLink></li> */}
           <li className="menu-item">
             <NavLink className="nav-link" to="/productlisting">
               <MdOutlineLocalMall />

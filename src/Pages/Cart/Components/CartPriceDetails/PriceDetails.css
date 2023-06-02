@@ -39,11 +39,10 @@
 
 .coupon-box {
   border-top: 1px solid var(--gray);
- 
-  padding: 0.8rem 0rem;
 
+  padding: 0.8rem 0rem;
 }
-.color-green{
+.color-green {
   color: green;
   font-weight: 600;
 }

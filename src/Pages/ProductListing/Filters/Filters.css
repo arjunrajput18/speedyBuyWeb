@@ -134,7 +134,6 @@ input {
     top: 10%;
     z-index: 1;
     padding-right: 0;
-    /* height: fit-content; */
     height: 90vh;
     overflow-y: scroll;
     width: 15rem;
