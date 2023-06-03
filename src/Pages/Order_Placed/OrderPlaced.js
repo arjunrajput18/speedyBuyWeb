@@ -28,7 +28,7 @@ export const OrderPlaced = () => {
             <div className="innerContainer-orderPlaced">
               <div className="margin-bottom-1">
                 <p>Payment Id: {payment_key}</p>
-                <p>Total Amount : ₹ {totalAmount} </p>
+                <p>Total Amount : ₹ {totalAmount.toFixed(2)} </p>
                 <p>Order will be delivered to:</p>
                 <div>
                   <p></p>
