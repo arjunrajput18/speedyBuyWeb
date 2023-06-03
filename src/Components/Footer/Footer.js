@@ -60,7 +60,7 @@ export const Footer = () => {
           rel="noreferrer"
           className="developer_name"
         >
-          Arjun Rajput 🧑🏻‍💻
+          Arjunsingh Rajput 🧑🏻‍💻
         </a>
       </p>
     </footer>
