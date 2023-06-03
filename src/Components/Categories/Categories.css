@@ -22,7 +22,7 @@ color: var(--primary);
   width: 250px;
   height: 250px;
   position: relative;
-  margin: 1rem;
+  margin: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
