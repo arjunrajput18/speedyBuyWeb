@@ -270,7 +270,7 @@ export const products = [
     description: "A spacious and durable leather backpack for everyday use.",
     rating: 4.5,
     reviews: 12,
-    size: "S",
+    size: "XXL",
     color: "Brown",
     category: "Accessories",
     oldPrice: 1590.99,
