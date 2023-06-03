@@ -8,7 +8,7 @@
 export const products = [
   {
     _id: "1",
-    itemName: "Esprit  Shirt",
+    itemName: "Esprit Shirt",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-01.jpg.webp",
     description: "A premium quality and stylish T-shirt for men.",
     rating: 4.5,
@@ -26,7 +26,7 @@ export const products = [
   },
   {
     _id: "2",
-    itemName: " Check Trouser",
+    itemName: "Check Trouser",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-03.jpg.webp",
     description: "A cozy and warm hoodie for kids.",
     rating: 4.7,
@@ -61,7 +61,7 @@ export const products = [
   
   {
     _id: "4",
-    itemName: "Classic  Coat",
+    itemName: "Classic Coat",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-04.jpg.webp",
     description: "A stylish and durable jacket for men.",
     rating: 4.2,
@@ -78,7 +78,7 @@ export const products = [
   },
   {
     _id: "5",
-    itemName: "Front  Jumper",
+    itemName: "Front Jumper",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-05.jpg.webp",
     description: "A comfortable and trendy pair of jeans for women.",
     rating: 4.8,
@@ -95,7 +95,7 @@ export const products = [
   },
   {
     _id: "6",
-    itemName: "Vintage   Watch",
+    itemName: "Vintage Watch",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-06.jpg.webp",
     description: "A classic and formal shirt for men.",
     rating: 3.9,
@@ -112,7 +112,7 @@ export const products = [
   },
   {
     _id: "7",
-    itemName: "Shirt   Cotton",
+    itemName: "Shirt Cotton",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-07.jpg.webp",
     description: "A cozy and stylish sweater for women.",
     rating: 4.1,
@@ -129,7 +129,7 @@ export const products = [
   },
   {
     _id: "8",
-    itemName: "Pieces  Printed",
+    itemName: "Pieces Printed",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-08.jpg.webp",
     description: "Comfortable and breathable shorts for men.",
     rating: 4.6,
@@ -214,7 +214,7 @@ export const products = [
   },
   {
     _id: "13",
-    itemName: "BonOrganik",
+    itemName: "hoodie",
     image: "https://preview.colorlib.com/theme/cozastore/images/product-14.jpg.webp",
     description: "A warm and trendy hoodie for men.",
     rating: 5,
@@ -375,7 +375,7 @@ export const products = [
       fewLeft: false
   },{
     _id: "22",
-    itemName: "V-Neck  T-Shirt",
+    itemName: "V-Neck T-Shirt",
     image: "https://preview.colorlib.com/theme/cozastore/images/slide-07.jpg.webp",
     description: "A classic V-neck cotton t-shirt for a stylish and casual look.",
     rating: 4.2,
