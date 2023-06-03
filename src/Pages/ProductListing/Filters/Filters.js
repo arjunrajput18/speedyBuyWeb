@@ -89,13 +89,14 @@ export const Filters = () => {
         </div>
         <h4 className="font-1-2  top-margin margin-bottom-1">Sort By Price</h4>
 
-        <label htmlFor="lowToHigh" className="cursor-pointer bottom-margin-md ">
+        <label htmlFor="lowToHigh" className="bottom-margin-md ">
           <input
             type="radio"
             name="sort"
             onChange={() =>
               dispatch({ type: "SORT_BY_PRICE", payload: "LOW_TO_HIGH" })
             }
+            className="cursor-pointer"
             checked={sort === "LOW_TO_HIGH"}
           />
 
@@ -104,10 +105,11 @@ export const Filters = () => {
           </span>
         </label>
 
-        <label htmlFor="highToLow" className="cursor-pointer bottom-margin-md ">
+        <label htmlFor="highToLow" className="bottom-margin-md ">
           <input
             type="radio"
             name="sort"
+            className="cursor-pointer"
             onChange={() =>
               dispatch({ type: "SORT_BY_PRICE", payload: "HIGH_TO_LOW" })
             }
@@ -123,10 +125,10 @@ export const Filters = () => {
         <h4 className=" font-1-2  top-margin margin-bottom-1">Categories</h4>
         <div className="flex direction-column">
           {["Men", "Women", "Accessories"].map((category) => (
-            <label htmlFor={category} className="cursor-pointer" key={category}>
+            <label htmlFor={category}  key={category}>
               <input
                 type="checkbox"
-                className="bottom-margin-md font-roboto"
+                className="bottom-margin-md font-roboto cursor-pointer"
                 onChange={() =>
                   dispatch({ type: "FILTER_BY_CATEGORIES", payload: category })
                 }
@@ -148,7 +150,7 @@ export const Filters = () => {
             <label key={num}>
               <input
                 type="radio"
-                className="bottom-margin-md radio-rating"
+                className="bottom-margin-md radio-rating cursor-pointer"
                 onChange={() => handleRangeChange(num)}
                 value={num}
                 name={"group1-rating"}
@@ -168,10 +170,10 @@ export const Filters = () => {
         </h4>
         <div className="flex direction-column">
           {["S", "M", "L", "XL", "XXL"].map((size) => (
-            <label htmlFor="" className="cursor-pointer" key={size}>
+            <label htmlFor="" key={size}>
               <input
                 type="checkbox"
-                className="bottom-margin-md font-roboto"
+                className="bottom-margin-md font-roboto cursor-pointer"
                 checked={selectedSizes.includes(size)}
                 onChange={() =>
                   dispatch({ type: "FILTER_BY_SIZE", payload: size })
