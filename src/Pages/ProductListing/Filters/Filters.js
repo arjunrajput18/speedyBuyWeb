@@ -45,7 +45,7 @@ export const Filters = () => {
         className="filters-box"
         style={{ display: isFilters ? "flex" : "none" }}
       >
-        {/* By price */}
+       
         <div className="filters-top">
           <h2>Filters</h2>
           <button
@@ -55,7 +55,7 @@ export const Filters = () => {
             Clear
           </button>
         </div>
-        {/* Price Range */}
+   
         <h4 className="font-1-2 top-margin margin-bottom-1"> Price Range</h4>
         <div className="bottom-margin-md">
           <input
@@ -119,7 +119,7 @@ export const Filters = () => {
           </span>
         </label>
 
-        {/* Categories */}
+   
         <h4 className=" font-1-2  top-margin margin-bottom-1">Categories</h4>
         <div className="flex direction-column">
           {["Men", "Women", "Accessories"].map((category) => (
@@ -138,7 +138,7 @@ export const Filters = () => {
             </label>
           ))}
         </div>
-        {/* Ratings */}
+   
         <h4 className="bottom-margin-md font-1-2  top-margin margin-bottom-1 ">
           Ratings
         </h4>
@@ -163,7 +163,6 @@ export const Filters = () => {
           ))}
         </div>
 
-        {/* Sizes */}
         <h4 className=" font-1-2  top-margin margin-bottom-1  bottom-margin-md font-roboto">
           Sizes
         </h4>
