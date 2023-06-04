@@ -93,7 +93,8 @@ export const NewAddress = () => {
             placeholder="Enter Name"
             name="name"
             value={values.name}
-            onChange={handleInputChange}
+            onChange={handleInputChange} 
+            required
           />
           <input
             type="text"
@@ -102,6 +103,7 @@ export const NewAddress = () => {
             name="street"
             value={values.street}
             onChange={handleInputChange}
+            required
           />
           <input
             type="text"
@@ -110,6 +112,7 @@ export const NewAddress = () => {
             name="city"
             value={values.city}
             onChange={handleInputChange}
+            required
           />
           <input
             type="text"
@@ -118,6 +121,7 @@ export const NewAddress = () => {
             name="state"
             value={values.state}
             onChange={handleInputChange}
+            required
           />
           <input
             type="text"
@@ -126,6 +130,7 @@ export const NewAddress = () => {
             name="country"
             value={values.country}
             onChange={handleInputChange}
+            required
           />
           <input
             type="text"
@@ -134,6 +139,7 @@ export const NewAddress = () => {
             name="postalCode"
             value={values.postalCode}
             onChange={handleInputChange}
+            required
           />
           <input
             type="text"
@@ -142,6 +148,7 @@ export const NewAddress = () => {
             name="MobileNum"
             value={values.MobileNum}
             onChange={handleInputChange}
+            required
           />
           <div className="btn-address-save-cancel">
             <button className="save-address-btn" onClick={handleSave}>
